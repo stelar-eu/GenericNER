@@ -1,0 +1,5298 @@
+{
+    "spaCy + RoBERTa-0": [
+        {
+            "sentence": " What kind of memory ?"
+        }
+    ],
+    "spaCy + RoBERTa-1": [
+        {
+            "sentence": " We respectfully invite you to watch a special edition of Across China ."
+        },
+        {
+            "58-70": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-2": [
+        {
+            "sentence": " WW II Landmarks on the Great Earth of China : Eternal Memories of Taihang Mountain"
+        },
+        {
+            "1-44": "WORK_OF_ART"
+        }
+    ],
+    "spaCy + RoBERTa-3": [
+        {
+            "sentence": " Standing tall on Taihang Mountain is the Monument to the Hundred Regiments Offensive ."
+        },
+        {
+            "18-34": "LOC"
+        },
+        {
+            "38-85": "WORK_OF_ART"
+        }
+    ],
+    "spaCy + RoBERTa-4": [
+        {
+            "sentence": " It is composed of a primary stele , secondary steles , a huge round sculpture and beacon tower , and the Great Wall , among other things ."
+        },
+        {
+            "37-46": "ORDINAL"
+        },
+        {
+            "102-116": "FAC"
+        }
+    ],
+    "spaCy + RoBERTa-5": [
+        {
+            "sentence": " A primary stele , three secondary steles , and two inscribed steles ."
+        },
+        {
+            "19-24": "CARDINAL"
+        },
+        {
+            "48-51": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-6": [
+        {
+            "sentence": " The Hundred Regiments Offensive was the campaign of the largest scale launched by the Eighth Route Army during the War of Resistance against Japan ."
+        },
+        {
+            "1-32": "EVENT"
+        },
+        {
+            "83-104": "ORG"
+        },
+        {
+            "112-147": "EVENT"
+        }
+    ],
+    "spaCy + RoBERTa-7": [
+        {
+            "sentence": " This campaign broke through the Japanese army 's blockade to reach base areas behind enemy lines , stirring up anti-Japanese spirit throughout the nation and influencing the situation of the anti-fascist war of the people worldwide ."
+        },
+        {
+            "33-41": "NORP"
+        },
+        {
+            "117-125": "NORP"
+        },
+        {
+            "112-125": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-8": [
+        {
+            "sentence": " This is Zhuanbi Village , Wuxiang County of Shanxi Province , where the Eighth Route Army was headquartered back then ."
+        },
+        {
+            "9-24": "GPE"
+        },
+        {
+            "27-41": "GPE"
+        },
+        {
+            "45-60": "GPE"
+        },
+        {
+            "69-90": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-9": [
+        {
+            "sentence": " On a wall outside the headquarters we found a map ."
+        }
+    ],
+    "spaCy + RoBERTa-10": [
+        {
+            "sentence": " This map was the Eighth Route Army 's depiction of the Mediterranean Sea situation at that time ."
+        },
+        {
+            "14-38": "ORG"
+        },
+        {
+            "56-73": "LOC"
+        }
+    ],
+    "spaCy + RoBERTa-11": [
+        {
+            "sentence": " This map reflected the European battlefield situation ."
+        },
+        {
+            "24-32": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-12": [
+        {
+            "sentence": " In 1940 , the German army invaded and occupied Czechoslovakia , Poland , the Netherlands , Belgium , and France ."
+        },
+        {
+            "4-8": "DATE"
+        },
+        {
+            "15-21": "NORP"
+        },
+        {
+            "48-62": "GPE"
+        },
+        {
+            "65-71": "GPE"
+        },
+        {
+            "78-89": "GPE"
+        },
+        {
+            "92-99": "GPE"
+        },
+        {
+            "106-112": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-13": [
+        {
+            "sentence": " It was during this year that the Japanese army developed a strategy to rapidly force the Chinese people into submission by the end of 1940 ."
+        },
+        {
+            "15-24": "DATE"
+        },
+        {
+            "34-42": "NORP"
+        },
+        {
+            "90-97": "NORP"
+        },
+        {
+            "124-139": "DATE"
+        }
+    ],
+    "spaCy + RoBERTa-14": [
+        {
+            "sentence": " In May , the Japanese army launched --"
+        },
+        {
+            "4-7": "DATE"
+        },
+        {
+            "14-22": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-15": [
+        {
+            "sentence": " From one side , it seized an important city in China called Yichang ."
+        },
+        {
+            "48-53": "GPE"
+        },
+        {
+            "61-68": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-16": [
+        {
+            "sentence": " Um , , uh , through Yichang , it could directly reach Chongqing ."
+        },
+        {
+            "21-28": "GPE"
+        },
+        {
+            "55-64": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-17": [
+        {
+            "sentence": " Ah , that threatened Chongqing ."
+        },
+        {
+            "22-31": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-18": [
+        {
+            "sentence": " Then they would , ah , bomb these large rear areas such as Chongqing ."
+        },
+        {
+            "60-69": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-19": [
+        {
+            "sentence": " So , along with the coordinated , er , economic blockade , military offensives , and strategic bombings , er , a simultaneous attack was launched in Hong Kong to lure the KMT government into surrender ."
+        },
+        {
+            "150-159": "GPE"
+        },
+        {
+            "172-175": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-20": [
+        {
+            "sentence": " The progress of this coordinated offensive was already very entrenched by then ."
+        }
+    ],
+    "spaCy + RoBERTa-21": [
+        {
+            "sentence": " By 1940 , China 's War of Resistance against Japan had entered a stalemate ."
+        },
+        {
+            "4-8": "DATE"
+        },
+        {
+            "11-16": "GPE"
+        },
+        {
+            "20-51": "EVENT"
+        }
+    ],
+    "spaCy + RoBERTa-22": [
+        {
+            "sentence": " The situation on our side and the enemy 's side was intertwined ."
+        }
+    ],
+    "spaCy + RoBERTa-23": [
+        {
+            "sentence": " The Eighth Route Army guerrillas were extraordinarily active , creating more and more trouble for the Japanese army in North China ."
+        },
+        {
+            "5-22": "ORG"
+        },
+        {
+            "103-111": "NORP"
+        },
+        {
+            "120-131": "LOC"
+        }
+    ],
+    "spaCy + RoBERTa-24": [
+        {
+            "sentence": " Hayao Tada , commander of the Japanese North China Area Army , adopted a strategy of siege warfare to deal with the Eighth Route Army ."
+        },
+        {
+            "1-11": "PERSON"
+        },
+        {
+            "31-39": "NORP"
+        },
+        {
+            "40-61": "ORG"
+        },
+        {
+            "113-134": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-25": [
+        {
+            "sentence": " The specific method was building a closely connected transport network , with a road for every village and defensive towers on every road ."
+        }
+    ],
+    "spaCy + RoBERTa-26": [
+        {
+            "sentence": " Roads and railways were used as links to connect all of North China into a solid , widespread siege , in order to strangle the Eighth Route Army and its base areas in this net ."
+        },
+        {
+            "57-68": "LOC"
+        },
+        {
+            "124-145": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-27": [
+        {
+            "sentence": " As part of the Japanese army 's strategy of siege warfare , railways and roads had actually become the Japanese army 's weapons of war , becoming a great threat to the base areas ."
+        },
+        {
+            "16-24": "NORP"
+        },
+        {
+            "104-112": "NORP"
+        },
+        {
+            "16-24": "NORP"
+        },
+        {
+            "104-112": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-28": [
+        {
+            "sentence": " In December 1939 , Commander - in - chief Zhu De and Vice Commander Peng Dehuai of the Eighth Route Army received a top - secret telegram from Commander Lu Zhengcao of the Jizhong Military District , among other people ."
+        },
+        {
+            "4-17": "DATE"
+        },
+        {
+            "43-49": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "84-105": "ORG"
+        },
+        {
+            "154-165": "PERSON"
+        },
+        {
+            "169-198": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-29": [
+        {
+            "sentence": " The telegram said that the Japanese troops were building blockade trenches and chessboard - like roads to divide the Jizhong base area into small isolated blocks without the ability to mutually communicate and support each other , causing the Eighth Route Army and the guerrillas to lose maneuverability ."
+        },
+        {
+            "28-36": "NORP"
+        },
+        {
+            "118-125": "GPE"
+        },
+        {
+            "240-261": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-30": [
+        {
+            "sentence": " Before the Hundred Regiments Offensive in 1940 , an inclination to compromise , ah , surrender , was an extremely serious crisis in the frontline situation in China ."
+        },
+        {
+            "8-39": "EVENT"
+        },
+        {
+            "43-47": "DATE"
+        },
+        {
+            "160-165": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-31": [
+        {
+            "sentence": " Well , on the battlefield behind enemy lines , in order to take over , consolidate the area under its occupation , Japan began a new strategy ."
+        },
+        {
+            "116-121": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-32": [
+        {
+            "sentence": " That was to use railways as a pillar , roads as a chain , and strongholds as a lock , to carry out siege warfare in an attempt to divide the base areas behind enemy lines , ah , so as , er , to cut off their communication with one another ."
+        }
+    ],
+    "spaCy + RoBERTa-33": [
+        {
+            "sentence": " In addition , it relied on this cage , ah , to further strengthen its assaults against the base areas ."
+        }
+    ],
+    "spaCy + RoBERTa-34": [
+        {
+            "sentence": " Er ."
+        }
+    ],
+    "spaCy + RoBERTa-35": [
+        {
+            "sentence": " So , it was amidst such a grave international and domestic situation that the Eighth Route Army led by the Chinese Communist Party , ah , launched , ah , a strategic offensive called the Hundred Regiments Offensive ."
+        },
+        {
+            "75-96": "ORG"
+        },
+        {
+            "104-131": "ORG"
+        },
+        {
+            "184-215": "EVENT"
+        }
+    ],
+    "spaCy + RoBERTa-36": [
+        {
+            "sentence": " This plot of the Japanese army drew great attention from Zhu De and Peng Dehuai of Eighth Route Army headquarters ."
+        },
+        {
+            "18-26": "NORP"
+        },
+        {
+            "58-64": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "84-101": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-37": [
+        {
+            "sentence": " After meticulous studies and painstaking preparations by many parties , a battle plan based on surprise was formulated ."
+        }
+    ],
+    "spaCy + RoBERTa-38": [
+        {
+            "sentence": " On July 22 , 1940 , a campaign preparation order to attack the Zhengtai Railway , jointly signed by Zhu De , Peng Dehuai , and Zuo Quan , was sent to Yan'an and all units of the Eighth Route Army ."
+        },
+        {
+            "4-18": "DATE"
+        },
+        {
+            "60-80": "FAC"
+        },
+        {
+            "101-107": "PERSON"
+        },
+        {
+            "110-121": "PERSON"
+        },
+        {
+            "128-136": "PERSON"
+        },
+        {
+            "151-157": "GPE"
+        },
+        {
+            "175-196": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-39": [
+        {
+            "sentence": " What was the , purpose and goal of this campaign ?"
+        }
+    ],
+    "spaCy + RoBERTa-40": [
+        {
+            "sentence": " It was to break through the Japanese army 's siege policy against base areas behind enemy lines , and to avert the crisis of China 's compromise and surrender ."
+        },
+        {
+            "29-37": "NORP"
+        },
+        {
+            "126-131": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-41": [
+        {
+            "sentence": " It was to overcome this crisis ."
+        }
+    ],
+    "spaCy + RoBERTa-42": [
+        {
+            "sentence": " Well , the Hundred Regiments Offensive was divided into three phases ."
+        },
+        {
+            "8-39": "EVENT"
+        },
+        {
+            "57-62": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-43": [
+        {
+            "sentence": " Beginning from August 20 , from August 20 to September 10 , the main purpose of the campaign was to sabotage the Zhengtai Railway ."
+        },
+        {
+            "16-25": "DATE"
+        },
+        {
+            "33-42": "DATE"
+        },
+        {
+            "33-58": "DATE"
+        },
+        {
+            "110-130": "FAC"
+        }
+    ],
+    "spaCy + RoBERTa-44": [
+        {
+            "sentence": " The Zhengtai Railway started from Zhengding , Hebei in the east and ended in Taiyuan in the west , with a total length of 243 kilometers traversing the Taihang Mountain range ."
+        },
+        {
+            "1-21": "FAC"
+        },
+        {
+            "35-52": "GPE"
+        },
+        {
+            "78-85": "GPE"
+        },
+        {
+            "123-137": "QUANTITY"
+        },
+        {
+            "153-169": "LOC"
+        }
+    ],
+    "spaCy + RoBERTa-45": [
+        {
+            "sentence": " During the War of Resistance against Japan , the Zhengtai Railway was a key strategic transportation line for the Japanese army in North China ."
+        },
+        {
+            "8-43": "EVENT"
+        },
+        {
+            "46-66": "FAC"
+        },
+        {
+            "115-123": "NORP"
+        },
+        {
+            "132-143": "LOC"
+        }
+    ],
+    "spaCy + RoBERTa-46": [
+        {
+            "sentence": " It was also one of the major blockade lines for causing destruction to anti-Japanese base areas ."
+        },
+        {
+            "13-16": "CARDINAL"
+        },
+        {
+            "72-85": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-47": [
+        {
+            "sentence": " Along this railway line was the Niangziguan Pass , a natural barrier , and the Jingjing coalmine , a key fuel base in Yangquan for the Japanese military in North China ."
+        },
+        {
+            "29-49": "FAC"
+        },
+        {
+            "80-88": "GPE"
+        },
+        {
+            "119-127": "GPE"
+        },
+        {
+            "136-144": "NORP"
+        },
+        {
+            "157-168": "LOC"
+        }
+    ],
+    "spaCy + RoBERTa-48": [
+        {
+            "sentence": " Outside of Taiyuan and Shijiazhuang , the Japanese military deployed the 4th , 8th , and 93rd mixed brigades and regiments , which were scattered among 50 strongholds along the railway line ."
+        },
+        {
+            "12-19": "GPE"
+        },
+        {
+            "24-36": "GPE"
+        },
+        {
+            "43-51": "NORP"
+        },
+        {
+            "74-77": "ORDINAL"
+        },
+        {
+            "80-83": "ORDINAL"
+        },
+        {
+            "90-94": "ORDINAL"
+        },
+        {
+            "153-155": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-49": [
+        {
+            "sentence": " The situation was getting worse and worse for the Eighth Route Army and the anti-Japanese areas behind enemy lines ."
+        },
+        {
+            "47-68": "ORG"
+        },
+        {
+            "77-90": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-50": [
+        {
+            "sentence": " Actions had to be taken to break through the blockade ."
+        }
+    ],
+    "spaCy + RoBERTa-51": [
+        {
+            "sentence": " On a night in late July 1940 , the atmosphere in Zhuanbi Village in Shaanxi was unusual ."
+        },
+        {
+            "50-65": "GPE"
+        },
+        {
+            "69-76": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-52": [
+        {
+            "sentence": " Villager Xiao Jianghe has a vivid memory of this piece of history ."
+        },
+        {
+            "10-22": "PERSON"
+        }
+    ],
+    "spaCy + RoBERTa-53": [
+        {
+            "sentence": " On that dark night , everyone was sleeping when human voices and neighing horses were heard within the village ."
+        }
+    ],
+    "spaCy + RoBERTa-54": [
+        {
+            "sentence": " People all got up ."
+        }
+    ],
+    "spaCy + RoBERTa-55": [
+        {
+            "sentence": " Did something happen ?"
+        }
+    ],
+    "spaCy + RoBERTa-56": [
+        {
+            "sentence": " Some folks got up ."
+        }
+    ],
+    "spaCy + RoBERTa-57": [
+        {
+            "sentence": " Opening the street gate , they saw a soldier standing by the gate ."
+        }
+    ],
+    "spaCy + RoBERTa-58": [
+        {
+            "sentence": " Folks , go back , go back , nothing is wrong ."
+        }
+    ],
+    "spaCy + RoBERTa-59": [
+        {
+            "sentence": " Our troops are just going to stay here for the night ."
+        }
+    ],
+    "spaCy + RoBERTa-60": [
+        {
+            "sentence": " Do n't say you are scared ."
+        }
+    ],
+    "spaCy + RoBERTa-61": [
+        {
+            "sentence": " Our commander is coming ."
+        }
+    ],
+    "spaCy + RoBERTa-62": [
+        {
+            "sentence": " I am telling you to go back to sleep peacefully ."
+        }
+    ],
+    "spaCy + RoBERTa-63": [
+        {
+            "sentence": " Ah , so we went back to sleep ."
+        }
+    ],
+    "spaCy + RoBERTa-64": [
+        {
+            "sentence": " Ah , why should you come out if you were told not to ?"
+        }
+    ],
+    "spaCy + RoBERTa-65": [
+        {
+            "sentence": " By the time we got up early the following morning , the sports ground in Zhuanbi Village was packed with soldiers who had stationed there ."
+        },
+        {
+            "23-50": "TIME"
+        },
+        {
+            "74-89": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-66": [
+        {
+            "sentence": " Essentially the entire enemy had been destroyed ."
+        }
+    ],
+    "spaCy + RoBERTa-67": [
+        {
+            "sentence": " It was an arduous battle ."
+        }
+    ],
+    "spaCy + RoBERTa-68": [
+        {
+            "sentence": " At 10:00 p.m. on August 20 , 1940 , various units of the Eighth Route Army launched a full - scale offensive according to the general plan ."
+        },
+        {
+            "4-27": "TIME"
+        },
+        {
+            "54-75": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-69": [
+        {
+            "sentence": " The head of the County People 's Armed Forces Commission was named Zhao Yemin ."
+        },
+        {
+            "13-57": "ORG"
+        },
+        {
+            "68-78": "PERSON"
+        }
+    ],
+    "spaCy + RoBERTa-70": [
+        {
+            "sentence": " Zhao Yemin came , ah , bringing a group of armed personnel and some things ."
+        },
+        {
+            "1-11": "PERSON"
+        }
+    ],
+    "spaCy + RoBERTa-71": [
+        {
+            "sentence": " Upon arriving , he relayed an order , saying the road from Yangquan to Hedi must be cut off tonight , with the electrical wires slashed ."
+        },
+        {
+            "60-68": "GPE"
+        },
+        {
+            "72-76": "GPE"
+        },
+        {
+            "93-100": "TIME"
+        }
+    ],
+    "spaCy + RoBERTa-72": [
+        {
+            "sentence": " He himself would bring , this group of people to blow up that Wudu bridge ."
+        },
+        {
+            "63-67": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-73": [
+        {
+            "sentence": " Led by Nie Rongzhen , the Shanxi - Chahar - Hebei Military District was ready for an offensive , while at the same time , fifteen regiments laid an ambush in advance along the Zhengtai Railway , launching fierce attacks on Japanese military strongholds along the railway line ."
+        },
+        {
+            "8-20": "PERSON"
+        },
+        {
+            "23-68": "GPE"
+        },
+        {
+            "123-130": "CARDINAL"
+        },
+        {
+            "173-193": "FAC"
+        },
+        {
+            "224-232": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-74": [
+        {
+            "sentence": " It was also during the night of August 20 that the 129th Division directed by Division Commander Liu Bocheng and Political Commissar Deng Xiaoping , with eight regiments , including two regiments of the 1st Dare - to - Die Corps and eight independent battalions , formed left - flank and right - flank commandos and a central contingent ."
+        },
+        {
+            "20-42": "TIME"
+        },
+        {
+            "48-66": "ORG"
+        },
+        {
+            "58-66": "ORG"
+        },
+        {
+            "79-87": "ORG"
+        },
+        {
+            "98-109": "PERSON"
+        },
+        {
+            "134-147": "PERSON"
+        },
+        {
+            "155-160": "CARDINAL"
+        },
+        {
+            "234-239": "CARDINAL"
+        },
+        {
+            "183-186": "CARDINAL"
+        },
+        {
+            "200-229": "ORG"
+        },
+        {
+            "155-160": "CARDINAL"
+        },
+        {
+            "234-239": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-75": [
+        {
+            "sentence": " On the night of August 20 , offensives were launched against most of the Japanese independent 4th mixed brigade and part of the independent 9th mixed brigade along the western section of the Zhengtai Railway ."
+        },
+        {
+            "4-26": "TIME"
+        },
+        {
+            "74-82": "NORP"
+        },
+        {
+            "95-98": "ORDINAL"
+        },
+        {
+            "141-144": "ORDINAL"
+        },
+        {
+            "188-208": "FAC"
+        }
+    ],
+    "spaCy + RoBERTa-76": [
+        {
+            "sentence": " Additionally , two regiments , together with local armed forces in places such as Pingding , Liaoxian , and Yushe , carried out sabotage on the Pingliao and Yuliao roads and pinned down the enemy at various points , ensuring safety of the main forces on the sides and rear ."
+        },
+        {
+            "16-19": "CARDINAL"
+        },
+        {
+            "83-91": "GPE"
+        },
+        {
+            "94-102": "GPE"
+        },
+        {
+            "109-114": "GPE"
+        },
+        {
+            "145-153": "GPE"
+        },
+        {
+            "158-164": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-77": [
+        {
+            "sentence": " Current estimates are that this section was taken care of in less than four hours , three hours ."
+        },
+        {
+            "62-82": "TIME"
+        },
+        {
+            "85-96": "TIME"
+        }
+    ],
+    "spaCy + RoBERTa-78": [
+        {
+            "sentence": " After this was taken care of , four blockhouses were blown up ."
+        },
+        {
+            "32-36": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-79": [
+        {
+            "sentence": " By digging tunnels , they charged out the center ."
+        }
+    ],
+    "spaCy + RoBERTa-80": [
+        {
+            "sentence": " Only then did they , wipe out the enemy ."
+        }
+    ],
+    "spaCy + RoBERTa-81": [
+        {
+            "sentence": " More than two hundred enemy soldiers were eliminated in a single blow ."
+        },
+        {
+            "1-22": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-82": [
+        {
+            "sentence": " It was still during this night that the 120th Division , directed by Division Commander He Long and Political Commissar Guan Xiangying , with 20 regiments , sabotaged the northern section of the Tongpu Railway and some main roads west of the railway ."
+        },
+        {
+            "21-31": "TIME"
+        },
+        {
+            "37-55": "ORG"
+        },
+        {
+            "89-96": "PERSON"
+        },
+        {
+            "121-135": "PERSON"
+        },
+        {
+            "42-44": "CARDINAL"
+        },
+        {
+            "143-145": "CARDINAL"
+        },
+        {
+            "192-210": "FAC"
+        }
+    ],
+    "spaCy + RoBERTa-83": [
+        {
+            "sentence": " It also took over strongholds at Yangfangkou , Kangjiahui , and Fengrui Village , cutting off the northern section of the Tongpu railway and the roads from Xinxian to Jingle and Fenyang ."
+        },
+        {
+            "34-45": "GPE"
+        },
+        {
+            "48-58": "GPE"
+        },
+        {
+            "65-80": "GPE"
+        },
+        {
+            "119-137": "FAC"
+        },
+        {
+            "157-164": "GPE"
+        },
+        {
+            "168-174": "GPE"
+        },
+        {
+            "179-186": "GPE"
+        }
+    ],
+    "spaCy + RoBERTa-84": [
+        {
+            "sentence": " In order to coordinate with breakthrough battles at the Zhengtai Railway and the northern section of the Tongpu Railway , the 129th Division and the Shanxi - Chahar - Hebei Military District also ordered their units to deploy more than 50 regiments Yang to Lishi in cooperation with militias , to launch widespread sabotage and raids on the Pinghan , Pingsui , Beining , Baijin , Jinpu , and Deshi railway lines , among others , as well as some main roads and many strongholds occupied by the Japanese army ."
+        },
+        {
+            "53-73": "FAC"
+        },
+        {
+            "102-120": "FAC"
+        },
+        {
+            "123-141": "ORG"
+        },
+        {
+            "146-191": "ORG"
+        },
+        {
+            "227-239": "CARDINAL"
+        },
+        {
+            "250-254": "GPE"
+        },
+        {
+            "258-263": "GPE"
+        },
+        {
+            "342-349": "GPE"
+        },
+        {
+            "352-359": "GPE"
+        },
+        {
+            "362-369": "GPE"
+        },
+        {
+            "372-378": "GPE"
+        },
+        {
+            "381-386": "GPE"
+        },
+        {
+            "393-398": "GPE"
+        },
+        {
+            "494-502": "NORP"
+        }
+    ],
+    "spaCy + RoBERTa-85": [
+        {
+            "sentence": " On the afternoon of August 22 , Peng Dehuai was listening to the combat operation director report on battle developments at Eighth Route Army operational headquarters ."
+        },
+        {
+            "4-30": "TIME"
+        },
+        {
+            "33-44": "PERSON"
+        },
+        {
+            "125-142": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-86": [
+        {
+            "sentence": " When asked about the actual combat strength of the Eighth Route Army , the combat operation director reported : There are 30 regiments along the Zhengtai Line , 15 regiments along the Lugou Bridge - Handan section of the Pinghan line , 12 regiments along the Datong - Hongdong section in Tonghu County , and four regiments along the Tianjin - Dezhou section of the Jinpu Line , with a total of 105 regiments entering the campaign ."
+        },
+        {
+            "48-69": "ORG"
+        },
+        {
+            "123-125": "CARDINAL"
+        },
+        {
+            "142-159": "FAC"
+        },
+        {
+            "162-164": "CARDINAL"
+        },
+        {
+            "185-206": "FAC"
+        },
+        {
+            "222-229": "GPE"
+        },
+        {
+            "237-239": "CARDINAL"
+        },
+        {
+            "260-277": "FAC"
+        },
+        {
+            "289-302": "GPE"
+        },
+        {
+            "309-313": "CARDINAL"
+        },
+        {
+            "334-350": "FAC"
+        },
+        {
+            "362-376": "FAC"
+        },
+        {
+            "395-398": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-87": [
+        {
+            "sentence": " With a wave of his hand , Peng Dehuai said that despite being over 100 regiments , let 's call this campaign the Hundred Regiments Offensive ."
+        },
+        {
+            "27-38": "PERSON"
+        },
+        {
+            "68-71": "CARDINAL"
+        },
+        {
+            "110-141": "EVENT"
+        }
+    ],
+    "spaCy + RoBERTa-88": [
+        {
+            "sentence": " That afternoon , Peng Dehuai first used the name Hundred Regiments Offensive in telegrams sent to various military corps and the Central Military Commission ."
+        },
+        {
+            "18-29": "PERSON"
+        },
+        {
+            "30-35": "ORDINAL"
+        },
+        {
+            "50-77": "EVENT"
+        },
+        {
+            "126-157": "ORG"
+        }
+    ],
+    "spaCy + RoBERTa-89": [
+        {
+            "sentence": " A total of 105 regiments participated in the Hundred Regiments Offensive ."
+        },
+        {
+            "12-15": "CARDINAL"
+        },
+        {
+            "42-73": "EVENT"
+        }
+    ],
+    "spaCy + RoBERTa-90": [
+        {
+            "sentence": " Well , it was a force of more than 200,000 soldiers ."
+        },
+        {
+            "26-43": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-91": [
+        {
+            "sentence": " In addition to that , er , no less than 400,000 militiamen , guerrillas , and civilians , er , voluntarily participated in the offensive ."
+        }
+    ],
+    "spaCy + RoBERTa-92": [
+        {
+            "sentence": " So , there were probably 600,000 - plus soldiers and civilians ."
+        },
+        {
+            "26-40": "CARDINAL"
+        }
+    ],
+    "spaCy + RoBERTa-93": [
+        {
+            "sentence": " The Hundred Regiments Offensive dealt a devastating blow to the enemy at Shi'nao Mountain ."
+        },
+        {
+            "1-32": "EVENT"
+        },
+        {
+            "74-90": "LOC"
+        }
+    ],
+    "spaCy + RoBERTa-94": [
+        {
+            "sentence": " Our troops were strong , troops were strong ."
+        }
+    ],
+    "spaCy + RoBERTa-95": [
+        {
+            "sentence": " Er , and those in charge of logistics and support were able to follow in time ."
+        }
+    ],
+    "spaCy + RoBERTa-96": [
+        {
+            "sentence": " Er , , er , the anti-Japanese vanguard team was composed of all young people in their 20s ; all young people , all in their , 20s ."
+        },
+        {
+            "17-30": "NORP"
+        },
+        {
+            "87-90": "DATE"
+        },
+        {
+            "127-130": "DATE"
+        },
+        {
+            "87-90": "DATE"
+        },
+        {
+            "127-130": "DATE"
+        }
+    ],
+    "spaCy + RoBERTa-97": [
+        {
+            "sentence": " This is Shi'nao Mountain , situated in Yangquan , Shanxi , a strategic passage of the Zhengtai Railway back then ."
+        },
+        {
+            "9-25": "LOC"
+        },
+        {
+            "40-57": "GPE"
+        },
+        {
+            "83-103": "FAC"
+        }
+    ],
+    "spaCy + RoBERTa-98": [
+        {
+            "sentence": " On August 21 , 1940 , in order to pin down Japanese troops stationed in Yangquan and to cover for militiamen sabotaging the western section of the Zhengtai Railway , the 129th Division of the Eighth Route Army ordered the main regiment of its 385th Brigade , the 14th Regiment led by Brigade Commander Chen Xilian , to head directly for Shi'nao Mountain to seize the high ground ."
+        },
+        {
+            "4-20": "DATE"
+        },
+        {
+            "44-52": "NORP"
+        },
+        {
+            "73-81": "GPE"
+        },
+        {
+            "144-164": "FAC"
+        },
+        {
+            "167-185": "ORG"
+        },
+        {
+            "189-210": "ORG"
+        },
+        {
+            "260-277": "ORG"
+        },
+        {
+            "303-314": "PERSON"
+        },
+        {
+            "338-354": "LOC"
+        }
+    ],
+    "spaCy + RoBERTa-99": [
+        {
+            "sentence": " Like a sharp sword , civilians in the western section broke through the strategic passage ."
+        }
+    ],
+    "Evaluation-spaCy + RoBERTa": [
+        {
+            "RECALL-PERSON": 100.0
+        },
+        {
+            "PRECISION-PERSON": 100.0
+        },
+        {
+            "F1-PERSON": 100.0
+        },
+        {
+            "RECALL-NORP": 95.83333333333334
+        },
+        {
+            "PRECISION-NORP": 85.18518518518519
+        },
+        {
+            "F1-NORP": 90.19607843137256
+        },
+        {
+            "RECALL-FAC": 100.0
+        },
+        {
+            "PRECISION-FAC": 89.47368421052632
+        },
+        {
+            "F1-FAC": 94.44444444444444
+        },
+        {
+            "RECALL-ORG": 86.66666666666667
+        },
+        {
+            "PRECISION-ORG": 92.85714285714286
+        },
+        {
+            "F1-ORG": 89.65517241379311
+        },
+        {
+            "RECALL-GPE": 96.55172413793103
+        },
+        {
+            "PRECISION-GPE": 98.24561403508771
+        },
+        {
+            "F1-GPE": 97.39130434782608
+        },
+        {
+            "RECALL-LOC": 90.9090909090909
+        },
+        {
+            "PRECISION-LOC": 100.0
+        },
+        {
+            "F1-LOC": 95.23809523809523
+        },
+        {
+            "RECALL-DATE": 70.58823529411765
+        },
+        {
+            "PRECISION-DATE": 100.0
+        },
+        {
+            "F1-DATE": 82.75862068965519
+        },
+        {
+            "RECALL-TIME": 50.0
+        },
+        {
+            "PRECISION-TIME": 50.0
+        },
+        {
+            "F1-TIME": 50.0
+        },
+        {
+            "RECALL-QUANTITY": 100.0
+        },
+        {
+            "PRECISION-QUANTITY": 100.0
+        },
+        {
+            "F1-QUANTITY": 100.0
+        },
+        {
+            "RECALL-ORDINAL": 100.0
+        },
+        {
+            "PRECISION-ORDINAL": 85.71428571428571
+        },
+        {
+            "F1-ORDINAL": 92.30769230769229
+        },
+        {
+            "RECALL-CARDINAL": 80.0
+        },
+        {
+            "PRECISION-CARDINAL": 90.9090909090909
+        },
+        {
+            "F1-CARDINAL": 85.1063829787234
+        },
+        {
+            "RECALL-EVENT": 100.0
+        },
+        {
+            "PRECISION-EVENT": 100.0
+        },
+        {
+            "F1-EVENT": 100.0
+        },
+        {
+            "RECALL-WORK_OF_ART": 33.33333333333333
+        },
+        {
+            "PRECISION-WORK_OF_ART": 100.0
+        },
+        {
+            "F1-WORK_OF_ART": 50.0
+        },
+        {
+            "RECALL-TOTAL": 89.65517241379311
+        },
+        {
+            "PRECISION-TOTAL": 92.85714285714286
+        },
+        {
+            "F1-TOTAL": 91.2280701754386
+        },
+        {
+            "RUNTIME": 128.33985948562622
+        }
+    ],
+    "spaCy-0": [
+        {
+            "sentence": " What kind of memory ?"
+        }
+    ],
+    "spaCy-1": [
+        {
+            "sentence": " We respectfully invite you to watch a special edition of Across China ."
+        },
+        {
+            "58-70": "ORG"
+        }
+    ],
+    "spaCy-2": [
+        {
+            "sentence": " WW II Landmarks on the Great Earth of China : Eternal Memories of Taihang Mountain"
+        },
+        {
+            "1-16": "EVENT"
+        },
+        {
+            "20-44": "FAC"
+        },
+        {
+            "67-83": "LOC"
+        }
+    ],
+    "spaCy-3": [
+        {
+            "sentence": " Standing tall on Taihang Mountain is the Monument to the Hundred Regiments Offensive ."
+        },
+        {
+            "18-34": "LOC"
+        }
+    ],
+    "spaCy-4": [
+        {
+            "sentence": " It is composed of a primary stele , secondary steles , a huge round sculpture and beacon tower , and the Great Wall , among other things ."
+        },
+        {
+            "102-116": "FAC"
+        }
+    ],
+    "spaCy-5": [
+        {
+            "sentence": " A primary stele , three secondary steles , and two inscribed steles ."
+        },
+        {
+            "19-24": "CARDINAL"
+        },
+        {
+            "48-51": "CARDINAL"
+        }
+    ],
+    "spaCy-6": [
+        {
+            "sentence": " The Hundred Regiments Offensive was the campaign of the largest scale launched by the Eighth Route Army during the War of Resistance against Japan ."
+        },
+        {
+            "1-32": "ORG"
+        },
+        {
+            "83-104": "ORG"
+        },
+        {
+            "112-147": "EVENT"
+        }
+    ],
+    "spaCy-7": [
+        {
+            "sentence": " This campaign broke through the Japanese army 's blockade to reach base areas behind enemy lines , stirring up anti-Japanese spirit throughout the nation and influencing the situation of the anti-fascist war of the people worldwide ."
+        },
+        {
+            "33-41": "NORP"
+        },
+        {
+            "117-125": "NORP"
+        },
+        {
+            "112-125": "NORP"
+        }
+    ],
+    "spaCy-8": [
+        {
+            "sentence": " This is Zhuanbi Village , Wuxiang County of Shanxi Province , where the Eighth Route Army was headquartered back then ."
+        },
+        {
+            "9-24": "GPE"
+        },
+        {
+            "27-60": "GPE"
+        },
+        {
+            "69-90": "ORG"
+        }
+    ],
+    "spaCy-9": [
+        {
+            "sentence": " On a wall outside the headquarters we found a map ."
+        }
+    ],
+    "spaCy-10": [
+        {
+            "sentence": " This map was the Eighth Route Army 's depiction of the Mediterranean Sea situation at that time ."
+        },
+        {
+            "14-38": "ORG"
+        },
+        {
+            "56-73": "LOC"
+        }
+    ],
+    "spaCy-11": [
+        {
+            "sentence": " This map reflected the European battlefield situation ."
+        },
+        {
+            "24-32": "NORP"
+        }
+    ],
+    "spaCy-12": [
+        {
+            "sentence": " In 1940 , the German army invaded and occupied Czechoslovakia , Poland , the Netherlands , Belgium , and France ."
+        },
+        {
+            "4-8": "DATE"
+        },
+        {
+            "15-21": "NORP"
+        },
+        {
+            "48-62": "GPE"
+        },
+        {
+            "65-71": "GPE"
+        },
+        {
+            "74-89": "GPE"
+        },
+        {
+            "92-99": "GPE"
+        },
+        {
+            "106-112": "GPE"
+        }
+    ],
+    "spaCy-13": [
+        {
+            "sentence": " It was during this year that the Japanese army developed a strategy to rapidly force the Chinese people into submission by the end of 1940 ."
+        },
+        {
+            "15-24": "DATE"
+        },
+        {
+            "34-42": "NORP"
+        },
+        {
+            "90-97": "NORP"
+        },
+        {
+            "124-139": "DATE"
+        }
+    ],
+    "spaCy-14": [
+        {
+            "sentence": " In May , the Japanese army launched --"
+        },
+        {
+            "4-7": "DATE"
+        },
+        {
+            "14-22": "NORP"
+        }
+    ],
+    "spaCy-15": [
+        {
+            "sentence": " From one side , it seized an important city in China called Yichang ."
+        },
+        {
+            "48-53": "GPE"
+        },
+        {
+            "61-68": "GPE"
+        }
+    ],
+    "spaCy-16": [
+        {
+            "sentence": " Um , , uh , through Yichang , it could directly reach Chongqing ."
+        },
+        {
+            "21-28": "GPE"
+        },
+        {
+            "55-64": "GPE"
+        }
+    ],
+    "spaCy-17": [
+        {
+            "sentence": " Ah , that threatened Chongqing ."
+        },
+        {
+            "22-31": "GPE"
+        }
+    ],
+    "spaCy-18": [
+        {
+            "sentence": " Then they would , ah , bomb these large rear areas such as Chongqing ."
+        },
+        {
+            "60-69": "GPE"
+        }
+    ],
+    "spaCy-19": [
+        {
+            "sentence": " So , along with the coordinated , er , economic blockade , military offensives , and strategic bombings , er , a simultaneous attack was launched in Hong Kong to lure the KMT government into surrender ."
+        },
+        {
+            "150-159": "GPE"
+        },
+        {
+            "172-175": "ORG"
+        }
+    ],
+    "spaCy-20": [
+        {
+            "sentence": " The progress of this coordinated offensive was already very entrenched by then ."
+        }
+    ],
+    "spaCy-21": [
+        {
+            "sentence": " By 1940 , China 's War of Resistance against Japan had entered a stalemate ."
+        },
+        {
+            "4-8": "DATE"
+        },
+        {
+            "11-16": "GPE"
+        },
+        {
+            "20-51": "EVENT"
+        }
+    ],
+    "spaCy-22": [
+        {
+            "sentence": " The situation on our side and the enemy 's side was intertwined ."
+        }
+    ],
+    "spaCy-23": [
+        {
+            "sentence": " The Eighth Route Army guerrillas were extraordinarily active , creating more and more trouble for the Japanese army in North China ."
+        },
+        {
+            "1-22": "ORG"
+        },
+        {
+            "103-111": "NORP"
+        },
+        {
+            "120-131": "LOC"
+        }
+    ],
+    "spaCy-24": [
+        {
+            "sentence": " Hayao Tada , commander of the Japanese North China Area Army , adopted a strategy of siege warfare to deal with the Eighth Route Army ."
+        },
+        {
+            "1-11": "ORG"
+        },
+        {
+            "31-39": "NORP"
+        },
+        {
+            "40-61": "ORG"
+        },
+        {
+            "113-134": "ORG"
+        }
+    ],
+    "spaCy-25": [
+        {
+            "sentence": " The specific method was building a closely connected transport network , with a road for every village and defensive towers on every road ."
+        }
+    ],
+    "spaCy-26": [
+        {
+            "sentence": " Roads and railways were used as links to connect all of North China into a solid , widespread siege , in order to strangle the Eighth Route Army and its base areas in this net ."
+        },
+        {
+            "57-68": "LOC"
+        },
+        {
+            "124-145": "ORG"
+        }
+    ],
+    "spaCy-27": [
+        {
+            "sentence": " As part of the Japanese army 's strategy of siege warfare , railways and roads had actually become the Japanese army 's weapons of war , becoming a great threat to the base areas ."
+        },
+        {
+            "16-24": "NORP"
+        },
+        {
+            "104-112": "NORP"
+        },
+        {
+            "16-24": "NORP"
+        },
+        {
+            "104-112": "NORP"
+        }
+    ],
+    "spaCy-28": [
+        {
+            "sentence": " In December 1939 , Commander - in - chief Zhu De and Vice Commander Peng Dehuai of the Eighth Route Army received a top - secret telegram from Commander Lu Zhengcao of the Jizhong Military District , among other people ."
+        },
+        {
+            "4-17": "DATE"
+        },
+        {
+            "43-49": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "84-105": "ORG"
+        },
+        {
+            "154-165": "PERSON"
+        },
+        {
+            "169-198": "GPE"
+        }
+    ],
+    "spaCy-29": [
+        {
+            "sentence": " The telegram said that the Japanese troops were building blockade trenches and chessboard - like roads to divide the Jizhong base area into small isolated blocks without the ability to mutually communicate and support each other , causing the Eighth Route Army and the guerrillas to lose maneuverability ."
+        },
+        {
+            "28-36": "NORP"
+        },
+        {
+            "118-125": "GPE"
+        },
+        {
+            "240-261": "ORG"
+        }
+    ],
+    "spaCy-30": [
+        {
+            "sentence": " Before the Hundred Regiments Offensive in 1940 , an inclination to compromise , ah , surrender , was an extremely serious crisis in the frontline situation in China ."
+        },
+        {
+            "8-39": "ORG"
+        },
+        {
+            "43-47": "DATE"
+        },
+        {
+            "160-165": "GPE"
+        }
+    ],
+    "spaCy-31": [
+        {
+            "sentence": " Well , on the battlefield behind enemy lines , in order to take over , consolidate the area under its occupation , Japan began a new strategy ."
+        },
+        {
+            "116-121": "GPE"
+        }
+    ],
+    "spaCy-32": [
+        {
+            "sentence": " That was to use railways as a pillar , roads as a chain , and strongholds as a lock , to carry out siege warfare in an attempt to divide the base areas behind enemy lines , ah , so as , er , to cut off their communication with one another ."
+        }
+    ],
+    "spaCy-33": [
+        {
+            "sentence": " In addition , it relied on this cage , ah , to further strengthen its assaults against the base areas ."
+        }
+    ],
+    "spaCy-34": [
+        {
+            "sentence": " Er ."
+        }
+    ],
+    "spaCy-35": [
+        {
+            "sentence": " So , it was amidst such a grave international and domestic situation that the Eighth Route Army led by the Chinese Communist Party , ah , launched , ah , a strategic offensive called the Hundred Regiments Offensive ."
+        },
+        {
+            "75-96": "ORG"
+        },
+        {
+            "104-131": "ORG"
+        },
+        {
+            "184-215": "LAW"
+        }
+    ],
+    "spaCy-36": [
+        {
+            "sentence": " This plot of the Japanese army drew great attention from Zhu De and Peng Dehuai of Eighth Route Army headquarters ."
+        },
+        {
+            "18-26": "NORP"
+        },
+        {
+            "58-64": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "84-101": "ORG"
+        }
+    ],
+    "spaCy-37": [
+        {
+            "sentence": " After meticulous studies and painstaking preparations by many parties , a battle plan based on surprise was formulated ."
+        }
+    ],
+    "spaCy-38": [
+        {
+            "sentence": " On July 22 , 1940 , a campaign preparation order to attack the Zhengtai Railway , jointly signed by Zhu De , Peng Dehuai , and Zuo Quan , was sent to Yan'an and all units of the Eighth Route Army ."
+        },
+        {
+            "4-18": "DATE"
+        },
+        {
+            "60-80": "FAC"
+        },
+        {
+            "101-107": "PERSON"
+        },
+        {
+            "110-121": "PERSON"
+        },
+        {
+            "128-136": "PERSON"
+        },
+        {
+            "151-157": "GPE"
+        },
+        {
+            "175-196": "ORG"
+        }
+    ],
+    "spaCy-39": [
+        {
+            "sentence": " What was the , purpose and goal of this campaign ?"
+        }
+    ],
+    "spaCy-40": [
+        {
+            "sentence": " It was to break through the Japanese army 's siege policy against base areas behind enemy lines , and to avert the crisis of China 's compromise and surrender ."
+        },
+        {
+            "29-37": "NORP"
+        },
+        {
+            "126-131": "GPE"
+        }
+    ],
+    "spaCy-41": [
+        {
+            "sentence": " It was to overcome this crisis ."
+        }
+    ],
+    "spaCy-42": [
+        {
+            "sentence": " Well , the Hundred Regiments Offensive was divided into three phases ."
+        },
+        {
+            "8-39": "ORG"
+        },
+        {
+            "57-62": "CARDINAL"
+        }
+    ],
+    "spaCy-43": [
+        {
+            "sentence": " Beginning from August 20 , from August 20 to September 10 , the main purpose of the campaign was to sabotage the Zhengtai Railway ."
+        },
+        {
+            "16-25": "DATE"
+        },
+        {
+            "33-42": "DATE"
+        },
+        {
+            "33-58": "DATE"
+        },
+        {
+            "110-130": "FAC"
+        }
+    ],
+    "spaCy-44": [
+        {
+            "sentence": " The Zhengtai Railway started from Zhengding , Hebei in the east and ended in Taiyuan in the west , with a total length of 243 kilometers traversing the Taihang Mountain range ."
+        },
+        {
+            "1-21": "FAC"
+        },
+        {
+            "35-44": "GPE"
+        },
+        {
+            "47-52": "GPE"
+        },
+        {
+            "78-85": "GPE"
+        },
+        {
+            "123-137": "QUANTITY"
+        },
+        {
+            "153-169": "LOC"
+        }
+    ],
+    "spaCy-45": [
+        {
+            "sentence": " During the War of Resistance against Japan , the Zhengtai Railway was a key strategic transportation line for the Japanese army in North China ."
+        },
+        {
+            "8-43": "EVENT"
+        },
+        {
+            "46-66": "FAC"
+        },
+        {
+            "115-123": "NORP"
+        },
+        {
+            "132-143": "LOC"
+        }
+    ],
+    "spaCy-46": [
+        {
+            "sentence": " It was also one of the major blockade lines for causing destruction to anti-Japanese base areas ."
+        },
+        {
+            "72-85": "NORP"
+        }
+    ],
+    "spaCy-47": [
+        {
+            "sentence": " Along this railway line was the Niangziguan Pass , a natural barrier , and the Jingjing coalmine , a key fuel base in Yangquan for the Japanese military in North China ."
+        },
+        {
+            "29-49": "FAC"
+        },
+        {
+            "119-127": "GPE"
+        },
+        {
+            "136-144": "NORP"
+        },
+        {
+            "157-168": "LOC"
+        }
+    ],
+    "spaCy-48": [
+        {
+            "sentence": " Outside of Taiyuan and Shijiazhuang , the Japanese military deployed the 4th , 8th , and 93rd mixed brigades and regiments , which were scattered among 50 strongholds along the railway line ."
+        },
+        {
+            "24-36": "GPE"
+        },
+        {
+            "43-51": "NORP"
+        },
+        {
+            "74-77": "ORDINAL"
+        },
+        {
+            "90-94": "ORDINAL"
+        },
+        {
+            "153-155": "CARDINAL"
+        }
+    ],
+    "spaCy-49": [
+        {
+            "sentence": " The situation was getting worse and worse for the Eighth Route Army and the anti-Japanese areas behind enemy lines ."
+        },
+        {
+            "47-68": "ORG"
+        },
+        {
+            "77-90": "NORP"
+        }
+    ],
+    "spaCy-50": [
+        {
+            "sentence": " Actions had to be taken to break through the blockade ."
+        }
+    ],
+    "spaCy-51": [
+        {
+            "sentence": " On a night in late July 1940 , the atmosphere in Zhuanbi Village in Shaanxi was unusual ."
+        },
+        {
+            "4-11": "TIME"
+        },
+        {
+            "15-29": "DATE"
+        },
+        {
+            "50-65": "GPE"
+        },
+        {
+            "69-76": "GPE"
+        }
+    ],
+    "spaCy-52": [
+        {
+            "sentence": " Villager Xiao Jianghe has a vivid memory of this piece of history ."
+        },
+        {
+            "10-22": "PERSON"
+        }
+    ],
+    "spaCy-53": [
+        {
+            "sentence": " On that dark night , everyone was sleeping when human voices and neighing horses were heard within the village ."
+        },
+        {
+            "4-19": "TIME"
+        }
+    ],
+    "spaCy-54": [
+        {
+            "sentence": " People all got up ."
+        }
+    ],
+    "spaCy-55": [
+        {
+            "sentence": " Did something happen ?"
+        }
+    ],
+    "spaCy-56": [
+        {
+            "sentence": " Some folks got up ."
+        }
+    ],
+    "spaCy-57": [
+        {
+            "sentence": " Opening the street gate , they saw a soldier standing by the gate ."
+        },
+        {
+            "1-8": "WORK_OF_ART"
+        },
+        {
+            "9-24": "FAC"
+        }
+    ],
+    "spaCy-58": [
+        {
+            "sentence": " Folks , go back , go back , nothing is wrong ."
+        }
+    ],
+    "spaCy-59": [
+        {
+            "sentence": " Our troops are just going to stay here for the night ."
+        },
+        {
+            "44-53": "TIME"
+        }
+    ],
+    "spaCy-60": [
+        {
+            "sentence": " Do n't say you are scared ."
+        }
+    ],
+    "spaCy-61": [
+        {
+            "sentence": " Our commander is coming ."
+        }
+    ],
+    "spaCy-62": [
+        {
+            "sentence": " I am telling you to go back to sleep peacefully ."
+        }
+    ],
+    "spaCy-63": [
+        {
+            "sentence": " Ah , so we went back to sleep ."
+        }
+    ],
+    "spaCy-64": [
+        {
+            "sentence": " Ah , why should you come out if you were told not to ?"
+        }
+    ],
+    "spaCy-65": [
+        {
+            "sentence": " By the time we got up early the following morning , the sports ground in Zhuanbi Village was packed with soldiers who had stationed there ."
+        },
+        {
+            "23-50": "TIME"
+        },
+        {
+            "74-89": "GPE"
+        }
+    ],
+    "spaCy-66": [
+        {
+            "sentence": " Essentially the entire enemy had been destroyed ."
+        }
+    ],
+    "spaCy-67": [
+        {
+            "sentence": " It was an arduous battle ."
+        }
+    ],
+    "spaCy-68": [
+        {
+            "sentence": " At 10:00 p.m. on August 20 , 1940 , various units of the Eighth Route Army launched a full - scale offensive according to the general plan ."
+        },
+        {
+            "4-14": "TIME"
+        },
+        {
+            "18-34": "DATE"
+        },
+        {
+            "54-75": "ORG"
+        }
+    ],
+    "spaCy-69": [
+        {
+            "sentence": " The head of the County People 's Armed Forces Commission was named Zhao Yemin ."
+        },
+        {
+            "13-57": "ORG"
+        },
+        {
+            "68-78": "PERSON"
+        }
+    ],
+    "spaCy-70": [
+        {
+            "sentence": " Zhao Yemin came , ah , bringing a group of armed personnel and some things ."
+        },
+        {
+            "1-11": "PERSON"
+        }
+    ],
+    "spaCy-71": [
+        {
+            "sentence": " Upon arriving , he relayed an order , saying the road from Yangquan to Hedi must be cut off tonight , with the electrical wires slashed ."
+        },
+        {
+            "60-68": "GPE"
+        },
+        {
+            "93-100": "TIME"
+        }
+    ],
+    "spaCy-72": [
+        {
+            "sentence": " He himself would bring , this group of people to blow up that Wudu bridge ."
+        },
+        {
+            "63-67": "GPE"
+        }
+    ],
+    "spaCy-73": [
+        {
+            "sentence": " Led by Nie Rongzhen , the Shanxi - Chahar - Hebei Military District was ready for an offensive , while at the same time , fifteen regiments laid an ambush in advance along the Zhengtai Railway , launching fierce attacks on Japanese military strongholds along the railway line ."
+        },
+        {
+            "8-20": "PERSON"
+        },
+        {
+            "23-68": "FAC"
+        },
+        {
+            "123-130": "CARDINAL"
+        },
+        {
+            "173-193": "FAC"
+        },
+        {
+            "224-232": "NORP"
+        }
+    ],
+    "spaCy-74": [
+        {
+            "sentence": " It was also during the night of August 20 that the 129th Division directed by Division Commander Liu Bocheng and Political Commissar Deng Xiaoping , with eight regiments , including two regiments of the 1st Dare - to - Die Corps and eight independent battalions , formed left - flank and right - flank commandos and a central contingent ."
+        },
+        {
+            "20-42": "TIME"
+        },
+        {
+            "48-66": "ORG"
+        },
+        {
+            "58-66": "ORG"
+        },
+        {
+            "79-87": "ORG"
+        },
+        {
+            "98-109": "PERSON"
+        },
+        {
+            "134-147": "PERSON"
+        },
+        {
+            "155-160": "CARDINAL"
+        },
+        {
+            "234-239": "CARDINAL"
+        },
+        {
+            "183-186": "CARDINAL"
+        },
+        {
+            "204-207": "ORDINAL"
+        },
+        {
+            "155-160": "CARDINAL"
+        },
+        {
+            "234-239": "CARDINAL"
+        }
+    ],
+    "spaCy-75": [
+        {
+            "sentence": " On the night of August 20 , offensives were launched against most of the Japanese independent 4th mixed brigade and part of the independent 9th mixed brigade along the western section of the Zhengtai Railway ."
+        },
+        {
+            "4-26": "TIME"
+        },
+        {
+            "74-82": "NORP"
+        },
+        {
+            "95-98": "ORDINAL"
+        },
+        {
+            "141-144": "ORDINAL"
+        },
+        {
+            "188-208": "FAC"
+        }
+    ],
+    "spaCy-76": [
+        {
+            "sentence": " Additionally , two regiments , together with local armed forces in places such as Pingding , Liaoxian , and Yushe , carried out sabotage on the Pingliao and Yuliao roads and pinned down the enemy at various points , ensuring safety of the main forces on the sides and rear ."
+        },
+        {
+            "16-19": "CARDINAL"
+        },
+        {
+            "83-91": "GPE"
+        },
+        {
+            "94-102": "GPE"
+        },
+        {
+            "109-114": "GPE"
+        },
+        {
+            "145-153": "GPE"
+        },
+        {
+            "158-164": "GPE"
+        }
+    ],
+    "spaCy-77": [
+        {
+            "sentence": " Current estimates are that this section was taken care of in less than four hours , three hours ."
+        },
+        {
+            "62-82": "TIME"
+        },
+        {
+            "85-96": "TIME"
+        }
+    ],
+    "spaCy-78": [
+        {
+            "sentence": " After this was taken care of , four blockhouses were blown up ."
+        },
+        {
+            "32-36": "CARDINAL"
+        }
+    ],
+    "spaCy-79": [
+        {
+            "sentence": " By digging tunnels , they charged out the center ."
+        }
+    ],
+    "spaCy-80": [
+        {
+            "sentence": " Only then did they , wipe out the enemy ."
+        }
+    ],
+    "spaCy-81": [
+        {
+            "sentence": " More than two hundred enemy soldiers were eliminated in a single blow ."
+        },
+        {
+            "1-22": "CARDINAL"
+        }
+    ],
+    "spaCy-82": [
+        {
+            "sentence": " It was still during this night that the 120th Division , directed by Division Commander He Long and Political Commissar Guan Xiangying , with 20 regiments , sabotaged the northern section of the Tongpu Railway and some main roads west of the railway ."
+        },
+        {
+            "21-31": "TIME"
+        },
+        {
+            "37-55": "ORG"
+        },
+        {
+            "121-135": "PERSON"
+        },
+        {
+            "42-44": "CARDINAL"
+        },
+        {
+            "143-145": "CARDINAL"
+        },
+        {
+            "192-210": "FAC"
+        }
+    ],
+    "spaCy-83": [
+        {
+            "sentence": " It also took over strongholds at Yangfangkou , Kangjiahui , and Fengrui Village , cutting off the northern section of the Tongpu railway and the roads from Xinxian to Jingle and Fenyang ."
+        },
+        {
+            "34-45": "GPE"
+        },
+        {
+            "48-58": "GPE"
+        },
+        {
+            "65-80": "GPE"
+        },
+        {
+            "123-129": "GPE"
+        },
+        {
+            "157-164": "GPE"
+        },
+        {
+            "168-174": "GPE"
+        },
+        {
+            "179-186": "PERSON"
+        }
+    ],
+    "spaCy-84": [
+        {
+            "sentence": " In order to coordinate with breakthrough battles at the Zhengtai Railway and the northern section of the Tongpu Railway , the 129th Division and the Shanxi - Chahar - Hebei Military District also ordered their units to deploy more than 50 regiments Yang to Lishi in cooperation with militias , to launch widespread sabotage and raids on the Pinghan , Pingsui , Beining , Baijin , Jinpu , and Deshi railway lines , among others , as well as some main roads and many strongholds occupied by the Japanese army ."
+        },
+        {
+            "53-73": "FAC"
+        },
+        {
+            "102-120": "FAC"
+        },
+        {
+            "123-141": "ORG"
+        },
+        {
+            "146-191": "FAC"
+        },
+        {
+            "227-239": "CARDINAL"
+        },
+        {
+            "250-254": "PERSON"
+        },
+        {
+            "258-263": "GPE"
+        },
+        {
+            "342-349": "GPE"
+        },
+        {
+            "352-359": "GPE"
+        },
+        {
+            "362-369": "GPE"
+        },
+        {
+            "372-378": "GPE"
+        },
+        {
+            "381-386": "GPE"
+        },
+        {
+            "393-398": "ORG"
+        },
+        {
+            "494-502": "NORP"
+        }
+    ],
+    "spaCy-85": [
+        {
+            "sentence": " On the afternoon of August 22 , Peng Dehuai was listening to the combat operation director report on battle developments at Eighth Route Army operational headquarters ."
+        },
+        {
+            "4-20": "TIME"
+        },
+        {
+            "21-30": "DATE"
+        },
+        {
+            "33-44": "PERSON"
+        },
+        {
+            "125-142": "ORG"
+        }
+    ],
+    "spaCy-86": [
+        {
+            "sentence": " When asked about the actual combat strength of the Eighth Route Army , the combat operation director reported : There are 30 regiments along the Zhengtai Line , 15 regiments along the Lugou Bridge - Handan section of the Pinghan line , 12 regiments along the Datong - Hongdong section in Tonghu County , and four regiments along the Tianjin - Dezhou section of the Jinpu Line , with a total of 105 regiments entering the campaign ."
+        },
+        {
+            "48-69": "ORG"
+        },
+        {
+            "123-125": "CARDINAL"
+        },
+        {
+            "142-159": "FAC"
+        },
+        {
+            "162-164": "CARDINAL"
+        },
+        {
+            "185-206": "FAC"
+        },
+        {
+            "222-229": "GPE"
+        },
+        {
+            "237-239": "CARDINAL"
+        },
+        {
+            "289-302": "GPE"
+        },
+        {
+            "309-313": "CARDINAL"
+        },
+        {
+            "334-341": "GPE"
+        },
+        {
+            "362-376": "FAC"
+        },
+        {
+            "395-398": "CARDINAL"
+        }
+    ],
+    "spaCy-87": [
+        {
+            "sentence": " With a wave of his hand , Peng Dehuai said that despite being over 100 regiments , let 's call this campaign the Hundred Regiments Offensive ."
+        },
+        {
+            "27-38": "PERSON"
+        },
+        {
+            "63-71": "CARDINAL"
+        },
+        {
+            "110-141": "LAW"
+        }
+    ],
+    "spaCy-88": [
+        {
+            "sentence": " That afternoon , Peng Dehuai first used the name Hundred Regiments Offensive in telegrams sent to various military corps and the Central Military Commission ."
+        },
+        {
+            "1-15": "TIME"
+        },
+        {
+            "18-29": "PERSON"
+        },
+        {
+            "50-77": "ORG"
+        },
+        {
+            "126-157": "ORG"
+        }
+    ],
+    "spaCy-89": [
+        {
+            "sentence": " A total of 105 regiments participated in the Hundred Regiments Offensive ."
+        },
+        {
+            "12-15": "CARDINAL"
+        },
+        {
+            "42-73": "ORG"
+        }
+    ],
+    "spaCy-90": [
+        {
+            "sentence": " Well , it was a force of more than 200,000 soldiers ."
+        },
+        {
+            "26-43": "CARDINAL"
+        }
+    ],
+    "spaCy-91": [
+        {
+            "sentence": " In addition to that , er , no less than 400,000 militiamen , guerrillas , and civilians , er , voluntarily participated in the offensive ."
+        },
+        {
+            "28-48": "CARDINAL"
+        }
+    ],
+    "spaCy-92": [
+        {
+            "sentence": " So , there were probably 600,000 - plus soldiers and civilians ."
+        },
+        {
+            "26-40": "CARDINAL"
+        }
+    ],
+    "spaCy-93": [
+        {
+            "sentence": " The Hundred Regiments Offensive dealt a devastating blow to the enemy at Shi'nao Mountain ."
+        },
+        {
+            "1-32": "ORG"
+        },
+        {
+            "74-90": "LOC"
+        }
+    ],
+    "spaCy-94": [
+        {
+            "sentence": " Our troops were strong , troops were strong ."
+        }
+    ],
+    "spaCy-95": [
+        {
+            "sentence": " Er , and those in charge of logistics and support were able to follow in time ."
+        }
+    ],
+    "spaCy-96": [
+        {
+            "sentence": " Er , , er , the anti-Japanese vanguard team was composed of all young people in their 20s ; all young people , all in their , 20s ."
+        },
+        {
+            "17-30": "NORP"
+        },
+        {
+            "87-90": "ORDINAL"
+        },
+        {
+            "127-130": "ORDINAL"
+        },
+        {
+            "119-130": "DATE"
+        }
+    ],
+    "spaCy-97": [
+        {
+            "sentence": " This is Shi'nao Mountain , situated in Yangquan , Shanxi , a strategic passage of the Zhengtai Railway back then ."
+        },
+        {
+            "9-25": "LOC"
+        },
+        {
+            "40-57": "GPE"
+        },
+        {
+            "83-103": "FAC"
+        }
+    ],
+    "spaCy-98": [
+        {
+            "sentence": " On August 21 , 1940 , in order to pin down Japanese troops stationed in Yangquan and to cover for militiamen sabotaging the western section of the Zhengtai Railway , the 129th Division of the Eighth Route Army ordered the main regiment of its 385th Brigade , the 14th Regiment led by Brigade Commander Chen Xilian , to head directly for Shi'nao Mountain to seize the high ground ."
+        },
+        {
+            "4-20": "DATE"
+        },
+        {
+            "44-52": "NORP"
+        },
+        {
+            "73-81": "GPE"
+        },
+        {
+            "144-164": "FAC"
+        },
+        {
+            "167-210": "ORG"
+        },
+        {
+            "244-257": "ORG"
+        },
+        {
+            "260-277": "ORG"
+        },
+        {
+            "303-314": "PERSON"
+        },
+        {
+            "338-354": "LOC"
+        }
+    ],
+    "spaCy-99": [
+        {
+            "sentence": " Like a sharp sword , civilians in the western section broke through the strategic passage ."
+        }
+    ],
+    "Evaluation-spaCy": [
+        {
+            "RECALL-PERSON": 90.47619047619048
+        },
+        {
+            "PRECISION-PERSON": 90.47619047619048
+        },
+        {
+            "F1-PERSON": 90.47619047619048
+        },
+        {
+            "RECALL-NORP": 95.83333333333334
+        },
+        {
+            "PRECISION-NORP": 85.18518518518519
+        },
+        {
+            "F1-NORP": 90.19607843137256
+        },
+        {
+            "RECALL-FAC": 82.35294117647058
+        },
+        {
+            "PRECISION-FAC": 70.0
+        },
+        {
+            "F1-FAC": 75.67567567567566
+        },
+        {
+            "RECALL-ORG": 80.0
+        },
+        {
+            "PRECISION-ORG": 68.57142857142857
+        },
+        {
+            "F1-ORG": 73.84615384615385
+        },
+        {
+            "RECALL-GPE": 79.3103448275862
+        },
+        {
+            "PRECISION-GPE": 90.19607843137256
+        },
+        {
+            "F1-GPE": 84.40366972477064
+        },
+        {
+            "RECALL-LOC": 90.9090909090909
+        },
+        {
+            "PRECISION-LOC": 90.9090909090909
+        },
+        {
+            "F1-LOC": 90.9090909090909
+        },
+        {
+            "RECALL-DATE": 64.70588235294117
+        },
+        {
+            "PRECISION-DATE": 73.33333333333333
+        },
+        {
+            "F1-DATE": 68.75
+        },
+        {
+            "RECALL-TIME": 75.0
+        },
+        {
+            "PRECISION-TIME": 50.0
+        },
+        {
+            "F1-TIME": 60.00000000000001
+        },
+        {
+            "RECALL-QUANTITY": 100.0
+        },
+        {
+            "PRECISION-QUANTITY": 100.0
+        },
+        {
+            "F1-QUANTITY": 100.0
+        },
+        {
+            "RECALL-ORDINAL": 66.66666666666666
+        },
+        {
+            "PRECISION-ORDINAL": 66.66666666666666
+        },
+        {
+            "F1-ORDINAL": 66.66666666666666
+        },
+        {
+            "RECALL-CARDINAL": 76.0
+        },
+        {
+            "PRECISION-CARDINAL": 86.36363636363636
+        },
+        {
+            "F1-CARDINAL": 80.85106382978722
+        },
+        {
+            "RECALL-EVENT": 27.27272727272727
+        },
+        {
+            "PRECISION-EVENT": 75.0
+        },
+        {
+            "F1-EVENT": 40.0
+        },
+        {
+            "RECALL-WORK_OF_ART": 0.0
+        },
+        {
+            "PRECISION-WORK_OF_ART": 0.0
+        },
+        {
+            "F1-WORK_OF_ART": 0.0
+        },
+        {
+            "RECALL-LAW": 0
+        },
+        {
+            "PRECISION-LAW": 0.0
+        },
+        {
+            "F1-LAW": 0.0
+        },
+        {
+            "RECALL-TOTAL": 77.58620689655173
+        },
+        {
+            "PRECISION-TOTAL": 78.94736842105263
+        },
+        {
+            "F1-TOTAL": 78.26086956521739
+        },
+        {
+            "RUNTIME": 0.5334391593933105
+        }
+    ],
+    "Flair-0": [
+        {
+            "sentence": " What kind of memory ?"
+        }
+    ],
+    "Flair-1": [
+        {
+            "sentence": " We respectfully invite you to watch a special edition of Across China ."
+        },
+        {
+            "58-70": "MISC"
+        }
+    ],
+    "Flair-2": [
+        {
+            "sentence": " WW II Landmarks on the Great Earth of China : Eternal Memories of Taihang Mountain"
+        },
+        {
+            "24-44": "MISC"
+        },
+        {
+            "67-83": "LOC"
+        }
+    ],
+    "Flair-3": [
+        {
+            "sentence": " Standing tall on Taihang Mountain is the Monument to the Hundred Regiments Offensive ."
+        },
+        {
+            "18-34": "LOC"
+        },
+        {
+            "58-85": "MISC"
+        }
+    ],
+    "Flair-4": [
+        {
+            "sentence": " It is composed of a primary stele , secondary steles , a huge round sculpture and beacon tower , and the Great Wall , among other things ."
+        },
+        {
+            "106-116": "LOC"
+        }
+    ],
+    "Flair-5": [
+        {
+            "sentence": " A primary stele , three secondary steles , and two inscribed steles ."
+        }
+    ],
+    "Flair-6": [
+        {
+            "sentence": " The Hundred Regiments Offensive was the campaign of the largest scale launched by the Eighth Route Army during the War of Resistance against Japan ."
+        },
+        {
+            "5-32": "MISC"
+        },
+        {
+            "87-104": "ORG"
+        },
+        {
+            "116-133": "MISC"
+        },
+        {
+            "142-147": "LOC"
+        }
+    ],
+    "Flair-7": [
+        {
+            "sentence": " This campaign broke through the Japanese army 's blockade to reach base areas behind enemy lines , stirring up anti-Japanese spirit throughout the nation and influencing the situation of the anti-fascist war of the people worldwide ."
+        },
+        {
+            "33-41": "MISC"
+        },
+        {
+            "117-125": "MISC"
+        },
+        {
+            "112-125": "MISC"
+        }
+    ],
+    "Flair-8": [
+        {
+            "sentence": " This is Zhuanbi Village , Wuxiang County of Shanxi Province , where the Eighth Route Army was headquartered back then ."
+        },
+        {
+            "9-24": "LOC"
+        },
+        {
+            "27-41": "LOC"
+        },
+        {
+            "45-60": "LOC"
+        },
+        {
+            "73-90": "ORG"
+        }
+    ],
+    "Flair-9": [
+        {
+            "sentence": " On a wall outside the headquarters we found a map ."
+        }
+    ],
+    "Flair-10": [
+        {
+            "sentence": " This map was the Eighth Route Army 's depiction of the Mediterranean Sea situation at that time ."
+        },
+        {
+            "18-35": "ORG"
+        },
+        {
+            "56-73": "LOC"
+        }
+    ],
+    "Flair-11": [
+        {
+            "sentence": " This map reflected the European battlefield situation ."
+        },
+        {
+            "24-32": "MISC"
+        }
+    ],
+    "Flair-12": [
+        {
+            "sentence": " In 1940 , the German army invaded and occupied Czechoslovakia , Poland , the Netherlands , Belgium , and France ."
+        },
+        {
+            "15-21": "MISC"
+        },
+        {
+            "48-62": "LOC"
+        },
+        {
+            "65-71": "LOC"
+        },
+        {
+            "78-89": "LOC"
+        },
+        {
+            "92-99": "LOC"
+        },
+        {
+            "106-112": "LOC"
+        }
+    ],
+    "Flair-13": [
+        {
+            "sentence": " It was during this year that the Japanese army developed a strategy to rapidly force the Chinese people into submission by the end of 1940 ."
+        },
+        {
+            "34-42": "MISC"
+        },
+        {
+            "90-97": "MISC"
+        }
+    ],
+    "Flair-14": [
+        {
+            "sentence": " In May , the Japanese army launched --"
+        },
+        {
+            "14-22": "MISC"
+        }
+    ],
+    "Flair-15": [
+        {
+            "sentence": " From one side , it seized an important city in China called Yichang ."
+        },
+        {
+            "48-53": "LOC"
+        },
+        {
+            "61-68": "LOC"
+        }
+    ],
+    "Flair-16": [
+        {
+            "sentence": " Um , , uh , through Yichang , it could directly reach Chongqing ."
+        },
+        {
+            "1-3": "LOC"
+        },
+        {
+            "21-28": "LOC"
+        },
+        {
+            "55-64": "LOC"
+        }
+    ],
+    "Flair-17": [
+        {
+            "sentence": " Ah , that threatened Chongqing ."
+        },
+        {
+            "22-31": "LOC"
+        }
+    ],
+    "Flair-18": [
+        {
+            "sentence": " Then they would , ah , bomb these large rear areas such as Chongqing ."
+        },
+        {
+            "60-69": "LOC"
+        }
+    ],
+    "Flair-19": [
+        {
+            "sentence": " So , along with the coordinated , er , economic blockade , military offensives , and strategic bombings , er , a simultaneous attack was launched in Hong Kong to lure the KMT government into surrender ."
+        },
+        {
+            "150-159": "LOC"
+        },
+        {
+            "172-175": "ORG"
+        }
+    ],
+    "Flair-20": [
+        {
+            "sentence": " The progress of this coordinated offensive was already very entrenched by then ."
+        }
+    ],
+    "Flair-21": [
+        {
+            "sentence": " By 1940 , China 's War of Resistance against Japan had entered a stalemate ."
+        },
+        {
+            "11-16": "LOC"
+        },
+        {
+            "20-37": "MISC"
+        },
+        {
+            "46-51": "LOC"
+        }
+    ],
+    "Flair-22": [
+        {
+            "sentence": " The situation on our side and the enemy 's side was intertwined ."
+        }
+    ],
+    "Flair-23": [
+        {
+            "sentence": " The Eighth Route Army guerrillas were extraordinarily active , creating more and more trouble for the Japanese army in North China ."
+        },
+        {
+            "5-22": "ORG"
+        },
+        {
+            "103-111": "MISC"
+        },
+        {
+            "120-131": "LOC"
+        }
+    ],
+    "Flair-24": [
+        {
+            "sentence": " Hayao Tada , commander of the Japanese North China Area Army , adopted a strategy of siege warfare to deal with the Eighth Route Army ."
+        },
+        {
+            "1-11": "PERSON"
+        },
+        {
+            "31-61": "ORG"
+        },
+        {
+            "117-134": "ORG"
+        }
+    ],
+    "Flair-25": [
+        {
+            "sentence": " The specific method was building a closely connected transport network , with a road for every village and defensive towers on every road ."
+        }
+    ],
+    "Flair-26": [
+        {
+            "sentence": " Roads and railways were used as links to connect all of North China into a solid , widespread siege , in order to strangle the Eighth Route Army and its base areas in this net ."
+        },
+        {
+            "57-68": "LOC"
+        },
+        {
+            "128-145": "ORG"
+        }
+    ],
+    "Flair-27": [
+        {
+            "sentence": " As part of the Japanese army 's strategy of siege warfare , railways and roads had actually become the Japanese army 's weapons of war , becoming a great threat to the base areas ."
+        },
+        {
+            "16-24": "MISC"
+        },
+        {
+            "104-112": "MISC"
+        },
+        {
+            "16-24": "MISC"
+        },
+        {
+            "104-112": "MISC"
+        }
+    ],
+    "Flair-28": [
+        {
+            "sentence": " In December 1939 , Commander - in - chief Zhu De and Vice Commander Peng Dehuai of the Eighth Route Army received a top - secret telegram from Commander Lu Zhengcao of the Jizhong Military District , among other people ."
+        },
+        {
+            "43-49": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "88-105": "ORG"
+        },
+        {
+            "154-165": "PERSON"
+        },
+        {
+            "173-198": "ORG"
+        }
+    ],
+    "Flair-29": [
+        {
+            "sentence": " The telegram said that the Japanese troops were building blockade trenches and chessboard - like roads to divide the Jizhong base area into small isolated blocks without the ability to mutually communicate and support each other , causing the Eighth Route Army and the guerrillas to lose maneuverability ."
+        },
+        {
+            "28-36": "MISC"
+        },
+        {
+            "118-125": "LOC"
+        },
+        {
+            "244-261": "ORG"
+        }
+    ],
+    "Flair-30": [
+        {
+            "sentence": " Before the Hundred Regiments Offensive in 1940 , an inclination to compromise , ah , surrender , was an extremely serious crisis in the frontline situation in China ."
+        },
+        {
+            "12-39": "MISC"
+        },
+        {
+            "160-165": "LOC"
+        }
+    ],
+    "Flair-31": [
+        {
+            "sentence": " Well , on the battlefield behind enemy lines , in order to take over , consolidate the area under its occupation , Japan began a new strategy ."
+        },
+        {
+            "116-121": "LOC"
+        }
+    ],
+    "Flair-32": [
+        {
+            "sentence": " That was to use railways as a pillar , roads as a chain , and strongholds as a lock , to carry out siege warfare in an attempt to divide the base areas behind enemy lines , ah , so as , er , to cut off their communication with one another ."
+        }
+    ],
+    "Flair-33": [
+        {
+            "sentence": " In addition , it relied on this cage , ah , to further strengthen its assaults against the base areas ."
+        }
+    ],
+    "Flair-34": [
+        {
+            "sentence": " Er ."
+        }
+    ],
+    "Flair-35": [
+        {
+            "sentence": " So , it was amidst such a grave international and domestic situation that the Eighth Route Army led by the Chinese Communist Party , ah , launched , ah , a strategic offensive called the Hundred Regiments Offensive ."
+        },
+        {
+            "79-96": "ORG"
+        },
+        {
+            "108-131": "ORG"
+        },
+        {
+            "188-215": "MISC"
+        }
+    ],
+    "Flair-36": [
+        {
+            "sentence": " This plot of the Japanese army drew great attention from Zhu De and Peng Dehuai of Eighth Route Army headquarters ."
+        },
+        {
+            "18-26": "MISC"
+        },
+        {
+            "58-64": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "84-101": "ORG"
+        }
+    ],
+    "Flair-37": [
+        {
+            "sentence": " After meticulous studies and painstaking preparations by many parties , a battle plan based on surprise was formulated ."
+        }
+    ],
+    "Flair-38": [
+        {
+            "sentence": " On July 22 , 1940 , a campaign preparation order to attack the Zhengtai Railway , jointly signed by Zhu De , Peng Dehuai , and Zuo Quan , was sent to Yan'an and all units of the Eighth Route Army ."
+        },
+        {
+            "64-80": "ORG"
+        },
+        {
+            "101-107": "PERSON"
+        },
+        {
+            "110-121": "PERSON"
+        },
+        {
+            "128-136": "PERSON"
+        },
+        {
+            "151-157": "ORG"
+        },
+        {
+            "179-196": "ORG"
+        }
+    ],
+    "Flair-39": [
+        {
+            "sentence": " What was the , purpose and goal of this campaign ?"
+        }
+    ],
+    "Flair-40": [
+        {
+            "sentence": " It was to break through the Japanese army 's siege policy against base areas behind enemy lines , and to avert the crisis of China 's compromise and surrender ."
+        },
+        {
+            "29-37": "MISC"
+        },
+        {
+            "126-131": "LOC"
+        }
+    ],
+    "Flair-41": [
+        {
+            "sentence": " It was to overcome this crisis ."
+        }
+    ],
+    "Flair-42": [
+        {
+            "sentence": " Well , the Hundred Regiments Offensive was divided into three phases ."
+        },
+        {
+            "12-39": "MISC"
+        }
+    ],
+    "Flair-43": [
+        {
+            "sentence": " Beginning from August 20 , from August 20 to September 10 , the main purpose of the campaign was to sabotage the Zhengtai Railway ."
+        },
+        {
+            "114-130": "LOC"
+        }
+    ],
+    "Flair-44": [
+        {
+            "sentence": " The Zhengtai Railway started from Zhengding , Hebei in the east and ended in Taiyuan in the west , with a total length of 243 kilometers traversing the Taihang Mountain range ."
+        },
+        {
+            "5-21": "LOC"
+        },
+        {
+            "35-44": "LOC"
+        },
+        {
+            "47-52": "LOC"
+        },
+        {
+            "78-85": "LOC"
+        },
+        {
+            "153-169": "LOC"
+        }
+    ],
+    "Flair-45": [
+        {
+            "sentence": " During the War of Resistance against Japan , the Zhengtai Railway was a key strategic transportation line for the Japanese army in North China ."
+        },
+        {
+            "12-29": "MISC"
+        },
+        {
+            "38-43": "LOC"
+        },
+        {
+            "115-120": "LOC"
+        },
+        {
+            "50-66": "LOC"
+        },
+        {
+            "115-123": "MISC"
+        },
+        {
+            "132-143": "LOC"
+        }
+    ],
+    "Flair-46": [
+        {
+            "sentence": " It was also one of the major blockade lines for causing destruction to anti-Japanese base areas ."
+        },
+        {
+            "72-85": "MISC"
+        }
+    ],
+    "Flair-47": [
+        {
+            "sentence": " Along this railway line was the Niangziguan Pass , a natural barrier , and the Jingjing coalmine , a key fuel base in Yangquan for the Japanese military in North China ."
+        },
+        {
+            "33-49": "LOC"
+        },
+        {
+            "80-88": "LOC"
+        },
+        {
+            "119-127": "LOC"
+        },
+        {
+            "136-144": "MISC"
+        },
+        {
+            "157-168": "LOC"
+        }
+    ],
+    "Flair-48": [
+        {
+            "sentence": " Outside of Taiyuan and Shijiazhuang , the Japanese military deployed the 4th , 8th , and 93rd mixed brigades and regiments , which were scattered among 50 strongholds along the railway line ."
+        },
+        {
+            "12-19": "LOC"
+        },
+        {
+            "24-36": "LOC"
+        },
+        {
+            "43-51": "MISC"
+        }
+    ],
+    "Flair-49": [
+        {
+            "sentence": " The situation was getting worse and worse for the Eighth Route Army and the anti-Japanese areas behind enemy lines ."
+        },
+        {
+            "51-68": "ORG"
+        },
+        {
+            "77-90": "MISC"
+        }
+    ],
+    "Flair-50": [
+        {
+            "sentence": " Actions had to be taken to break through the blockade ."
+        }
+    ],
+    "Flair-51": [
+        {
+            "sentence": " On a night in late July 1940 , the atmosphere in Zhuanbi Village in Shaanxi was unusual ."
+        },
+        {
+            "50-65": "LOC"
+        },
+        {
+            "69-76": "LOC"
+        }
+    ],
+    "Flair-52": [
+        {
+            "sentence": " Villager Xiao Jianghe has a vivid memory of this piece of history ."
+        },
+        {
+            "10-22": "PERSON"
+        }
+    ],
+    "Flair-53": [
+        {
+            "sentence": " On that dark night , everyone was sleeping when human voices and neighing horses were heard within the village ."
+        }
+    ],
+    "Flair-54": [
+        {
+            "sentence": " People all got up ."
+        }
+    ],
+    "Flair-55": [
+        {
+            "sentence": " Did something happen ?"
+        }
+    ],
+    "Flair-56": [
+        {
+            "sentence": " Some folks got up ."
+        }
+    ],
+    "Flair-57": [
+        {
+            "sentence": " Opening the street gate , they saw a soldier standing by the gate ."
+        }
+    ],
+    "Flair-58": [
+        {
+            "sentence": " Folks , go back , go back , nothing is wrong ."
+        }
+    ],
+    "Flair-59": [
+        {
+            "sentence": " Our troops are just going to stay here for the night ."
+        }
+    ],
+    "Flair-60": [
+        {
+            "sentence": " Do n't say you are scared ."
+        }
+    ],
+    "Flair-61": [
+        {
+            "sentence": " Our commander is coming ."
+        }
+    ],
+    "Flair-62": [
+        {
+            "sentence": " I am telling you to go back to sleep peacefully ."
+        }
+    ],
+    "Flair-63": [
+        {
+            "sentence": " Ah , so we went back to sleep ."
+        }
+    ],
+    "Flair-64": [
+        {
+            "sentence": " Ah , why should you come out if you were told not to ?"
+        }
+    ],
+    "Flair-65": [
+        {
+            "sentence": " By the time we got up early the following morning , the sports ground in Zhuanbi Village was packed with soldiers who had stationed there ."
+        },
+        {
+            "74-89": "LOC"
+        }
+    ],
+    "Flair-66": [
+        {
+            "sentence": " Essentially the entire enemy had been destroyed ."
+        }
+    ],
+    "Flair-67": [
+        {
+            "sentence": " It was an arduous battle ."
+        }
+    ],
+    "Flair-68": [
+        {
+            "sentence": " At 10:00 p.m. on August 20 , 1940 , various units of the Eighth Route Army launched a full - scale offensive according to the general plan ."
+        },
+        {
+            "58-75": "ORG"
+        }
+    ],
+    "Flair-69": [
+        {
+            "sentence": " The head of the County People 's Armed Forces Commission was named Zhao Yemin ."
+        },
+        {
+            "17-57": "ORG"
+        },
+        {
+            "68-78": "PERSON"
+        }
+    ],
+    "Flair-70": [
+        {
+            "sentence": " Zhao Yemin came , ah , bringing a group of armed personnel and some things ."
+        },
+        {
+            "1-11": "PERSON"
+        }
+    ],
+    "Flair-71": [
+        {
+            "sentence": " Upon arriving , he relayed an order , saying the road from Yangquan to Hedi must be cut off tonight , with the electrical wires slashed ."
+        },
+        {
+            "60-68": "LOC"
+        },
+        {
+            "72-76": "LOC"
+        }
+    ],
+    "Flair-72": [
+        {
+            "sentence": " He himself would bring , this group of people to blow up that Wudu bridge ."
+        },
+        {
+            "63-67": "LOC"
+        }
+    ],
+    "Flair-73": [
+        {
+            "sentence": " Led by Nie Rongzhen , the Shanxi - Chahar - Hebei Military District was ready for an offensive , while at the same time , fifteen regiments laid an ambush in advance along the Zhengtai Railway , launching fierce attacks on Japanese military strongholds along the railway line ."
+        },
+        {
+            "8-20": "PERSON"
+        },
+        {
+            "27-33": "LOC"
+        },
+        {
+            "36-42": "LOC"
+        },
+        {
+            "45-68": "ORG"
+        },
+        {
+            "177-193": "LOC"
+        },
+        {
+            "224-232": "MISC"
+        }
+    ],
+    "Flair-74": [
+        {
+            "sentence": " It was also during the night of August 20 that the 129th Division directed by Division Commander Liu Bocheng and Political Commissar Deng Xiaoping , with eight regiments , including two regiments of the 1st Dare - to - Die Corps and eight independent battalions , formed left - flank and right - flank commandos and a central contingent ."
+        },
+        {
+            "52-66": "ORG"
+        },
+        {
+            "98-109": "PERSON"
+        },
+        {
+            "134-147": "PERSON"
+        },
+        {
+            "204-212": "MISC"
+        },
+        {
+            "220-229": "ORG"
+        }
+    ],
+    "Flair-75": [
+        {
+            "sentence": " On the night of August 20 , offensives were launched against most of the Japanese independent 4th mixed brigade and part of the independent 9th mixed brigade along the western section of the Zhengtai Railway ."
+        },
+        {
+            "74-82": "MISC"
+        },
+        {
+            "192-208": "LOC"
+        }
+    ],
+    "Flair-76": [
+        {
+            "sentence": " Additionally , two regiments , together with local armed forces in places such as Pingding , Liaoxian , and Yushe , carried out sabotage on the Pingliao and Yuliao roads and pinned down the enemy at various points , ensuring safety of the main forces on the sides and rear ."
+        },
+        {
+            "83-91": "LOC"
+        },
+        {
+            "94-102": "LOC"
+        },
+        {
+            "109-114": "LOC"
+        },
+        {
+            "145-153": "LOC"
+        },
+        {
+            "158-164": "LOC"
+        }
+    ],
+    "Flair-77": [
+        {
+            "sentence": " Current estimates are that this section was taken care of in less than four hours , three hours ."
+        }
+    ],
+    "Flair-78": [
+        {
+            "sentence": " After this was taken care of , four blockhouses were blown up ."
+        }
+    ],
+    "Flair-79": [
+        {
+            "sentence": " By digging tunnels , they charged out the center ."
+        }
+    ],
+    "Flair-80": [
+        {
+            "sentence": " Only then did they , wipe out the enemy ."
+        }
+    ],
+    "Flair-81": [
+        {
+            "sentence": " More than two hundred enemy soldiers were eliminated in a single blow ."
+        }
+    ],
+    "Flair-82": [
+        {
+            "sentence": " It was still during this night that the 120th Division , directed by Division Commander He Long and Political Commissar Guan Xiangying , with 20 regiments , sabotaged the northern section of the Tongpu Railway and some main roads west of the railway ."
+        },
+        {
+            "41-55": "ORG"
+        },
+        {
+            "47-55": "ORG"
+        },
+        {
+            "70-78": "ORG"
+        },
+        {
+            "89-96": "PERSON"
+        },
+        {
+            "121-135": "PERSON"
+        },
+        {
+            "196-210": "LOC"
+        }
+    ],
+    "Flair-83": [
+        {
+            "sentence": " It also took over strongholds at Yangfangkou , Kangjiahui , and Fengrui Village , cutting off the northern section of the Tongpu railway and the roads from Xinxian to Jingle and Fenyang ."
+        },
+        {
+            "34-45": "LOC"
+        },
+        {
+            "48-58": "LOC"
+        },
+        {
+            "65-80": "LOC"
+        },
+        {
+            "123-129": "LOC"
+        },
+        {
+            "157-164": "LOC"
+        },
+        {
+            "168-174": "LOC"
+        },
+        {
+            "179-186": "LOC"
+        }
+    ],
+    "Flair-84": [
+        {
+            "sentence": " In order to coordinate with breakthrough battles at the Zhengtai Railway and the northern section of the Tongpu Railway , the 129th Division and the Shanxi - Chahar - Hebei Military District also ordered their units to deploy more than 50 regiments Yang to Lishi in cooperation with militias , to launch widespread sabotage and raids on the Pinghan , Pingsui , Beining , Baijin , Jinpu , and Deshi railway lines , among others , as well as some main roads and many strongholds occupied by the Japanese army ."
+        },
+        {
+            "57-73": "LOC"
+        },
+        {
+            "106-120": "LOC"
+        },
+        {
+            "127-141": "ORG"
+        },
+        {
+            "150-156": "LOC"
+        },
+        {
+            "159-165": "LOC"
+        },
+        {
+            "168-191": "ORG"
+        },
+        {
+            "250-254": "PERSON"
+        },
+        {
+            "258-263": "PERSON"
+        },
+        {
+            "342-349": "LOC"
+        },
+        {
+            "352-359": "LOC"
+        },
+        {
+            "362-369": "LOC"
+        },
+        {
+            "372-378": "LOC"
+        },
+        {
+            "381-386": "LOC"
+        },
+        {
+            "393-398": "LOC"
+        },
+        {
+            "494-502": "MISC"
+        }
+    ],
+    "Flair-85": [
+        {
+            "sentence": " On the afternoon of August 22 , Peng Dehuai was listening to the combat operation director report on battle developments at Eighth Route Army operational headquarters ."
+        },
+        {
+            "33-44": "PERSON"
+        },
+        {
+            "125-142": "ORG"
+        }
+    ],
+    "Flair-86": [
+        {
+            "sentence": " When asked about the actual combat strength of the Eighth Route Army , the combat operation director reported : There are 30 regiments along the Zhengtai Line , 15 regiments along the Lugou Bridge - Handan section of the Pinghan line , 12 regiments along the Datong - Hongdong section in Tonghu County , and four regiments along the Tianjin - Dezhou section of the Jinpu Line , with a total of 105 regiments entering the campaign ."
+        },
+        {
+            "52-69": "ORG"
+        },
+        {
+            "146-159": "LOC"
+        },
+        {
+            "185-197": "LOC"
+        },
+        {
+            "200-206": "LOC"
+        },
+        {
+            "222-229": "LOC"
+        },
+        {
+            "260-266": "LOC"
+        },
+        {
+            "269-277": "LOC"
+        },
+        {
+            "289-302": "LOC"
+        },
+        {
+            "334-341": "LOC"
+        },
+        {
+            "344-350": "LOC"
+        },
+        {
+            "366-376": "LOC"
+        }
+    ],
+    "Flair-87": [
+        {
+            "sentence": " With a wave of his hand , Peng Dehuai said that despite being over 100 regiments , let 's call this campaign the Hundred Regiments Offensive ."
+        },
+        {
+            "27-38": "PERSON"
+        },
+        {
+            "114-141": "MISC"
+        }
+    ],
+    "Flair-88": [
+        {
+            "sentence": " That afternoon , Peng Dehuai first used the name Hundred Regiments Offensive in telegrams sent to various military corps and the Central Military Commission ."
+        },
+        {
+            "18-29": "PERSON"
+        },
+        {
+            "50-77": "MISC"
+        },
+        {
+            "130-157": "ORG"
+        }
+    ],
+    "Flair-89": [
+        {
+            "sentence": " A total of 105 regiments participated in the Hundred Regiments Offensive ."
+        },
+        {
+            "46-73": "MISC"
+        }
+    ],
+    "Flair-90": [
+        {
+            "sentence": " Well , it was a force of more than 200,000 soldiers ."
+        }
+    ],
+    "Flair-91": [
+        {
+            "sentence": " In addition to that , er , no less than 400,000 militiamen , guerrillas , and civilians , er , voluntarily participated in the offensive ."
+        }
+    ],
+    "Flair-92": [
+        {
+            "sentence": " So , there were probably 600,000 - plus soldiers and civilians ."
+        }
+    ],
+    "Flair-93": [
+        {
+            "sentence": " The Hundred Regiments Offensive dealt a devastating blow to the enemy at Shi'nao Mountain ."
+        },
+        {
+            "5-32": "MISC"
+        },
+        {
+            "74-90": "LOC"
+        }
+    ],
+    "Flair-94": [
+        {
+            "sentence": " Our troops were strong , troops were strong ."
+        }
+    ],
+    "Flair-95": [
+        {
+            "sentence": " Er , and those in charge of logistics and support were able to follow in time ."
+        }
+    ],
+    "Flair-96": [
+        {
+            "sentence": " Er , , er , the anti-Japanese vanguard team was composed of all young people in their 20s ; all young people , all in their , 20s ."
+        },
+        {
+            "17-30": "MISC"
+        }
+    ],
+    "Flair-97": [
+        {
+            "sentence": " This is Shi'nao Mountain , situated in Yangquan , Shanxi , a strategic passage of the Zhengtai Railway back then ."
+        },
+        {
+            "9-25": "LOC"
+        },
+        {
+            "40-48": "LOC"
+        },
+        {
+            "51-57": "LOC"
+        },
+        {
+            "87-103": "LOC"
+        }
+    ],
+    "Flair-98": [
+        {
+            "sentence": " On August 21 , 1940 , in order to pin down Japanese troops stationed in Yangquan and to cover for militiamen sabotaging the western section of the Zhengtai Railway , the 129th Division of the Eighth Route Army ordered the main regiment of its 385th Brigade , the 14th Regiment led by Brigade Commander Chen Xilian , to head directly for Shi'nao Mountain to seize the high ground ."
+        },
+        {
+            "44-52": "MISC"
+        },
+        {
+            "73-81": "LOC"
+        },
+        {
+            "148-164": "LOC"
+        },
+        {
+            "171-185": "ORG"
+        },
+        {
+            "193-210": "ORG"
+        },
+        {
+            "244-257": "ORG"
+        },
+        {
+            "264-277": "ORG"
+        },
+        {
+            "250-257": "ORG"
+        },
+        {
+            "285-292": "ORG"
+        },
+        {
+            "303-314": "PERSON"
+        },
+        {
+            "338-354": "LOC"
+        }
+    ],
+    "Flair-99": [
+        {
+            "sentence": " Like a sharp sword , civilians in the western section broke through the strategic passage ."
+        }
+    ],
+    "Evaluation-Flair": [
+        {
+            "RECALL-PERSON": 100.0
+        },
+        {
+            "PRECISION-PERSON": 91.30434782608695
+        },
+        {
+            "F1-PERSON": 95.45454545454545
+        },
+        {
+            "RECALL-NORP": 0.0
+        },
+        {
+            "PRECISION-NORP": 0
+        },
+        {
+            "F1-NORP": 0.0
+        },
+        {
+            "RECALL-FAC": 0.0
+        },
+        {
+            "PRECISION-FAC": 0
+        },
+        {
+            "F1-FAC": 0.0
+        },
+        {
+            "RECALL-ORG": 13.333333333333334
+        },
+        {
+            "PRECISION-ORG": 11.76470588235294
+        },
+        {
+            "F1-ORG": 12.5
+        },
+        {
+            "RECALL-GPE": 0.0
+        },
+        {
+            "PRECISION-GPE": 0
+        },
+        {
+            "F1-GPE": 0.0
+        },
+        {
+            "RECALL-LOC": 90.9090909090909
+        },
+        {
+            "PRECISION-LOC": 10.526315789473683
+        },
+        {
+            "F1-LOC": 18.867924528301888
+        },
+        {
+            "RECALL-DATE": 0.0
+        },
+        {
+            "PRECISION-DATE": 0
+        },
+        {
+            "F1-DATE": 0.0
+        },
+        {
+            "RECALL-TIME": 0.0
+        },
+        {
+            "PRECISION-TIME": 0
+        },
+        {
+            "F1-TIME": 0.0
+        },
+        {
+            "RECALL-QUANTITY": 0.0
+        },
+        {
+            "PRECISION-QUANTITY": 0
+        },
+        {
+            "F1-QUANTITY": 0.0
+        },
+        {
+            "RECALL-ORDINAL": 0.0
+        },
+        {
+            "PRECISION-ORDINAL": 0
+        },
+        {
+            "F1-ORDINAL": 0.0
+        },
+        {
+            "RECALL-CARDINAL": 0.0
+        },
+        {
+            "PRECISION-CARDINAL": 0
+        },
+        {
+            "F1-CARDINAL": 0.0
+        },
+        {
+            "RECALL-EVENT": 0.0
+        },
+        {
+            "PRECISION-EVENT": 0
+        },
+        {
+            "F1-EVENT": 0.0
+        },
+        {
+            "RECALL-WORK_OF_ART": 0.0
+        },
+        {
+            "PRECISION-WORK_OF_ART": 0
+        },
+        {
+            "F1-WORK_OF_ART": 0.0
+        },
+        {
+            "RECALL-MISC": 0
+        },
+        {
+            "PRECISION-MISC": 0.0
+        },
+        {
+            "F1-MISC": 0.0
+        },
+        {
+            "RECALL-TOTAL": 15.086206896551724
+        },
+        {
+            "PRECISION-TOTAL": 18.51851851851852
+        },
+        {
+            "F1-TOTAL": 16.6270783847981
+        },
+        {
+            "RUNTIME": 3.766385555267334
+        }
+    ],
+    "Stanza-0": [
+        {
+            "sentence": " What kind of memory ?"
+        }
+    ],
+    "Stanza-1": [
+        {
+            "sentence": " We respectfully invite you to watch a special edition of Across China ."
+        },
+        {
+            "58-70": "ORG"
+        }
+    ],
+    "Stanza-2": [
+        {
+            "sentence": " WW II Landmarks on the Great Earth of China : Eternal Memories of Taihang Mountain"
+        },
+        {
+            "1-83": "WORK_OF_ART"
+        }
+    ],
+    "Stanza-3": [
+        {
+            "sentence": " Standing tall on Taihang Mountain is the Monument to the Hundred Regiments Offensive ."
+        },
+        {
+            "18-34": "LOC"
+        },
+        {
+            "38-85": "WORK_OF_ART"
+        }
+    ],
+    "Stanza-4": [
+        {
+            "sentence": " It is composed of a primary stele , secondary steles , a huge round sculpture and beacon tower , and the Great Wall , among other things ."
+        },
+        {
+            "102-116": "FAC"
+        }
+    ],
+    "Stanza-5": [
+        {
+            "sentence": " A primary stele , three secondary steles , and two inscribed steles ."
+        },
+        {
+            "19-24": "CARDINAL"
+        },
+        {
+            "48-51": "CARDINAL"
+        }
+    ],
+    "Stanza-6": [
+        {
+            "sentence": " The Hundred Regiments Offensive was the campaign of the largest scale launched by the Eighth Route Army during the War of Resistance against Japan ."
+        },
+        {
+            "1-32": "EVENT"
+        },
+        {
+            "83-104": "ORG"
+        },
+        {
+            "112-147": "EVENT"
+        }
+    ],
+    "Stanza-7": [
+        {
+            "sentence": " This campaign broke through the Japanese army 's blockade to reach base areas behind enemy lines , stirring up anti-Japanese spirit throughout the nation and influencing the situation of the anti-fascist war of the people worldwide ."
+        },
+        {
+            "33-41": "NORP"
+        },
+        {
+            "117-125": "NORP"
+        },
+        {
+            "112-125": "NORP"
+        }
+    ],
+    "Stanza-8": [
+        {
+            "sentence": " This is Zhuanbi Village , Wuxiang County of Shanxi Province , where the Eighth Route Army was headquartered back then ."
+        },
+        {
+            "9-41": "GPE"
+        },
+        {
+            "45-60": "GPE"
+        },
+        {
+            "69-90": "ORG"
+        }
+    ],
+    "Stanza-9": [
+        {
+            "sentence": " On a wall outside the headquarters we found a map ."
+        }
+    ],
+    "Stanza-10": [
+        {
+            "sentence": " This map was the Eighth Route Army 's depiction of the Mediterranean Sea situation at that time ."
+        },
+        {
+            "14-38": "ORG"
+        },
+        {
+            "56-73": "LOC"
+        }
+    ],
+    "Stanza-11": [
+        {
+            "sentence": " This map reflected the European battlefield situation ."
+        },
+        {
+            "24-32": "NORP"
+        }
+    ],
+    "Stanza-12": [
+        {
+            "sentence": " In 1940 , the German army invaded and occupied Czechoslovakia , Poland , the Netherlands , Belgium , and France ."
+        },
+        {
+            "4-8": "DATE"
+        },
+        {
+            "15-21": "NORP"
+        },
+        {
+            "48-62": "GPE"
+        },
+        {
+            "65-71": "GPE"
+        },
+        {
+            "78-89": "GPE"
+        },
+        {
+            "92-99": "GPE"
+        },
+        {
+            "106-112": "GPE"
+        }
+    ],
+    "Stanza-13": [
+        {
+            "sentence": " It was during this year that the Japanese army developed a strategy to rapidly force the Chinese people into submission by the end of 1940 ."
+        },
+        {
+            "15-24": "DATE"
+        },
+        {
+            "34-42": "NORP"
+        },
+        {
+            "90-97": "NORP"
+        },
+        {
+            "124-139": "DATE"
+        }
+    ],
+    "Stanza-14": [
+        {
+            "sentence": " In May , the Japanese army launched --"
+        },
+        {
+            "4-7": "DATE"
+        },
+        {
+            "14-22": "NORP"
+        }
+    ],
+    "Stanza-15": [
+        {
+            "sentence": " From one side , it seized an important city in China called Yichang ."
+        },
+        {
+            "6-9": "CARDINAL"
+        },
+        {
+            "48-53": "GPE"
+        },
+        {
+            "61-68": "GPE"
+        }
+    ],
+    "Stanza-16": [
+        {
+            "sentence": " Um , , uh , through Yichang , it could directly reach Chongqing ."
+        },
+        {
+            "21-28": "GPE"
+        },
+        {
+            "55-64": "GPE"
+        }
+    ],
+    "Stanza-17": [
+        {
+            "sentence": " Ah , that threatened Chongqing ."
+        },
+        {
+            "22-31": "GPE"
+        }
+    ],
+    "Stanza-18": [
+        {
+            "sentence": " Then they would , ah , bomb these large rear areas such as Chongqing ."
+        },
+        {
+            "60-69": "GPE"
+        }
+    ],
+    "Stanza-19": [
+        {
+            "sentence": " So , along with the coordinated , er , economic blockade , military offensives , and strategic bombings , er , a simultaneous attack was launched in Hong Kong to lure the KMT government into surrender ."
+        },
+        {
+            "150-159": "GPE"
+        },
+        {
+            "172-175": "ORG"
+        }
+    ],
+    "Stanza-20": [
+        {
+            "sentence": " The progress of this coordinated offensive was already very entrenched by then ."
+        }
+    ],
+    "Stanza-21": [
+        {
+            "sentence": " By 1940 , China 's War of Resistance against Japan had entered a stalemate ."
+        },
+        {
+            "4-8": "DATE"
+        },
+        {
+            "11-16": "GPE"
+        },
+        {
+            "20-51": "EVENT"
+        }
+    ],
+    "Stanza-22": [
+        {
+            "sentence": " The situation on our side and the enemy 's side was intertwined ."
+        }
+    ],
+    "Stanza-23": [
+        {
+            "sentence": " The Eighth Route Army guerrillas were extraordinarily active , creating more and more trouble for the Japanese army in North China ."
+        },
+        {
+            "5-22": "ORG"
+        },
+        {
+            "103-111": "NORP"
+        },
+        {
+            "120-131": "LOC"
+        }
+    ],
+    "Stanza-24": [
+        {
+            "sentence": " Hayao Tada , commander of the Japanese North China Area Army , adopted a strategy of siege warfare to deal with the Eighth Route Army ."
+        },
+        {
+            "1-11": "PERSON"
+        },
+        {
+            "31-39": "NORP"
+        },
+        {
+            "40-61": "ORG"
+        },
+        {
+            "113-134": "ORG"
+        }
+    ],
+    "Stanza-25": [
+        {
+            "sentence": " The specific method was building a closely connected transport network , with a road for every village and defensive towers on every road ."
+        }
+    ],
+    "Stanza-26": [
+        {
+            "sentence": " Roads and railways were used as links to connect all of North China into a solid , widespread siege , in order to strangle the Eighth Route Army and its base areas in this net ."
+        },
+        {
+            "57-68": "LOC"
+        },
+        {
+            "124-145": "ORG"
+        }
+    ],
+    "Stanza-27": [
+        {
+            "sentence": " As part of the Japanese army 's strategy of siege warfare , railways and roads had actually become the Japanese army 's weapons of war , becoming a great threat to the base areas ."
+        },
+        {
+            "16-24": "NORP"
+        },
+        {
+            "104-112": "NORP"
+        },
+        {
+            "16-24": "NORP"
+        },
+        {
+            "104-112": "NORP"
+        }
+    ],
+    "Stanza-28": [
+        {
+            "sentence": " In December 1939 , Commander - in - chief Zhu De and Vice Commander Peng Dehuai of the Eighth Route Army received a top - secret telegram from Commander Lu Zhengcao of the Jizhong Military District , among other people ."
+        },
+        {
+            "4-17": "DATE"
+        },
+        {
+            "43-49": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "84-105": "ORG"
+        },
+        {
+            "154-165": "PERSON"
+        },
+        {
+            "169-198": "GPE"
+        }
+    ],
+    "Stanza-29": [
+        {
+            "sentence": " The telegram said that the Japanese troops were building blockade trenches and chessboard - like roads to divide the Jizhong base area into small isolated blocks without the ability to mutually communicate and support each other , causing the Eighth Route Army and the guerrillas to lose maneuverability ."
+        },
+        {
+            "28-36": "NORP"
+        },
+        {
+            "118-125": "GPE"
+        },
+        {
+            "240-261": "ORG"
+        }
+    ],
+    "Stanza-30": [
+        {
+            "sentence": " Before the Hundred Regiments Offensive in 1940 , an inclination to compromise , ah , surrender , was an extremely serious crisis in the frontline situation in China ."
+        },
+        {
+            "8-39": "EVENT"
+        },
+        {
+            "43-47": "DATE"
+        },
+        {
+            "160-165": "GPE"
+        }
+    ],
+    "Stanza-31": [
+        {
+            "sentence": " Well , on the battlefield behind enemy lines , in order to take over , consolidate the area under its occupation , Japan began a new strategy ."
+        },
+        {
+            "116-121": "GPE"
+        }
+    ],
+    "Stanza-32": [
+        {
+            "sentence": " That was to use railways as a pillar , roads as a chain , and strongholds as a lock , to carry out siege warfare in an attempt to divide the base areas behind enemy lines , ah , so as , er , to cut off their communication with one another ."
+        }
+    ],
+    "Stanza-33": [
+        {
+            "sentence": " In addition , it relied on this cage , ah , to further strengthen its assaults against the base areas ."
+        }
+    ],
+    "Stanza-34": [
+        {
+            "sentence": " Er ."
+        }
+    ],
+    "Stanza-35": [
+        {
+            "sentence": " So , it was amidst such a grave international and domestic situation that the Eighth Route Army led by the Chinese Communist Party , ah , launched , ah , a strategic offensive called the Hundred Regiments Offensive ."
+        },
+        {
+            "75-96": "ORG"
+        },
+        {
+            "104-131": "ORG"
+        },
+        {
+            "184-215": "EVENT"
+        }
+    ],
+    "Stanza-36": [
+        {
+            "sentence": " This plot of the Japanese army drew great attention from Zhu De and Peng Dehuai of Eighth Route Army headquarters ."
+        },
+        {
+            "18-26": "NORP"
+        },
+        {
+            "58-64": "PERSON"
+        },
+        {
+            "69-80": "PERSON"
+        },
+        {
+            "84-101": "ORG"
+        }
+    ],
+    "Stanza-37": [
+        {
+            "sentence": " After meticulous studies and painstaking preparations by many parties , a battle plan based on surprise was formulated ."
+        }
+    ],
+    "Stanza-38": [
+        {
+            "sentence": " On July 22 , 1940 , a campaign preparation order to attack the Zhengtai Railway , jointly signed by Zhu De , Peng Dehuai , and Zuo Quan , was sent to Yan'an and all units of the Eighth Route Army ."
+        },
+        {
+            "4-18": "DATE"
+        },
+        {
+            "60-80": "FAC"
+        },
+        {
+            "101-107": "PERSON"
+        },
+        {
+            "110-121": "PERSON"
+        },
+        {
+            "128-136": "PERSON"
+        },
+        {
+            "151-157": "GPE"
+        },
+        {
+            "175-196": "ORG"
+        }
+    ],
+    "Stanza-39": [
+        {
+            "sentence": " What was the , purpose and goal of this campaign ?"
+        }
+    ],
+    "Stanza-40": [
+        {
+            "sentence": " It was to break through the Japanese army 's siege policy against base areas behind enemy lines , and to avert the crisis of China 's compromise and surrender ."
+        },
+        {
+            "29-37": "NORP"
+        },
+        {
+            "126-131": "GPE"
+        }
+    ],
+    "Stanza-41": [
+        {
+            "sentence": " It was to overcome this crisis ."
+        }
+    ],
+    "Stanza-42": [
+        {
+            "sentence": " Well , the Hundred Regiments Offensive was divided into three phases ."
+        },
+        {
+            "8-39": "EVENT"
+        },
+        {
+            "57-62": "CARDINAL"
+        }
+    ],
+    "Stanza-43": [
+        {
+            "sentence": " Beginning from August 20 , from August 20 to September 10 , the main purpose of the campaign was to sabotage the Zhengtai Railway ."
+        },
+        {
+            "16-25": "DATE"
+        },
+        {
+            "33-42": "DATE"
+        },
+        {
+            "33-58": "DATE"
+        },
+        {
+            "110-130": "FAC"
+        }
+    ],
+    "Stanza-44": [
+        {
+            "sentence": " The Zhengtai Railway started from Zhengding , Hebei in the east and ended in Taiyuan in the west , with a total length of 243 kilometers traversing the Taihang Mountain range ."
+        },
+        {
+            "1-21": "FAC"
+        },
+        {
+            "35-52": "GPE"
+        },
+        {
+            "78-85": "GPE"
+        },
+        {
+            "123-137": "QUANTITY"
+        },
+        {
+            "153-169": "LOC"
+        }
+    ],
+    "Stanza-45": [
+        {
+            "sentence": " During the War of Resistance against Japan , the Zhengtai Railway was a key strategic transportation line for the Japanese army in North China ."
+        },
+        {
+            "8-43": "EVENT"
+        },
+        {
+            "46-66": "FAC"
+        },
+        {
+            "115-123": "NORP"
+        },
+        {
+            "132-143": "LOC"
+        }
+    ],
+    "Stanza-46": [
+        {
+            "sentence": " It was also one of the major blockade lines for causing destruction to anti-Japanese base areas ."
+        },
+        {
+            "13-16": "CARDINAL"
+        },
+        {
+            "72-85": "NORP"
+        }
+    ],
+    "Stanza-47": [
+        {
+            "sentence": " Along this railway line was the Niangziguan Pass , a natural barrier , and the Jingjing coalmine , a key fuel base in Yangquan for the Japanese military in North China ."
+        },
+        {
+            "29-49": "LOC"
+        },
+        {
+            "80-88": "GPE"
+        },
+        {
+            "119-127": "GPE"
+        },
+        {
+            "136-144": "NORP"
+        },
+        {
+            "157-168": "LOC"
+        }
+    ],
+    "Stanza-48": [
+        {
+            "sentence": " Outside of Taiyuan and Shijiazhuang , the Japanese military deployed the 4th , 8th , and 93rd mixed brigades and regiments , which were scattered among 50 strongholds along the railway line ."
+        },
+        {
+            "12-19": "GPE"
+        },
+        {
+            "24-36": "GPE"
+        },
+        {
+            "43-51": "NORP"
+        },
+        {
+            "74-77": "ORDINAL"
+        },
+        {
+            "80-83": "ORDINAL"
+        },
+        {
+            "90-94": "ORDINAL"
+        },
+        {
+            "153-155": "CARDINAL"
+        }
+    ],
+    "Stanza-49": [
+        {
+            "sentence": " The situation was getting worse and worse for the Eighth Route Army and the anti-Japanese areas behind enemy lines ."
+        },
+        {
+            "47-68": "ORG"
+        },
+        {
+            "77-90": "NORP"
+        }
+    ],
+    "Stanza-50": [
+        {
+            "sentence": " Actions had to be taken to break through the blockade ."
+        }
+    ],
+    "Stanza-51": [
+        {
+            "sentence": " On a night in late July 1940 , the atmosphere in Zhuanbi Village in Shaanxi was unusual ."
+        },
+        {
+            "4-29": "DATE"
+        },
+        {
+            "50-65": "GPE"
+        },
+        {
+            "69-76": "GPE"
+        }
+    ],
+    "Stanza-52": [
+        {
+            "sentence": " Villager Xiao Jianghe has a vivid memory of this piece of history ."
+        },
+        {
+            "10-22": "PERSON"
+        }
+    ],
+    "Stanza-53": [
+        {
+            "sentence": " On that dark night , everyone was sleeping when human voices and neighing horses were heard within the village ."
+        },
+        {
+            "4-19": "TIME"
+        }
+    ],
+    "Stanza-54": [
+        {
+            "sentence": " People all got up ."
+        }
+    ],
+    "Stanza-55": [
+        {
+            "sentence": " Did something happen ?"
+        }
+    ],
+    "Stanza-56": [
+        {
+            "sentence": " Some folks got up ."
+        }
+    ],
+    "Stanza-57": [
+        {
+            "sentence": " Opening the street gate , they saw a soldier standing by the gate ."
+        }
+    ],
+    "Stanza-58": [
+        {
+            "sentence": " Folks , go back , go back , nothing is wrong ."
+        }
+    ],
+    "Stanza-59": [
+        {
+            "sentence": " Our troops are just going to stay here for the night ."
+        }
+    ],
+    "Stanza-60": [
+        {
+            "sentence": " Do n't say you are scared ."
+        }
+    ],
+    "Stanza-61": [
+        {
+            "sentence": " Our commander is coming ."
+        }
+    ],
+    "Stanza-62": [
+        {
+            "sentence": " I am telling you to go back to sleep peacefully ."
+        }
+    ],
+    "Stanza-63": [
+        {
+            "sentence": " Ah , so we went back to sleep ."
+        }
+    ],
+    "Stanza-64": [
+        {
+            "sentence": " Ah , why should you come out if you were told not to ?"
+        }
+    ],
+    "Stanza-65": [
+        {
+            "sentence": " By the time we got up early the following morning , the sports ground in Zhuanbi Village was packed with soldiers who had stationed there ."
+        },
+        {
+            "23-50": "TIME"
+        },
+        {
+            "74-89": "GPE"
+        }
+    ],
+    "Stanza-66": [
+        {
+            "sentence": " Essentially the entire enemy had been destroyed ."
+        }
+    ],
+    "Stanza-67": [
+        {
+            "sentence": " It was an arduous battle ."
+        }
+    ],
+    "Stanza-68": [
+        {
+            "sentence": " At 10:00 p.m. on August 20 , 1940 , various units of the Eighth Route Army launched a full - scale offensive according to the general plan ."
+        },
+        {
+            "4-34": "TIME"
+        },
+        {
+            "54-75": "ORG"
+        }
+    ],
+    "Stanza-69": [
+        {
+            "sentence": " The head of the County People 's Armed Forces Commission was named Zhao Yemin ."
+        },
+        {
+            "13-57": "ORG"
+        },
+        {
+            "68-78": "PERSON"
+        }
+    ],
+    "Stanza-70": [
+        {
+            "sentence": " Zhao Yemin came , ah , bringing a group of armed personnel and some things ."
+        },
+        {
+            "1-11": "PERSON"
+        }
+    ],
+    "Stanza-71": [
+        {
+            "sentence": " Upon arriving , he relayed an order , saying the road from Yangquan to Hedi must be cut off tonight , with the electrical wires slashed ."
+        },
+        {
+            "60-68": "GPE"
+        },
+        {
+            "72-76": "GPE"
+        },
+        {
+            "93-100": "TIME"
+        }
+    ],
+    "Stanza-72": [
+        {
+            "sentence": " He himself would bring , this group of people to blow up that Wudu bridge ."
+        },
+        {
+            "63-67": "GPE"
+        }
+    ],
+    "Stanza-73": [
+        {
+            "sentence": " Led by Nie Rongzhen , the Shanxi - Chahar - Hebei Military District was ready for an offensive , while at the same time , fifteen regiments laid an ambush in advance along the Zhengtai Railway , launching fierce attacks on Japanese military strongholds along the railway line ."
+        },
+        {
+            "8-20": "PERSON"
+        },
+        {
+            "23-68": "GPE"
+        },
+        {
+            "123-130": "CARDINAL"
+        },
+        {
+            "173-193": "FAC"
+        },
+        {
+            "224-232": "NORP"
+        }
+    ],
+    "Stanza-74": [
+        {
+            "sentence": " It was also during the night of August 20 that the 129th Division directed by Division Commander Liu Bocheng and Political Commissar Deng Xiaoping , with eight regiments , including two regiments of the 1st Dare - to - Die Corps and eight independent battalions , formed left - flank and right - flank commandos and a central contingent ."
+        },
+        {
+            "20-42": "DATE"
+        },
+        {
+            "48-66": "ORG"
+        },
+        {
+            "58-66": "ORG"
+        },
+        {
+            "79-87": "ORG"
+        },
+        {
+            "98-109": "PERSON"
+        },
+        {
+            "134-147": "PERSON"
+        },
+        {
+            "155-160": "CARDINAL"
+        },
+        {
+            "234-239": "CARDINAL"
+        },
+        {
+            "183-186": "CARDINAL"
+        },
+        {
+            "200-229": "ORG"
+        },
+        {
+            "155-160": "CARDINAL"
+        },
+        {
+            "234-239": "CARDINAL"
+        }
+    ],
+    "Stanza-75": [
+        {
+            "sentence": " On the night of August 20 , offensives were launched against most of the Japanese independent 4th mixed brigade and part of the independent 9th mixed brigade along the western section of the Zhengtai Railway ."
+        },
+        {
+            "4-26": "DATE"
+        },
+        {
+            "74-82": "NORP"
+        },
+        {
+            "95-98": "ORDINAL"
+        },
+        {
+            "141-144": "ORDINAL"
+        },
+        {
+            "188-208": "FAC"
+        }
+    ],
+    "Stanza-76": [
+        {
+            "sentence": " Additionally , two regiments , together with local armed forces in places such as Pingding , Liaoxian , and Yushe , carried out sabotage on the Pingliao and Yuliao roads and pinned down the enemy at various points , ensuring safety of the main forces on the sides and rear ."
+        },
+        {
+            "16-19": "CARDINAL"
+        },
+        {
+            "83-91": "GPE"
+        },
+        {
+            "94-102": "GPE"
+        },
+        {
+            "109-114": "GPE"
+        },
+        {
+            "145-153": "GPE"
+        },
+        {
+            "158-164": "GPE"
+        }
+    ],
+    "Stanza-77": [
+        {
+            "sentence": " Current estimates are that this section was taken care of in less than four hours , three hours ."
+        },
+        {
+            "62-82": "TIME"
+        },
+        {
+            "85-96": "TIME"
+        }
+    ],
+    "Stanza-78": [
+        {
+            "sentence": " After this was taken care of , four blockhouses were blown up ."
+        },
+        {
+            "32-36": "CARDINAL"
+        }
+    ],
+    "Stanza-79": [
+        {
+            "sentence": " By digging tunnels , they charged out the center ."
+        }
+    ],
+    "Stanza-80": [
+        {
+            "sentence": " Only then did they , wipe out the enemy ."
+        }
+    ],
+    "Stanza-81": [
+        {
+            "sentence": " More than two hundred enemy soldiers were eliminated in a single blow ."
+        },
+        {
+            "1-22": "CARDINAL"
+        }
+    ],
+    "Stanza-82": [
+        {
+            "sentence": " It was still during this night that the 120th Division , directed by Division Commander He Long and Political Commissar Guan Xiangying , with 20 regiments , sabotaged the northern section of the Tongpu Railway and some main roads west of the railway ."
+        },
+        {
+            "21-31": "TIME"
+        },
+        {
+            "37-55": "ORG"
+        },
+        {
+            "47-55": "ORG"
+        },
+        {
+            "70-78": "ORG"
+        },
+        {
+            "89-96": "PERSON"
+        },
+        {
+            "121-135": "PERSON"
+        },
+        {
+            "42-44": "CARDINAL"
+        },
+        {
+            "143-145": "CARDINAL"
+        },
+        {
+            "192-210": "FAC"
+        }
+    ],
+    "Stanza-83": [
+        {
+            "sentence": " It also took over strongholds at Yangfangkou , Kangjiahui , and Fengrui Village , cutting off the northern section of the Tongpu railway and the roads from Xinxian to Jingle and Fenyang ."
+        },
+        {
+            "34-45": "GPE"
+        },
+        {
+            "48-58": "GPE"
+        },
+        {
+            "65-80": "GPE"
+        },
+        {
+            "119-137": "FAC"
+        },
+        {
+            "157-164": "GPE"
+        },
+        {
+            "168-174": "GPE"
+        },
+        {
+            "179-186": "GPE"
+        }
+    ],
+    "Stanza-84": [
+        {
+            "sentence": " In order to coordinate with breakthrough battles at the Zhengtai Railway and the northern section of the Tongpu Railway , the 129th Division and the Shanxi - Chahar - Hebei Military District also ordered their units to deploy more than 50 regiments Yang to Lishi in cooperation with militias , to launch widespread sabotage and raids on the Pinghan , Pingsui , Beining , Baijin , Jinpu , and Deshi railway lines , among others , as well as some main roads and many strongholds occupied by the Japanese army ."
+        },
+        {
+            "53-73": "FAC"
+        },
+        {
+            "102-120": "FAC"
+        },
+        {
+            "123-141": "ORG"
+        },
+        {
+            "146-191": "GPE"
+        },
+        {
+            "227-239": "CARDINAL"
+        },
+        {
+            "250-254": "PERSON"
+        },
+        {
+            "258-263": "GPE"
+        },
+        {
+            "342-349": "GPE"
+        },
+        {
+            "352-359": "GPE"
+        },
+        {
+            "362-369": "GPE"
+        },
+        {
+            "372-378": "GPE"
+        },
+        {
+            "381-386": "GPE"
+        },
+        {
+            "393-398": "GPE"
+        },
+        {
+            "494-502": "NORP"
+        }
+    ],
+    "Stanza-85": [
+        {
+            "sentence": " On the afternoon of August 22 , Peng Dehuai was listening to the combat operation director report on battle developments at Eighth Route Army operational headquarters ."
+        },
+        {
+            "4-30": "DATE"
+        },
+        {
+            "33-44": "PERSON"
+        },
+        {
+            "125-142": "ORG"
+        }
+    ],
+    "Stanza-86": [
+        {
+            "sentence": " When asked about the actual combat strength of the Eighth Route Army , the combat operation director reported : There are 30 regiments along the Zhengtai Line , 15 regiments along the Lugou Bridge - Handan section of the Pinghan line , 12 regiments along the Datong - Hongdong section in Tonghu County , and four regiments along the Tianjin - Dezhou section of the Jinpu Line , with a total of 105 regiments entering the campaign ."
+        },
+        {
+            "48-69": "ORG"
+        },
+        {
+            "123-125": "CARDINAL"
+        },
+        {
+            "142-159": "FAC"
+        },
+        {
+            "162-164": "CARDINAL"
+        },
+        {
+            "185-206": "FAC"
+        },
+        {
+            "222-229": "GPE"
+        },
+        {
+            "237-239": "CARDINAL"
+        },
+        {
+            "260-277": "FAC"
+        },
+        {
+            "289-302": "GPE"
+        },
+        {
+            "309-313": "CARDINAL"
+        },
+        {
+            "334-350": "FAC"
+        },
+        {
+            "362-376": "FAC"
+        },
+        {
+            "395-398": "CARDINAL"
+        }
+    ],
+    "Stanza-87": [
+        {
+            "sentence": " With a wave of his hand , Peng Dehuai said that despite being over 100 regiments , let 's call this campaign the Hundred Regiments Offensive ."
+        },
+        {
+            "27-38": "PERSON"
+        },
+        {
+            "68-71": "CARDINAL"
+        },
+        {
+            "110-141": "EVENT"
+        }
+    ],
+    "Stanza-88": [
+        {
+            "sentence": " That afternoon , Peng Dehuai first used the name Hundred Regiments Offensive in telegrams sent to various military corps and the Central Military Commission ."
+        },
+        {
+            "1-15": "TIME"
+        },
+        {
+            "18-29": "PERSON"
+        },
+        {
+            "30-35": "ORDINAL"
+        },
+        {
+            "50-77": "EVENT"
+        },
+        {
+            "126-157": "ORG"
+        }
+    ],
+    "Stanza-89": [
+        {
+            "sentence": " A total of 105 regiments participated in the Hundred Regiments Offensive ."
+        },
+        {
+            "12-15": "CARDINAL"
+        },
+        {
+            "42-73": "EVENT"
+        }
+    ],
+    "Stanza-90": [
+        {
+            "sentence": " Well , it was a force of more than 200,000 soldiers ."
+        },
+        {
+            "26-43": "CARDINAL"
+        }
+    ],
+    "Stanza-91": [
+        {
+            "sentence": " In addition to that , er , no less than 400,000 militiamen , guerrillas , and civilians , er , voluntarily participated in the offensive ."
+        },
+        {
+            "28-48": "CARDINAL"
+        }
+    ],
+    "Stanza-92": [
+        {
+            "sentence": " So , there were probably 600,000 - plus soldiers and civilians ."
+        },
+        {
+            "26-40": "CARDINAL"
+        }
+    ],
+    "Stanza-93": [
+        {
+            "sentence": " The Hundred Regiments Offensive dealt a devastating blow to the enemy at Shi'nao Mountain ."
+        },
+        {
+            "1-32": "EVENT"
+        },
+        {
+            "74-90": "LOC"
+        }
+    ],
+    "Stanza-94": [
+        {
+            "sentence": " Our troops were strong , troops were strong ."
+        }
+    ],
+    "Stanza-95": [
+        {
+            "sentence": " Er , and those in charge of logistics and support were able to follow in time ."
+        }
+    ],
+    "Stanza-96": [
+        {
+            "sentence": " Er , , er , the anti-Japanese vanguard team was composed of all young people in their 20s ; all young people , all in their , 20s ."
+        },
+        {
+            "17-30": "NORP"
+        },
+        {
+            "87-90": "DATE"
+        },
+        {
+            "127-130": "DATE"
+        },
+        {
+            "87-90": "DATE"
+        },
+        {
+            "127-130": "DATE"
+        }
+    ],
+    "Stanza-97": [
+        {
+            "sentence": " This is Shi'nao Mountain , situated in Yangquan , Shanxi , a strategic passage of the Zhengtai Railway back then ."
+        },
+        {
+            "9-25": "LOC"
+        },
+        {
+            "40-57": "GPE"
+        },
+        {
+            "83-103": "FAC"
+        }
+    ],
+    "Stanza-98": [
+        {
+            "sentence": " On August 21 , 1940 , in order to pin down Japanese troops stationed in Yangquan and to cover for militiamen sabotaging the western section of the Zhengtai Railway , the 129th Division of the Eighth Route Army ordered the main regiment of its 385th Brigade , the 14th Regiment led by Brigade Commander Chen Xilian , to head directly for Shi'nao Mountain to seize the high ground ."
+        },
+        {
+            "4-20": "DATE"
+        },
+        {
+            "44-52": "NORP"
+        },
+        {
+            "73-81": "GPE"
+        },
+        {
+            "144-164": "FAC"
+        },
+        {
+            "167-185": "ORG"
+        },
+        {
+            "189-210": "ORG"
+        },
+        {
+            "244-257": "ORG"
+        },
+        {
+            "260-277": "ORG"
+        },
+        {
+            "303-314": "PERSON"
+        },
+        {
+            "338-354": "LOC"
+        }
+    ],
+    "Stanza-99": [
+        {
+            "sentence": " Like a sharp sword , civilians in the western section broke through the strategic passage ."
+        }
+    ],
+    "Evaluation-Stanza": [
+        {
+            "RECALL-PERSON": 100.0
+        },
+        {
+            "PRECISION-PERSON": 95.45454545454545
+        },
+        {
+            "F1-PERSON": 97.67441860465117
+        },
+        {
+            "RECALL-NORP": 95.83333333333334
+        },
+        {
+            "PRECISION-NORP": 100.0
+        },
+        {
+            "F1-NORP": 97.8723404255319
+        },
+        {
+            "RECALL-FAC": 100.0
+        },
+        {
+            "PRECISION-FAC": 94.44444444444444
+        },
+        {
+            "F1-FAC": 97.14285714285715
+        },
+        {
+            "RECALL-ORG": 90.0
+        },
+        {
+            "PRECISION-ORG": 93.10344827586206
+        },
+        {
+            "F1-ORG": 91.52542372881356
+        },
+        {
+            "RECALL-GPE": 98.27586206896551
+        },
+        {
+            "PRECISION-GPE": 100.0
+        },
+        {
+            "F1-GPE": 99.13043478260869
+        },
+        {
+            "RECALL-LOC": 100.0
+        },
+        {
+            "PRECISION-LOC": 100.0
+        },
+        {
+            "F1-LOC": 100.0
+        },
+        {
+            "RECALL-DATE": 94.11764705882352
+        },
+        {
+            "PRECISION-DATE": 100.0
+        },
+        {
+            "F1-DATE": 96.96969696969697
+        },
+        {
+            "RECALL-TIME": 87.5
+        },
+        {
+            "PRECISION-TIME": 87.5
+        },
+        {
+            "F1-TIME": 87.5
+        },
+        {
+            "RECALL-QUANTITY": 100.0
+        },
+        {
+            "PRECISION-QUANTITY": 100.0
+        },
+        {
+            "F1-QUANTITY": 100.0
+        },
+        {
+            "RECALL-ORDINAL": 100.0
+        },
+        {
+            "PRECISION-ORDINAL": 100.0
+        },
+        {
+            "F1-ORDINAL": 100.0
+        },
+        {
+            "RECALL-CARDINAL": 88.0
+        },
+        {
+            "PRECISION-CARDINAL": 91.66666666666666
+        },
+        {
+            "F1-CARDINAL": 89.79591836734693
+        },
+        {
+            "RECALL-EVENT": 100.0
+        },
+        {
+            "PRECISION-EVENT": 100.0
+        },
+        {
+            "F1-EVENT": 100.0
+        },
+        {
+            "RECALL-WORK_OF_ART": 66.66666666666666
+        },
+        {
+            "PRECISION-WORK_OF_ART": 100.0
+        },
+        {
+            "F1-WORK_OF_ART": 80.0
+        },
+        {
+            "RECALL-TOTAL": 95.25862068965517
+        },
+        {
+            "PRECISION-TOTAL": 96.9298245614035
+        },
+        {
+            "F1-TOTAL": 96.08695652173914
+        },
+        {
+            "RUNTIME": 13.426560401916504
+        }
+    ]
+}
