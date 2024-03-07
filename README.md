@@ -11,7 +11,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 
 ## Named entity recognition (NER)
 
-This component's input is a CSV file containing texts we want to perform NER on, optionally containing ground truth data. Its output is a CSV file containing NER results.
+This component's input is a CSV file containing texts we want to perform NER on, optionally containing ground truth data. Its output is a CSV and a JSON file containing NER results.
 
 ### Input 
 
