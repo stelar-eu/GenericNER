@@ -713,7 +713,7 @@ def evaluate_stanza(N, names_df, nlp_stanza, df):
   df_results_total = pd.DataFrame({'Stanza':results_list})
   return df_results, df_results_total
 
-def write_json_file(dictionary,out_file_name, output_file_path):
+def write_json_file(dictionary,out_file_name):
   """
   Write dictionary, which contains results and optionally evaluation metrics, to a json file in directory specified in configuration file.
   
@@ -723,7 +723,6 @@ def write_json_file(dictionary,out_file_name, output_file_path):
       config_file (str): Configuration file
   """
   json_object = json.dumps(dictionary, indent=4)
-  out_file = output_file_path + '/' + out_file_name
-  with open(out_file, "w") as outfile:
+  with open(out_file_name + '.json', "w") as outfile:
     outfile.write(json_object)
 

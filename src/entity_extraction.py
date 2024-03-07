@@ -45,7 +45,6 @@ def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
     else:
       all_entities_merged = [item for sublist in all_entities for item in sublist]
     all_entities_cur = all_entities_merged
-    print('all_entities_merged',len(all_entities_merged))
     lst = []
     id = -1
     for text in df['text'][:N]:
@@ -55,7 +54,8 @@ def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
     dictionary = list_to_dict(lst,df)
     tool = 'llm' if type(model)==list else model
     new_df = food_data_to_csv(df[:N],all_entities_merged,tool)
-    new_df.to_csv(output_file,index = False)
+    new_df.to_csv(output_file + '.csv',index = False)
+    write_json_file(dictionary,output_file)
     return output_file, dict_metrics    
 
 
@@ -104,7 +104,8 @@ def generic_entity_extraction(df, extraction_type, model, output_file, N = 10):
     new_df = pd.DataFrame()
   generic_data_to_csv(df[:N],total_results_df,new_df)
   compare_results(total_results_df,N,names_df)
-  new_df.to_csv(output_file,index = False)
+  new_df.to_csv(output_file + '.csv',index = False)
+  write_json_file(dictionary,output_file)
   return output_file, dict_metrics    
 
 def entity_extraction(df, extraction_type, model, output_file, N = 10,
@@ -123,9 +124,9 @@ def entity_extraction(df, extraction_type, model, output_file, N = 10,
 
 def main():
   extraction_type = 'food'
-  dataset = 'incidents.csv'
+  dataset = 'foodbase.csv'
   minio=None
-  model = 'scifoodner'
+  model = 'instafoodroberta'
   if '[' in model:
     model_name = 'LLM'
   else:
@@ -134,27 +135,16 @@ def main():
       df = make_df_by_argument(dataset, text_column = 'description', ground_truth_column = 'generic_tags', 
                                csv_delimiter = ',', minio=minio)
   elif extraction_type == 'food':
-      df = prepare_dataset_new(dataset, text_column = 'description', ground_truth_column = 'iob_tags', minio = minio)
+      df = prepare_dataset_new(dataset, text_column = 'text', ground_truth_column = 'iob_tags', minio = minio)
       if df.empty:
         return -1
 
-  df_orig = df
-  missing = []
-  arr = [5297]
-  for i in arr:
-    df = df_orig
-    df = df[i:]
-    df = df.reset_index(inplace = False)
-    output_file = 'results/scifoodner_results_' + str(i) + '_to_' + str(i+1) + '.csv'
-    try:
-      output_file_path, dict_metrics = entity_extraction(df, extraction_type = extraction_type, model = model,
-                                                     output_file = output_file, N= 1)
-    except:
-      missing.append(output_file)
-      continue
-    print('output_file_path:', output_file_path)
-    print('evaluation dictionary:', dict_metrics)
+  output_file = 'results/instafoodroberta_results'
+  output_file_path, dict_metrics = entity_extraction(df, extraction_type = extraction_type, model = model,
+                                                   output_file = output_file, N= 100)
+  print('CSV output_file_path:', output_file_path + '.csv')
+  print('JSON output_file_path:', output_file_path + '.json')
+  print('evaluation dictionary:', dict_metrics)
 
-  print('missing:',missing)
 if __name__ == "__main__":
   main()
