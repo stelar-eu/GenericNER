@@ -22,7 +22,7 @@ This component's input is a CSV file containing texts we want to perform NER on,
 5. _text\_column_: name of column containing texts
 6. _ground\_truth\_column (optional)_:  name of column containing ground truth tags
 7. _csv\_delimiter_: input CSV delimiter
-8. _output\_file_: name of output file
+8. _output\_file_: name of output file without an extension (e.g. _output_, not _output.csv_)
 9. _N_: number of texts to be annotated 
 
 ### Functionality
