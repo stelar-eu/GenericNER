@@ -21,6 +21,10 @@ def prepare_dataset_new(ds_path, text_column, ground_truth_column, minio):
     if ground_truth_column in list(df.columns):
         df[ground_truth_column] = df[ground_truth_column].apply(lambda x: x[2:-2].split('\', \''))
         df = df[[text_column,ground_truth_column]]
+        for i in range(len(df)):
+          if len(df[ground_truth_column][i]) != len(df[text_column][i].split()):
+            print('Error: the number of tags must be the same as the number of tokens in every text.')
+            return pd.DataFrame()
     else:
         df = df[[text_column]]
     df = df.rename(columns={text_column: "text", ground_truth_column:"tags"})
@@ -38,6 +42,10 @@ def prepare_dataset(ds_path, text_column, ground_truth_column, minio):
     if len(list(df.columns)) == 2 and ground_truth_column in list(df.columns)[1]:
       df[ground_truth_column] = df[ground_truth_column].apply(lambda x: x[2:-2].split('\', \''))
     df = df.rename(columns={text_column: "text", ground_truth_column:"tags"})
+    for i in range(len(df)):
+        if len(df['tags'][i]) != len(df['text'][i].split()):
+          print('Error: the number of tags must be the same as the number of tokens in every text.')
+          df = pd.DataFrame()
     return df
 
 def prepare_dataset_ak(ds_path, text_column, preprocess, minio):

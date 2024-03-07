@@ -2,6 +2,7 @@ from backend_functions import *
 from llm_foodNER_functions import *
 from foodroberta_functions import *
 from utils_init import *
+import os
 
 def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
                            syntactic_analysis_tool = 'stanza', prompt_id = 0):
@@ -10,7 +11,6 @@ def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
     nlp = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,ner')
     nlp_sp = spacy.load("en_core_web_sm")
     dict_metrics = {}
-    
     syntactic = prompt_id == 0
     if syntactic_analysis_tool == 'stanza':
       chosen_nlp = nlp
@@ -54,6 +54,8 @@ def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
     dictionary = list_to_dict(lst,df)
     tool = 'llm' if type(model)==list else model
     new_df = food_data_to_csv(df[:N],all_entities_merged,tool)
+    if not os.path.exists('results'):
+      os.mkdir('results') 
     new_df.to_csv(output_file + '.csv',index = False)
     write_json_file(dictionary,output_file)
     return output_file, dict_metrics    

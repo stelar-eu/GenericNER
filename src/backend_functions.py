@@ -140,6 +140,10 @@ def prepare_given_dataset(df_input, col_name_config, col_name_optional_config):
     if len(df_input.columns) == 2 and df_input.columns[1] == col_name_optional_config:
       df['named_entities'] = df_input[col_name_optional_config]
       df['named_entities'] = df['named_entities'].apply(lambda x: x[2:-2].split('\',\''))
+      for i in range(len(df)):
+        if len(df['named_entities'][i]) != len(df['sentence_non_tokenized'][i].split()):
+          print('Error: the number of tags must be the same as the number of tokens in every text.')
+          df = pd.DataFrame()
   return df
 
 def make_df_by_argument(input_file_path, text_column, ground_truth_column, namecolumn_optional_2 , csv_delimiter, minio):
