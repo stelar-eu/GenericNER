@@ -5,7 +5,7 @@ from simpletransformers.language_representation import RepresentationModel
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.model_selection import KFold, train_test_split
-from utils_train_old import evaluate_model
+from utils_train import evaluate_model
 from llm_foodNER_functions import *
 
 def annotate_entities_scifoodner(df, df_scores, texts_by_period, tags_by_period, start_text, end_text):
