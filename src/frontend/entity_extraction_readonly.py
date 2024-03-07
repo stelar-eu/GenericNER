@@ -19,7 +19,7 @@ tools_list = make_tools_list(json_object)	#make tools list from tools found in j
 n_tools = len(tools_list)
 tools_list = ['All'] + tools_list	#add 'All' option
 
-list_categories = ['PERSON', 'NORP', 'FAC', 'ORG', 'GPE', 'LOC', 'PRODUCT', 'DATE', 'TIME', 'PERCENT', 'MONEY', 'QUANTITY', 'ORDINAL', 'CARDINAL', 'EVENT', 'WORK_OF_ART', 'LAW', 'LANGUAGE','MISC']
+list_categories = ['PERSON', 'NORP', 'FAC', 'ORG', 'GPE', 'LOC', 'PRODUCT', 'DATE', 'TIME', 'PERCENT', 'MONEY', 'QUANTITY', 'ORDINAL', 'CARDINAL', 'EVENT', 'WORK_OF_ART', 'LAW', 'LANGUAGE']
 
 stats = st.sidebar.button('Global dataset statistics')		#print statistics
 if stats:
@@ -29,9 +29,14 @@ eval = st.sidebar.button('Evaluation')		#print evaluation metrics if ground trut
 if eval:
   print_evaluation(json_object, list_categories, tools_list)
 
+cross = st.sidebar.button('Compare results')		#compare results of tools
+if cross:
+  print_cross(json_object, list_categories, tools_list)
+
 form = st.form('Manual assign')		#form used in expander
 
-preferred = []		#used in filtering by category
+preferred_name = []		#used in filtering by category
+preferred_type = []
 kw = ''			#used in filtering by keyword
 
 with st.sidebar.expander('Choose sentence'):
@@ -41,14 +46,16 @@ with st.sidebar.expander('Choose sentence'):
   if 'DATE' in options_type_filter:		#case: date is chosen as filter
     form.d_start = st.text_input("From")
     form.d_end = st.text_input("To")
-  elif options_type_filter != [] and 'DATE' not in options_type_filter:	#case: date not chosen as filter
-    preferred = preferred_entity(options_type_filter,form)
+  else:
+    form.d_start = ''
+    form.d_end = ''
+  preferred_name, preferred_type = preferred_entity(options_type_filter,form)
   kw = select_keyword(form)	#select keyword for filtering
 
 options_type = choose_entity_type(list_categories)	#entity type to annotate(ORG,LOC,ALL etc.)
 tools = choose_tools(tools_list)  #tool type to annotate(ORG,LOC,ALL etc.)
 
 #if filter is given, print filtered sentences. If not and keyword is given, print texts containing keyword. If no filter and no keyword is given, print sentence by index.
-choose_case(kw,options_type_filter, stats, eval, preferred, num_select, form, json_object, tools, options_type, tools_list)		
-print_annotate_sentence_by_index(num, json_object, tools, num_select, stats, eval, kw, options_type, options_type_filter)
+choose_case(kw,options_type_filter, stats, eval, cross, preferred_name, preferred_type, num_select, form, json_object, tools, options_type, tools_list)		
+print_annotate_sentence_by_index(num, json_object, tools, num_select, stats, eval, cross, kw, options_type, options_type_filter)
 
