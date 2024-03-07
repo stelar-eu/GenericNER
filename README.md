@@ -75,7 +75,7 @@ In _src_ directory, run:
 $ python3 entity_extraction.py
 ```
 
-[//] where _your_csv_ is the input CSV file. If you have no CSV file available and you want to try the application, you can give 'default' in place of _your_csv_ and the application will run on a sample of conll2012_ontonotesv5_ dataset from [HuggingFace]. 
+[//] <> (where _your_csv_ is the input CSV file. If you have no CSV file available and you want to try the application, you can give 'default' in place of _your_csv_ and the application will run on a sample of conll2012_ontonotesv5_ dataset from [HuggingFace].) 
 
 Expect this step to take a few minutes to complete the first time, since models need to be downloaded and imported.
 
