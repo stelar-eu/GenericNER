@@ -7,22 +7,23 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | PERSON     | ORG  |  TIME | ORDINAL |LAW
 | NORP   |GPE   |  PERCENT | CARDINAL | LANGUAGE
 | FAC |  LOC   |  MONEY | EVENT | MISC
-| PRODUCT| DATE | QUANTITY | WORK_OF_ART
+| PRODUCT| DATE | QUANTITY | WORK_OF_ART | FOOD
 
 ## Named entity recognition (NER)
 
 This component's input is a CSV file containing texts we want to perform NER on, optionally containing ground truth data. Its output is a JSON file containing NER results.
 
-### Input with no ground truth
+### Input 
 
-In this case, the input CSV file contains one column. Each row is going to be a text in string form. The column must be named as specified in the [configuration file] and can be changed according to the user's preferences. A sample of an appropriate input CSV file with no ground truth is [sample_no_groundtruth.csv].
-
-### Input with ground truth
-
-In this case, the input CSV file contains two columns. The first column is identical to the column of the first case and the second column represents ground truth entities. Ground truth is used for evaluation of the NER performed. Apart from the first column containing texts, the second column must represent named entities of the text contained in the first column of the row. Νamed entities must follow the [BIO format].
-
-A sample of an appropriate input CSV file with ground truth is [sample_groundtruth.csv].
-The input CSV file delimiter is specified in the [configuration file] and can be changed according to the user's preferences.
+1. _extraction\_type_: 'generic','food' or 'all'
+2. _dataset_: path to input CSV file
+3. _model_: 'scifoodner' or 'instafoodroberta' or an array of LLMs,e.g. ['mistral_7b'], ['llama2:7b','openhermes:7b-v2.5']
+4. _minio_
+5. _text\_column_: name of column containing texts
+6. _ground\_truth\_column (optional)_:  name of column containing ground truth tags
+7. _csv\_delimiter_: input CSV delimiter
+8. _output\_file_: name of output file
+9. _N_: number of texts to be annotated 
 
 ### Functionality
 
