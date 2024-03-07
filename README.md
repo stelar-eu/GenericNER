@@ -117,5 +117,5 @@ This software was developed under the [STELAR] project.
    [sample_no_groundtruth.csv]: <examples/sample_no_groundtruth.csv>
    [requirements.txt]: <requirements.txt> 
    [named entity recognition (NER)]: <https://en.wikipedia.org/wiki/Named-entity_recognition>
-   [SciFoodNER]: <https://github.com/gjorgjinac>
+   [SciFoodNER]: <https://github.com/gjorgjinac/SciFoodNER/>
    [InstaFoodRoBERTa]: <https://huggingface.co/Dizex/InstaFoodRoBERTa-NER>
