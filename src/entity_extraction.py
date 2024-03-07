@@ -1,4 +1,3 @@
-
 from backend_functions import *
 from llm_foodNER_functions import *
 from foodroberta_functions import *
@@ -46,6 +45,7 @@ def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
     else:
       all_entities_merged = [item for sublist in all_entities for item in sublist]
     all_entities_cur = all_entities_merged
+    print('all_entities_merged',len(all_entities_merged))
     lst = []
     id = -1
     for text in df['text'][:N]:
@@ -125,7 +125,7 @@ def main():
   extraction_type = 'food'
   dataset = 'incidents.csv'
   minio=None
-  model = '[mistral:7b]'
+  model = 'scifoodner'
   if '[' in model:
     model_name = 'LLM'
   else:
@@ -137,13 +137,24 @@ def main():
       df = prepare_dataset_new(dataset, text_column = 'description', ground_truth_column = 'iob_tags', minio = minio)
       if df.empty:
         return -1
-  df = df[:2072]
-  df = df.reset_index(inplace = False)
-  output_file_path, dict_metrics = entity_extraction(df, extraction_type = extraction_type, model = model,
-                                                     output_file = 'output_all_' + extraction_type + '_' + model_name + '.csv',
-                                                     N = len(df))
-  print('output_file_path:', output_file_path)
-  print('evaluation dictionary:', dict_metrics)
 
+  df_orig = df
+  missing = []
+  arr = [5297]
+  for i in arr:
+    df = df_orig
+    df = df[i:]
+    df = df.reset_index(inplace = False)
+    output_file = 'results/scifoodner_results_' + str(i) + '_to_' + str(i+1) + '.csv'
+    try:
+      output_file_path, dict_metrics = entity_extraction(df, extraction_type = extraction_type, model = model,
+                                                     output_file = output_file, N= 1)
+    except:
+      missing.append(output_file)
+      continue
+    print('output_file_path:', output_file_path)
+    print('evaluation dictionary:', dict_metrics)
+
+  print('missing:',missing)
 if __name__ == "__main__":
   main()

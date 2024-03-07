@@ -71,15 +71,12 @@ def prepare_dataset_scientific(path):
         while '\"' in df.loc[i,'text']:
             old_len = (len(df.loc[i,'text'].split()))
             df.loc[i,'text'] = df.loc[i,'text'][:df.loc[i,'text'].index('\"')] + ',' + df.loc[i,'text'][df.loc[i,'text'].index('\"')+1:]
-            if old_len != (len(df.loc[i,'text'].split())):
         while ' \' ' in df.loc[i,'text']:
             old_len = (len(df.loc[i,'text'].split()))
             df.loc[i,'text'] = df.loc[i,'text'][:df.loc[i,'text'].index('\'')] + ',' + df.loc[i,'text'][df.loc[i,'text'].index('\'')+1:]
-            if old_len != (len(df.loc[i,'text'].split())):
         while '\'' in df.loc[i,'text']:
             old_len = (len(df.loc[i,'text'].split()))
             df.loc[i,'text'] = df.loc[i,'text'][:df.loc[i,'text'].index('\'')] + df.loc[i,'text'][df.loc[i,'text'].index('\'')+1:]
-            if old_len != (len(df.loc[i,'text'].split())):
     return df
     
 def ask_ollama(text, LLM, prompt = False):
@@ -1332,6 +1329,9 @@ def clean_text(texts_by_period):
         idx += 1
         texts_by_period[idx] = texts_by_period[idx].replace('\"','’')
         texts_by_period[idx] = texts_by_period[idx].replace('\'','’')
+        texts_by_period[idx] = texts_by_period[idx].replace('>','')
+        texts_by_period[idx] = texts_by_period[idx].replace('<','')
+        texts_by_period[idx] = texts_by_period[idx].replace('/','')
     return texts_by_period
 
 def food_data_to_csv(df,all_entities_cur,tool):

@@ -4,6 +4,7 @@ import torch
 from simpletransformers.ner import NERModel
 import shutil
 from sklearn.metrics import classification_report
+from llm_foodNER_functions import *
 
 bert_model_config={'biobert':'dmis-lab/biobert-v1.1', 'roberta': 'roberta-base', 'bert':'bert-base-uncased', 'scibert':'allenai/scibert_scivocab_uncased'}
 
@@ -22,13 +23,16 @@ def save_predictions(texts, tags, ner_model):
     texts_list = []
     inner_list = []
     predictions = pd.DataFrame()
-    split_num = 10
+    split_num = 5
+    texts = clean_text(texts)
     for text in texts:
       for token in text.split():
+        if len(token) > 100:
+          token = token[:int(len(token)/3)]
         inner_list.append(token)
         sum += 1
-        if '.' in token or token == '.' or len(inner_list) > 50:
-          if len(inner_list) > 50:
+        if '.' in token or token == '.' or len(inner_list) > 100:
+          if len(inner_list) > 100:
             inner_list[-1] += '.'
           texts_list.append(inner_list)
           inner_list = []
