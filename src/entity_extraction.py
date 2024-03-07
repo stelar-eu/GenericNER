@@ -54,8 +54,6 @@ def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
     dictionary = list_to_dict(lst,df)
     tool = 'llm' if type(model)==list else model
     new_df = food_data_to_csv(df[:N],all_entities_merged,tool)
-    if not os.path.exists('results'):
-      os.mkdir('results') 
     new_df.to_csv(output_file + '.csv',index = False)
     write_json_file(dictionary,output_file)
     return output_file, dict_metrics    
