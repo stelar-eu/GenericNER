@@ -50,7 +50,7 @@ $ git clone https://github.com/stelar-eu/GenericNER.git
 
 Then, move to directory:
 ```sh
-$ cd GenericNER-main
+$ cd GenericNER
 ```
 
 First, you need to download all environments and packages stated on [requirements.txt] file. To do that, run:
