@@ -3,7 +3,7 @@ torch
 torchvision
 torchaudio
 wikipedia
-annotated_text
+st-annotated-text
 streamlit
 spacy
 stanza
