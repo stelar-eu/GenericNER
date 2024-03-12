@@ -19,7 +19,7 @@ tools_list = make_tools_list(json_object)	#make tools list from tools found in j
 n_tools = len(tools_list)
 tools_list = ['All'] + tools_list	#add 'All' option
 
-list_categories = ['PERSON', 'NORP', 'FAC', 'ORG', 'GPE', 'LOC', 'PRODUCT', 'DATE', 'TIME', 'PERCENT', 'MONEY', 'QUANTITY', 'ORDINAL', 'CARDINAL', 'EVENT', 'WORK_OF_ART', 'LAW', 'LANGUAGE']
+list_categories = ['PERSON', 'NORP', 'FAC', 'ORG', 'GPE', 'LOC', 'PRODUCT', 'DATE', 'TIME', 'PERCENT', 'MONEY', 'QUANTITY', 'ORDINAL', 'CARDINAL', 'EVENT', 'WORK_OF_ART', 'LAW', 'LANGUAGE', 'FOOD']
 
 stats = st.sidebar.button('Global dataset statistics')		#print statistics
 if stats:

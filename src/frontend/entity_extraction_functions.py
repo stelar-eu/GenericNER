@@ -170,12 +170,12 @@ def make_keys_values(tools, json_object, num):
               values.append(value)
   return keys,values
 
-def filter_sentences(preferred,json_object, tools, options_type): 
+def filter_sentences(preferred,json_object, tools, options_type, tools_list): 
   found = 0
   how_many = 0
   if preferred is not None and preferred != '': 
     for key_json,value_json in json_object.items():
-      if ('Cross results' != key_json) and ('Evaluation' not in key_json) and preferred is not None and ((preferred in value_json[0]['sentence']) or (preferred.lower() in value_json[0]['sentence']) or (preferred in value_json[0]['sentence'].lower())) and 'Stanza' in key_json:
+      if ('Cross results' != key_json) and ('Evaluation' not in key_json) and preferred is not None and ((preferred in value_json[0]['sentence']) or (preferred.lower() in value_json[0]['sentence']) or (preferred in value_json[0]['sentence'].lower())) and tools_list[1] in key_json:
         found = 1
         how_many += 1
         keys,values = make_keys_values(tools, json_object, key_json[key_json.index('-')+1:])
@@ -290,8 +290,9 @@ def print_statistics(json_object, list_categories, tools_list):
   idx = 0
   df_data = pd.DataFrame(dictionary, index = list_categories)
   df_data = df_data.drop(columns = 'list_All')
-  df_data.rename(columns={'list_spaCy + RoBERTa': 'Unique entities identified by spaCy + RoBERTa',
-                   'list_spaCy': 'Unique entities identified by spaCy','list_Stanza': 'Unique entities identified by Stanza','list_Flair': 'Unique entities identified by Flair' },
+  for tool in tools_list:
+    if tool != 'All':
+      df_data.rename(columns={'list_' + tool: 'Unique entities identified by' + tool},
           inplace=True, errors='raise')
   df_data['Total unique entities detected'] = list_num
   st.table(df_data)
@@ -478,14 +479,14 @@ def preferred_entity(options_type_filter,form):
 
 def choose_case(kw,options_type_filter, stats, eval, cross, preferred_name, preferred_type, num_select, form, json_object, tools, options_type, tools_list):
   if kw != '' and options_type_filter == [] and not stats and not eval and not cross:
-   filter_sentences(kw,json_object, tools, options_type)
+   filter_sentences(kw,json_object, tools, options_type, tools_list)
   if (preferred_name != [] or form.d_start != '' or form.d_end != '') and not stats and not eval and not cross:
     filter_sentences_category(preferred_name, preferred_type,json_object, tools, options_type, options_type_filter, form.d_start,form.d_end)
   elif options_type_filter != [] and (preferred_name == [] and form.d_start == '' and form.d_end == '') and num_select != 0 and not stats and not eval and not cross:
     print_all_category(options_type_filter, json_object, options_type, tools, tools_list)
 
 def print_annotate_sentence_by_index(num, json_object, tools, num_select, stats, eval, cross, kw, options_type, options_type_filter):
-  str_ = 'spaCy-' + str(num)
+  str_ = make_tools_list(json_object)[0] + '-' + str(num)
   sentence = json_object[str_][0]['sentence']
   keys,values = make_keys_values(tools, json_object, num)
 
