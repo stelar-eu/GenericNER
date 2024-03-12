@@ -99,7 +99,7 @@ The application will open on a new tab on your web browser and will look like th
 
 Upload the JSON file generated in the first step and browse the application. A small guide for its usage can be found here: [guide.pdf]. 
 
-This software was developed under the [STELAR] project.
+This software was developed under [STELAR] project.
 
    [spaCy]: <http://spacy.io>
    [spaCy + RoBERTa benchmark]: <https://spacy.io/models/en#en_core_web_trf>
