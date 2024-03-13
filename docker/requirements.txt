@@ -1,0 +1,13 @@
+datasets
+torch
+torchvision
+torchaudio
+wikipedia
+st-annotated-text
+streamlit
+spacy
+stanza
+flair
+urllib3
+minio
+simpletransformers

@@ -1,0 +1,21 @@
+{
+    "input": [
+        "s3://XXXXXXXX-bucket/temp1.csv"
+    ],
+    "parameters": {
+         "output_file":"test_output",
+         "text_column":"description",
+         "csv_delimiter":",",
+         "keep_food": true,
+         "N":100,
+         "extraction_type":"food",
+         "model":"instafoodroberta",
+         "syntactic_analysis_tool":"spacy"
+    },
+    "minio": {
+        "endpoint_url": "minio.XXXXXXXX.gr",
+        "id": "XXXXXXXX",
+        "key": "XXXXXXXX",
+        "bucket": "XXXXXXXX-bucket"
+    }
+}

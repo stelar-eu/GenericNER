@@ -1,0 +1,19 @@
+{
+    "message": "Entity Extraction completed successfully!",
+    "output": [
+        {
+            "path": "s3://XXXXXXXX-bucket/eaaa745c-7767-474d-9263-28f659fdb5b6.csv",
+            "name": "Extracted Entities in CSV format"
+        },
+        {
+            "path": "s3://XXXXXXXX-bucket/7cda9879-0982-49c6-b4f7-931c2d75e024.json",
+            "name": "Extracted Entities in JSON format"
+        }
+    ],
+    "metrics": {
+        "total_tags": 308.33,
+        "food_tags": 12.285714285714286,
+        "execution_time": 93.04654812812805
+    },
+    "status": 200
+}
