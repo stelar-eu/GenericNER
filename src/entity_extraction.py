@@ -132,14 +132,14 @@ def main():
   else:
     model_name = model
   if extraction_type == 'generic':
-      df = make_df_by_argument(dataset, text_column = 'description', ground_truth_column = 'generic_tags', 
+      df = make_df_by_argument(dataset, text_column = 'text', ground_truth_column = 'generic_tags', 
                                csv_delimiter = ',', minio=minio)
   elif extraction_type == 'food':
       df = prepare_dataset_new(dataset, text_column = 'text', ground_truth_column = 'tags', minio = minio)
       if df.empty:
         return -1
 
-  output_file = 'instafoodroberta_results'
+  output_file = 'instafoodroberta_results_food'
   output_file_path, dict_metrics = entity_extraction(df, extraction_type = extraction_type, model = model,
                                                    output_file = output_file, N= 100)
   print('CSV output_file_path:', output_file_path + '.csv')

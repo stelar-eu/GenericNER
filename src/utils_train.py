@@ -11,7 +11,7 @@ bert_model_config={'biobert':'dmis-lab/biobert-v1.1', 'roberta': 'roberta-base',
 def evaluate_model(texts, tags, bert_model_name, start_text, end_text):
     ner_model = NERModel(
         bert_model_name if bert_model_name=='roberta' else 'bert',
-        'scifood_zips/cafeteria/best',
+        'cafeteria/best',
         args={"max_seq_length": 512}
     )
     results_list = save_predictions(texts[start_text:end_text], tags[start_text:end_text], ner_model = ner_model)

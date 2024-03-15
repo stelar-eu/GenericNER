@@ -954,7 +954,8 @@ def list_to_dict(all_entities_cur,df,tool_name):
     for i in range(len(df)):
       position_in_text = 1
       dictionary_arr = []
-      dictionary_arr.append({'sentence': ' ' + df.loc[i,'text']})
+      txt = ' ' + df.loc[i,'text'] 
+      dictionary_arr.append({'sentence': txt})
       for token in df.loc[i,'text'].split():
         idx += 1
         if all_entities_cur[idx] == 'O' or (all_entities_cur[idx] == 'I-FOOD' and food_area == 0):
@@ -963,10 +964,22 @@ def list_to_dict(all_entities_cur,df,tool_name):
           food_area = 1
           entity_starting = position_in_text
           if idx == len(all_entities_cur) - 1 or all_entities_cur[idx+1] != 'I-FOOD':
-            dict_str = str(position_in_text) + '-' + str(position_in_text+len(token))
+            new_start = position_in_text
+            while not txt[new_start].isalpha():
+              new_start += 1
+            new_end = position_in_text+len(token)
+            while not txt[new_end].isalpha():
+              new_end -= 1
+            dict_str = str(new_start) + '-' + str(new_end +1)
             dictionary_arr.append({dict_str:'FOOD'})
         elif all_entities_cur[idx] == 'I-FOOD' and all_entities_cur[idx-1] != 'O' and all_entities_cur[idx+1] != 'I-FOOD' and food_area:
-          dict_str = str(entity_starting) + '-' + str(position_in_text+len(token))
+          new_start = entity_starting
+          while not txt[new_start].isalpha():
+            new_start += 1
+          new_end = position_in_text+len(token)
+          while not txt[new_end].isalpha():
+            new_end -= 1
+          dict_str = str(new_start) + '-' + str(new_end + 1)
           dictionary_arr.append({dict_str:'FOOD'})
         position_in_text += len(token) + 1  
       dict_str = tool_name + '-' + str(i)

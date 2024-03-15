@@ -86,7 +86,7 @@ def get_output_config_file(config_file):
   output_path = config_data['output_file_path']
   return output_file_name,output_path
 
-def check_input_with_config(input_file_path, text_column, ground_truth_column, csv_delimiter, output_file_path, minio):
+def check_input_with_config(input_file_path, text_column, ground_truth_column, csv_delimiter, minio):
   """
   Checks if input CSV file has the correct format, based on configuration file.
   
@@ -98,7 +98,6 @@ def check_input_with_config(input_file_path, text_column, ground_truth_column, c
   """
   col_name_config = text_column
   col_name_optional_config = ground_truth_column
-  output_path  = output_file_path	#check if given csv in correct form
   df_input = pd.DataFrame()
   if '.csv' not in input_file_path:
     df_input == pd.DataFrame()
@@ -129,8 +128,8 @@ def prepare_given_dataset(df_input, col_name_config, col_name_optional_config):
     print('Wrong csv format. Please provide a csv file which contains a single column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
   elif len(df_input.columns) == 1 and df_input.columns != col_name_config:
     print('Wrong csv format. Please provide a csv file which contains a single column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
-  elif len(df_input.columns) > 2:
-    print('Wrong csv format. Please provide a csv file which contains a single column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
+  #elif len(df_input.columns) > 2:
+  #  print('Wrong csv format. Please provide a csv file which contains a single column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
   else:
     df = pd.DataFrame(index = range(len(df_input)), columns = ['sentences','sentence_non_tokenized'])
     for i in range(len(df_input)):
@@ -146,7 +145,7 @@ def prepare_given_dataset(df_input, col_name_config, col_name_optional_config):
           df = pd.DataFrame()
   return df
 
-def make_df_by_argument(input_file_path, text_column, ground_truth_column, namecolumn_optional_2 , csv_delimiter, minio):
+def make_df_by_argument(input_file_path, text_column, ground_truth_column, csv_delimiter, minio):
   """
   Returns dataframe according to whether a CSV file was given as an input or not.
   
@@ -157,11 +156,11 @@ def make_df_by_argument(input_file_path, text_column, ground_truth_column, namec
   Returns:
       The dataframe
   """
-  df_input,col_name_config,col_name_optional_config  = check_input_with_config(input_file_path, text_column, ground_truth_column, csv_delimiter, output_file_path, minio)
+  df_input,col_name_config,col_name_optional_config  = check_input_with_config(input_file_path, text_column, ground_truth_column, csv_delimiter, minio)
   if df_input.empty:
     print('ERROR: Please provide a .csv file.')
     exit()  
-  df = prepare_given_dataset(df_input, col_name_config,col_name_optional_config,namecolumn_optional_2) 
+  df = prepare_given_dataset(df_input, col_name_config,col_name_optional_config) 
   if df.empty:
     print('ERROR: Wrong CSV format!')
     exit()
