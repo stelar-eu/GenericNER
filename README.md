@@ -65,7 +65,7 @@ $ python -m spacy download en_core_web_trf
 $ python -m spacy download en_core_web_sm
 ```
 
-To perform food NER using SciFoodNER, you will need to have downloaded _cafeteria_ directory from <here>. 
+To perform food NER using SciFoodNER, you will need to have downloaded _cafeteria_ directory from [here]. 
 
 # Execution
 
