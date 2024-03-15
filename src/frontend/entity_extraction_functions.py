@@ -79,16 +79,27 @@ def annotate_text(sentence, keys, values, all_or_not, options_type = ['ALL','ALL
     word_start = index_in_str
     word_end = word_start + len(word)
     dont_include = 0
+    clear_word_end = word_end
+    while not sentence[clear_word_end].isalpha():
+      clear_word_end -= 1  
     for entity_span in keys:
       span_start = int(str(entity_span)[:(str(entity_span).index('-'))])
       span_end = int(str(entity_span)[(str(entity_span).index('-')+1):])
-      if word_start >= span_start and word_end <= span_end and (values[count] in options_type or 'ALL' in options_type or all_or_not == 'ALL'):
+      if word_start >= span_start and (word_end <= span_end or clear_word_end <= span_end) and (values[count] in options_type or 'ALL' in options_type or all_or_not == 'ALL'):
         if annotated[index_token] == 0:
+          annotate_non_char = ''
+          it = span_end
+          while (not sentence[it].isalpha()) and (sentence[it] != ' '):
+            annotate_non_char = sentence[span_end] + annotate_non_char
+            it -= 1
           tup = (sentence[span_start:span_end], values[count])
           list_tuples.append(tup)
+          if annotate_non_char != '':
+            tup = (annotate_non_char,)
+            list_tuples.append(tup)
           for i in range(index_token,index_token + len(sentence[span_start:span_end].split())):
             try:
-              annotated[i] = 1
+              annotated[i] = 1 
             except:
               print(i)
         is_entity = 1
@@ -186,7 +197,7 @@ def filter_sentences(preferred,json_object, tools, options_type, tools_list):
     else:
       st.write('__________________\n', str(how_many), ' results')
 
-def filter_sentences_category(preferred_names_list,preferred_types_list,json_object, tools, options_type, options_type_filter,d_start,d_end): 
+def filter_sentences_category(preferred_names_list,preferred_types_list,json_object, tools, tools_list, options_type, options_type_filter,d_start,d_end): 
   found = 0
   signal_no_entry = 0
   labels_yes = 0
@@ -199,7 +210,7 @@ def filter_sentences_category(preferred_names_list,preferred_types_list,json_obj
     for preferred in preferred_names_list:
       i += 1
       for key_json,value_json in json_object.items():
-        if (preferred_types_list[i] != 'DATE') and ('Cross results' != key_json) and ('Evaluation' not in key_json) and ((preferred in value_json[0]['sentence']) or (preferred.lower() in value_json[0]['sentence']) or (preferred in value_json[0]['sentence'].lower())) and 'Stanza' in key_json: 
+        if (preferred_types_list[i] != 'DATE') and ('Cross results' != key_json) and ('Evaluation' not in key_json) and ((preferred in value_json[0]['sentence']) or (preferred.lower() in value_json[0]['sentence']) or (preferred in value_json[0]['sentence'].lower())) and tools_list[1] in key_json: 
           found = 0
           for item in json_object[key_json]:
             for key,value in item.items():
@@ -228,7 +239,7 @@ def filter_sentences_category(preferred_names_list,preferred_types_list,json_obj
   
   for key_json,value_json in json_object.items():
     found_date = 0
-    if('DATE' in preferred_types_list) and ('Cross results' != key_json) and ('Evaluation' not in key_json) and 'Stanza' in key_json and d_start is not None and (d_start != '' or d_end != '') and str(int(key_json[key_json.index('-')+1:])+1) not in sentence_printed.index.values:
+    if('DATE' in preferred_types_list) and ('Cross results' != key_json) and ('Evaluation' not in key_json) and tools_list[1] in key_json and d_start is not None and (d_start != '' or d_end != '') and str(int(key_json[key_json.index('-')+1:])+1) not in sentence_printed.index.values:
       for item in json_object[key_json]:
         for key,value in item.items():
           if key != 'sentence' and value == 'DATE':
@@ -481,7 +492,7 @@ def choose_case(kw,options_type_filter, stats, eval, cross, preferred_name, pref
   if kw != '' and options_type_filter == [] and not stats and not eval and not cross:
    filter_sentences(kw,json_object, tools, options_type, tools_list)
   if (preferred_name != [] or form.d_start != '' or form.d_end != '') and not stats and not eval and not cross:
-    filter_sentences_category(preferred_name, preferred_type,json_object, tools, options_type, options_type_filter, form.d_start,form.d_end)
+    filter_sentences_category(preferred_name, preferred_type,json_object, tools, tools_list,options_type, options_type_filter, form.d_start,form.d_end)
   elif options_type_filter != [] and (preferred_name == [] and form.d_start == '' and form.d_end == '') and num_select != 0 and not stats and not eval and not cross:
     print_all_category(options_type_filter, json_object, options_type, tools, tools_list)
 
