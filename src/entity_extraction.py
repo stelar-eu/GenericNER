@@ -126,7 +126,7 @@ def main():
   extraction_type = 'food'
   dataset = 'foodbase.csv'
   minio=None
-  model = '[mistral:7b]'
+  model = 'instafoodroberta'
   if '[' in model:
     model_name = 'LLM'
   else:
@@ -139,7 +139,7 @@ def main():
       if df.empty:
         return -1
 
-  output_file = 'scifoodner_results_food'
+  output_file = 'instafood_results_food'
   output_file_path, dict_metrics = entity_extraction(df, extraction_type = extraction_type, model = model,
                                                    output_file = output_file, N= 100)
   print('CSV output_file_path:', output_file_path + '.csv')
