@@ -65,6 +65,8 @@ $ python -m spacy download en_core_web_trf
 $ python -m spacy download en_core_web_sm
 ```
 
+To perform food NER using SciFoodNER, you will need to have downloaded _cafeteria_ directory from <here>. 
+
 # Execution
 
 You are now ready to run the application. 
@@ -113,6 +115,7 @@ This software was developed under [STELAR] project.
    [configuration file]: <config_file.ini>
    [output.json.example]: <examples/output.json.example>
    [guide.pdf]: <docs/guide.pdf>
+   [here]: <https://portal.ijs.si/nextcloud/s/C3jCDq84TBoE8gY>
    [sample_groundtruth.csv]: <examples/sample_groundtruth.csv>
    [sample_no_groundtruth.csv]: <examples/sample_no_groundtruth.csv>
    [requirements.txt]: <requirements.txt> 
