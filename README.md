@@ -67,6 +67,8 @@ $ python -m spacy download en_core_web_sm
 
 To perform food NER using SciFoodNER, you will need to have downloaded _cafeteria_ directory from [here]. 
 
+To perform food NER using LLMs, you will need to have [Ollama] installed and mistral:7B, llama2:7b, openhermes:7b-v2.5 models pulled. Directions can be found on [Ollama's GitHub page]. 
+
 # Execution
 
 You are now ready to run the application. 
@@ -122,3 +124,5 @@ This software was developed under [STELAR] project.
    [named entity recognition (NER)]: <https://en.wikipedia.org/wiki/Named-entity_recognition>
    [SciFoodNER]: <https://github.com/gjorgjinac/SciFoodNER/>
    [InstaFoodRoBERTa]: <https://huggingface.co/Dizex/InstaFoodRoBERTa-NER>
+   [Ollama]: <https://ollama.com/>
+   [Ollama's GitHub page]: <https://github.com/ollama/ollama>
