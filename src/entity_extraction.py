@@ -51,8 +51,8 @@ def food_entity_extraction(df, extraction_type, model, output_file, N = 10,
         id += 1
         lst.append(all_entities_cur[:len(text.split())])
         all_entities_cur = all_entities_cur[len(text.split()):]
-    dictionary = list_to_dict(lst,df[:N],model)
     tool = 'llm' if type(model)==list else model
+    dictionary = list_to_dict(lst,df[:N],tool)
     new_df = food_data_to_csv(df[:N],all_entities_merged,tool)
     new_df.to_csv(output_file + '.csv',index = False)
     write_json_file(dictionary,output_file)
@@ -126,7 +126,7 @@ def main():
   extraction_type = 'food'
   dataset = 'foodbase.csv'
   minio=None
-  model = 'instafoodroberta'
+  model = '[mistral:7b]'
   if '[' in model:
     model_name = 'LLM'
   else:
@@ -139,7 +139,7 @@ def main():
       if df.empty:
         return -1
 
-  output_file = 'instafoodroberta_results_food'
+  output_file = 'scifoodner_results_food'
   output_file_path, dict_metrics = entity_extraction(df, extraction_type = extraction_type, model = model,
                                                    output_file = output_file, N= 100)
   print('CSV output_file_path:', output_file_path + '.csv')
