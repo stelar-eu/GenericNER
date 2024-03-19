@@ -67,7 +67,7 @@ $ python -m spacy download en_core_web_sm
 
 To perform food NER using SciFoodNER, you will need to download _cafeteria_ directory from [here]. 
 
-To perform food NER using LLMs, you will need to have [Ollama] installed and mistral:7B, llama2:7b, openhermes:7b-v2.5 models pulled. Directions can be found on [Ollama's GitHub page]. 
+To perform food NER using LLMs, you will need to have [Ollama] installed and _mistral:7b_, _llama2:7b_, _openhermes:7b-v2.5_ models pulled. Directions can be found on [Ollama's GitHub page]. 
 
 # Execution
 
