@@ -3,6 +3,7 @@
 Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for the named entity recognition and one for visualization of results (GUI). Entities and tools supported are the following:
 
 Entities
+| |
 | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | PERSON     | ORG  |  TIME | ORDINAL |LAW
 | NORP   |GPE   |  PERCENT | CARDINAL | LANGUAGE
