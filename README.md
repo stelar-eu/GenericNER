@@ -11,7 +11,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | PRODUCT| DATE | QUANTITY | WORK_OF_ART | FOOD
 
 ### Tools
-| Generic (all fields except food) | Food 
+| Generic (all entities except food) | Food 
 | ----------- | --------- |
 | spaCy     | InstaFoodRoBERTa
 | spaCy + RoBERTa | SciFoodNER
