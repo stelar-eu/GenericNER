@@ -20,7 +20,7 @@ This component's input is a CSV file containing texts we want to perform NER on,
 3. _model_: 'scifoodner' or 'instafoodroberta' or an array of LLMs,e.g. ['mistral_7b'], ['llama2:7b','openhermes:7b-v2.5']
 4. _minio_
 <!---
-.json dictionary & reordering, minio last , when dataset not local and is an s3 path, credentials for minio server
+5.json dictionary & reordering, minio last , when dataset not local and is an s3 path, credentials for minio server, {food:spaCy}
 -->
 6. _text\_column_: name of column containing texts
 7. _ground\_truth\_column (optional)_:  name of column containing ground truth tags
