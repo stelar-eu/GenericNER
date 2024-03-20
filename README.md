@@ -28,8 +28,8 @@ This component's input is a CSV file containing texts we want to perform NER on,
 
 1. _dataset_ (str): path to input CSV file 
 2. _N_ (int): number of texts to be annotated 
-3. _model_ (array): models for text annotation in lowercase (e.g. _['spacy','mistral:7b,'stanza']_)
-4. _extraction\_type_ (array): entity types to extract, in lowercase. Must be chosen from the table above (e.g. _['org','food']_) or _['all']_ for annotation of all types 
+3. _model_ (array of str): models for text annotation in lowercase (e.g. _['spacy','mistral:7b,'stanza']_)
+4. _extraction\_type_ (array of str): entity types to extract, in lowercase. Must be chosen from the table above (e.g. _['org','food']_) or _['all']_ for annotation of all types 
 5. _text\_column_ (str): name of _dataset_ column containing texts
 6. _ground\_truth\_column_ (optional,str):  name of _dataset_ column containing ground truth tags
 7. _csv\_delimiter_ (str): input CSV file delimiter
