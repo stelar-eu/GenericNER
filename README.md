@@ -15,18 +15,15 @@ This component's input is a CSV file containing texts we want to perform NER on,
 
 ### Parameters
 
-1. _extraction\_type_: 'generic','food' or 'all'
-2. _dataset_: path to input CSV file
+1. _dataset_: path to input CSV file 
+2. _N_: number of texts to be annotated 
 3. _model_: 'scifoodner' or 'instafoodroberta' or an array of LLMs,e.g. ['mistral_7b'], ['llama2:7b','openhermes:7b-v2.5']
-4. _minio_
-<!---
-5.json dictionary & reordering, minio last , when dataset not local and is an s3 path, credentials for minio server, {food:spaCy}
--->
-6. _text\_column_: name of column containing texts
-7. _ground\_truth\_column (optional)_:  name of column containing ground truth tags
-8. _csv\_delimiter_: input CSV delimiter
-9. _output\_file_: name of output file without an extension (e.g. _output_, not _output.csv_)
-10. _N_: number of texts to be annotated 
+4. _extraction\_type_: 'org','food', etc. or 'all' for annotation of all types 
+5. _text\_column_: name of _dataset_ column containing texts
+6. _ground\_truth\_column (optional)_:  name of _dataset_ column containing ground truth tags
+7. _csv\_delimiter_: input CSV file delimiter
+8. _output\_file_: name of output file without an extension (e.g. _output_, not _output.csv_)
+9. _minio (optional)_: credentials for minio server. Used when dataset is not local, but instead is an s3 path to the minio server
 
 ### Functionality
 
