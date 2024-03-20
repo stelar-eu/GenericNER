@@ -15,15 +15,15 @@ This component's input is a CSV file containing texts we want to perform NER on,
 
 ### Parameters
 
-1. _dataset_: path to input CSV file 
-2. _N_: number of texts to be annotated 
-3. _model_: 'scifoodner' or 'instafoodroberta' or an array of LLMs,e.g. _['mistral_7b']_, or _['llama2:7b','openhermes:7b-v2.5']_
-4. _extraction\_type_: one of the types mentioned in the table above (e.g. _['org','food']_) or _['all']_ for annotation of all types 
-5. _text\_column_: name of _dataset_ column containing texts
-6. _ground\_truth\_column (optional)_:  name of _dataset_ column containing ground truth tags
-7. _csv\_delimiter_: input CSV file delimiter
-8. _output\_file_: name of output file without an extension (e.g. _output_, not _output.csv_)
-9. _minio (optional)_: credentials for minio server. Used when dataset is not local, but instead is an s3 path to the minio server
+1. _dataset_ (str): path to input CSV file 
+2. _N_ (int): number of texts to be annotated 
+3. _model_ (array): models for text annotation (e.g. _['spaCy','mistral:7b,'stanza']_)
+4. _extraction\_type_ (array): entity types to extract. Must be chosen from the table above (e.g. _['org','food']_) or _['all']_ for annotation of all types 
+5. _text\_column_ (str): name of _dataset_ column containing texts
+6. _ground\_truth\_column_ (optional,str):  name of _dataset_ column containing ground truth tags
+7. _csv\_delimiter_ (str): input CSV file delimiter
+8. _output\_file_ (str): name of output file without an extension (e.g. _output_, not _output.csv_)
+9. _minio_ (optional,str): credentials for minio server. Used when dataset is not local, but instead is an s3 path to the minio server
 
 ### Functionality
 
