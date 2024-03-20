@@ -1,6 +1,6 @@
 # Overview
 
-Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for the named entity recognition and one for visualization of results (GUI). Entities and tools supported are the following:
+Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for the named entity recognition and one for visualization of results (GUI). Entities and models supported are the following:
 
 ### Entities
 | | | | | |
@@ -10,7 +10,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | FAC |  LOC   |  MONEY | EVENT | MISC
 | PRODUCT| DATE | QUANTITY | WORK_OF_ART | FOOD
 
-### Tools
+### Models
 | Generic (all entities except food) | Food 
 | ----------- | --------- |
 | spaCy     | InstaFoodRoBERTa
