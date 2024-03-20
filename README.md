@@ -1,6 +1,6 @@
 # Overview
 
-Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for the named entity recognition and one for visualization of results (GUI). Entities and models supported are the following:
+Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for named entity recognition and one for visualization of results (GUI). Entities and models supported are the following:
 
 ### Entities
 | | | | | |
