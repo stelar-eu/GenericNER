@@ -9,6 +9,15 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | FAC |  LOC   |  MONEY | EVENT | MISC
 | PRODUCT| DATE | QUANTITY | WORK_OF_ART | FOOD
 
+|Tools for Generic NER | Tools for Food NER
+| ----------- | --------- |
+| spaCy     | InstaFoodRoBERTa
+| spaCy + RoBERTa | SciFoodNER
+| Flair | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
+| Stanza |
+
+
+
 ## Named entity recognition (NER)
 
 This component's input is a CSV file containing texts we want to perform NER on, optionally containing ground truth data. Its output is a CSV and a JSON file containing NER results.
