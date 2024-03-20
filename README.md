@@ -11,7 +11,7 @@ Entities
 | PRODUCT| DATE | QUANTITY | WORK_OF_ART | FOOD
 
 Tools
-| Generic NER | Food NER
+| Generic (all fields except food) | Food 
 | ----------- | --------- |
 | spaCy     | InstaFoodRoBERTa
 | spaCy + RoBERTa | SciFoodNER
