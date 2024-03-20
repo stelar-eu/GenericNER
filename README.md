@@ -2,14 +2,15 @@
 
 Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for the named entity recognition and one for visualization of results (GUI). Entities and tools supported are the following:
 
-| Available entity types | | | | |
+Entities
 | ----------- |  ----------- | ----------- | ----------- | ----------- |
 | PERSON     | ORG  |  TIME | ORDINAL |LAW
 | NORP   |GPE   |  PERCENT | CARDINAL | LANGUAGE
 | FAC |  LOC   |  MONEY | EVENT | MISC
 | PRODUCT| DATE | QUANTITY | WORK_OF_ART | FOOD
 
-|Tools for Generic NER | Tools for Food NER
+Tools
+| Generic NER | Food NER
 | ----------- | --------- |
 | spaCy     | InstaFoodRoBERTa
 | spaCy + RoBERTa | SciFoodNER
