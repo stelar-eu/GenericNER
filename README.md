@@ -17,8 +17,8 @@ This component's input is a CSV file containing texts we want to perform NER on,
 
 1. _dataset_: path to input CSV file 
 2. _N_: number of texts to be annotated 
-3. _model_: 'scifoodner' or 'instafoodroberta' or an array of LLMs,e.g. ['mistral_7b'], ['llama2:7b','openhermes:7b-v2.5']
-4. _extraction\_type_: 'org','food', etc. or 'all' for annotation of all types 
+3. _model_: 'scifoodner' or 'instafoodroberta' or an array of LLMs,e.g. _['mistral_7b']_, or _['llama2:7b','openhermes:7b-v2.5']_
+4. _extraction\_type_: one of the types mentioned in the table above (e.g. _['org','food']_) or _['all']_ for annotation of all types 
 5. _text\_column_: name of _dataset_ column containing texts
 6. _ground\_truth\_column (optional)_:  name of _dataset_ column containing ground truth tags
 7. _csv\_delimiter_: input CSV file delimiter
