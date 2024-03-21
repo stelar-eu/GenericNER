@@ -3,7 +3,7 @@ import time
 from llm_foodNER_functions import *
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 
-def convert_entities_to_list(text, entities):
+def convert_entities_to_list(text, entities: list[dict]) -> list[str]:
         ents = []
         for ent in entities:
             e = {"start": ent["start"], "end": ent["end"], "label": ent["entity_group"]}
@@ -45,6 +45,6 @@ def annotate_entities_foodroberta(df, df_scores, texts_by_period, true_tags, sta
   if 'iob_tags' in df.columns:
       evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_entities,partial_hits,partial_hits_prec,wrong_constructions,error_sentences, to_dict = False)
   end = time.time()
-  print('time elapsed (InstaFoodRoBERTa):', end-start, 'seconds')
+  print('time elapsed (InstaFoodRoBERTa): {0:.2f}'.format(end-start), 'seconds')
   df_scores = update_df_scores(df_scores, hits, discrete_hits, discrete_hits_prec, partial_hits, partial_hits_prec, wrong_constructions, all_entities, all_entities_prec, error_sentences, food_entities_total, predicted_entities_total, missed_entities, fp_entities, set_foods, set_no_foods)
   return df_scores

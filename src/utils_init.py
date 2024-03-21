@@ -20,6 +20,6 @@ def annotate_entities_scifoodner(df, df_scores, texts_by_period, tags_by_period,
     if 'tags' in df.columns:
       evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_entities,partial_hits,partial_hits_prec,wrong_constructions,error_sentences, to_dict = False)
     end = time.time()
-    print('time elapsed (SciFoodNER):', end-start, 'seconds') 
+    print('time elapsed (SciFoodNER): {0:.2f}'.format(end-start), 'seconds') 
     df_scores = update_df_scores(df_scores, hits, discrete_hits, discrete_hits_prec, partial_hits, partial_hits_prec, wrong_constructions, all_entities, all_entities_prec, error_sentences, food_entities_total, predicted_entities_total, missed_entities, fp_entities, set_foods, set_no_foods)
     return df_scores

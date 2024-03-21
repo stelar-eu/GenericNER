@@ -112,7 +112,7 @@ def check_input_with_config(input_file_path, text_column, ground_truth_column, c
   return df_input,col_name_config,col_name_optional_config
 
 def prepare_given_dataset(df_input, col_name_config, col_name_optional_config):
-  """
+    """
   Builds dataframe that stores texts, from 'df_input' argument.
   
   Args:
@@ -122,30 +122,34 @@ def prepare_given_dataset(df_input, col_name_config, col_name_optional_config):
   
   Returns:
       The dataframe built
-  """
-  df = pd.DataFrame()
+    """
+    if col_name_config not in list(df_input.columns):
+      print('Wrong csv format. Please provide a csv file which contains a column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
+      return pd.DataFrame()
+    df = pd.DataFrame()
+    '''
   if len(df_input.columns) == 2 and (df_input.columns[0] != col_name_config or df_input.columns[1] != col_name_optional_config):      
     print('Wrong csv format. Please provide a csv file which contains a single column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
   elif len(df_input.columns) == 1 and df_input.columns != col_name_config:
     print('Wrong csv format. Please provide a csv file which contains a single column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
   #elif len(df_input.columns) > 2:
   #  print('Wrong csv format. Please provide a csv file which contains a single column named \"', col_name_config, '" and optionally, a ground truth column named \"', col_name_optional_config, "\"")
-  else:
+    '''
     df = pd.DataFrame(index = range(len(df_input)), columns = ['sentences','sentence_non_tokenized'])
     for i in range(len(df_input)):
       df.loc[i,'sentences'] = df_input.loc[i,col_name_config].split()
     df['sentence_non_tokenized'] = df_input[col_name_config]
     df['sentence_non_tokenized'] = df['sentence_non_tokenized'].apply(lambda x: ' ' + x)
-    if len(df_input.columns) == 2 and df_input.columns[1] == col_name_optional_config:
+    if col_name_optional_config in list(df.columns):
       df['named_entities'] = df_input[col_name_optional_config]
       df['named_entities'] = df['named_entities'].apply(lambda x: x[2:-2].split('\',\''))
       for i in range(len(df)):
         if len(df['named_entities'][i]) != len(df['sentence_non_tokenized'][i].split()):
           print('Error: the number of tags must be the same as the number of tokens in every text.')
           df = pd.DataFrame()
-  return df
+    return df
 
-def make_df_by_argument(input_file_path, text_column, ground_truth_column, csv_delimiter, minio):
+def make_df_by_argument(df, text_column, ground_truth_column, csv_delimiter, minio):
   """
   Returns dataframe according to whether a CSV file was given as an input or not.
   
@@ -156,11 +160,13 @@ def make_df_by_argument(input_file_path, text_column, ground_truth_column, csv_d
   Returns:
       The dataframe
   """
+  '''
   df_input,col_name_config,col_name_optional_config  = check_input_with_config(input_file_path, text_column, ground_truth_column, csv_delimiter, minio)
   if df_input.empty:
     print('ERROR: Please provide a .csv file.')
     exit()  
-  df = prepare_given_dataset(df_input, col_name_config,col_name_optional_config) 
+  ''' 
+  df = prepare_given_dataset(df, text_column,ground_truth_column) 
   if df.empty:
     print('ERROR: Wrong CSV format!')
     exit()
@@ -183,7 +189,7 @@ def choose_num(df, default):
     N = default
   return N
 
-def load_import_models():
+def load_import_models(tools):
   """
   Load entity extraction models
   
@@ -202,7 +208,13 @@ def load_import_models():
   #Download and import pipeline
   stanza.download('en')
   nlp_stanza = stanza.Pipeline('en') # initialize English neural pipeline
-  return [nlp_spacy_rob,nlp_spacy,tagger,nlp_stanza]
+  arr = []
+  for item in tools:
+    arr.append(nlp_spacy) if item == 'spaCy' else 1
+    arr.append(nlp_spacy_rob) if item == 'spaCy + RoBERTa' else 1
+    arr.append(tagger) if item == 'Flair'else 1
+    arr.append(nlp_stanza) if item == 'Stanza' else 1
+  return arr
 
 def add_result_to_df(index,df_results, predicted_entities, real_entities):
   """
@@ -266,7 +278,7 @@ def add_result_to_df(index,df_results, predicted_entities, real_entities):
           df_results.loc['wrong_category',predicted_entities[ent_start][2:]] += 1
   return df_results
 
-def find_named_entities(dictionary,N,nlp_spacy_rob,df,tool_name):
+def find_named_entities(dictionary,N,nlp_spacy_rob,df,tool_name,entities_wanted):
   """
   Performs entity extraction using tool and measure time elapsed.
   
@@ -285,16 +297,16 @@ def find_named_entities(dictionary,N,nlp_spacy_rob,df,tool_name):
     dictionary_arr = []
     dictionary_arr.append({'sentence':str(doc)})
     for entity in doc.ents:
-      for match_ in re.finditer(re.escape(str(entity)),str(doc)):
-        dict_str = str(match_.start()) + '-' + str(match_.end())
-        dictionary_arr.append({dict_str:entity.label_})
+      if entity.label_ in entities_wanted:
+          dict_str = str(entity.start_char) + '-' + str(entity.end_char)
+          dictionary_arr.append({dict_str:entity.label_})
     dict_str = tool_name + '-' + str(i)
     dictionary.update({dict_str:dictionary_arr})
   end = time.time()
-  print('Finished entity recognition by ', tool_name, 'in ', end-start)
+  print('Finished entity recognition by', tool_name, 'in {0:.2f}'.format(end-start), 'seconds')
   return start,end,dictionary
 
-def return_bio_format(N, nlp_spacy_rob, df, tool_name):
+def return_bio_format(N, nlp_spacy_rob, df, tool_name,entities_wanted):
    '''
     Add description
    '''
@@ -308,18 +320,19 @@ def return_bio_format(N, nlp_spacy_rob, df, tool_name):
     doc_len = len(str(doc))
     new_doc = doc
     for entity in doc.ents:   #for every entity found in spacy
-      index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(entity))
-      index = str(doc)[:index_entity].count(' ') - 1
-      if str(doc)[:index_entity][-1] == ' ':
-        index = len(str(doc)[:index_entity].split())
-      else:
-        index = len(str(doc)[:index_entity].split()) - 1
-      new_doc = str(doc)[index_entity + len(str(entity)):]
-      for label_span in range(len(str(entity).split())):
-        if label_span == 0:
-          entity_list[index + label_span] = 'B-' + entity.label_    #construct spacy entity list as it is in dataset
+      if entity.label_ in entities_wanted:
+        index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(entity))
+        index = str(doc)[:index_entity].count(' ') - 1
+        if str(doc)[:index_entity][-1] == ' ':
+          index = len(str(doc)[:index_entity].split())
         else:
-          entity_list[index + label_span] = 'I-' + entity.label_
+          index = len(str(doc)[:index_entity].split()) - 1
+        new_doc = str(doc)[index_entity + len(str(entity)):]
+        for label_span in range(len(str(entity).split())):
+          if label_span == 0:
+            entity_list[index + label_span] = 'B-' + entity.label_    #construct spacy entity list as it is in dataset
+          else:
+            entity_list[index + label_span] = 'I-' + entity.label_
     results_list.append(entity_list)
    df_results_total = pd.DataFrame({name:results_list})
    return df_results_total
@@ -327,7 +340,7 @@ def return_bio_format(N, nlp_spacy_rob, df, tool_name):
 def compare_results(total_results_df,N,names_df):
   print(N)
 
-def evaluate_tool(N, names_df, nlp_spacy_rob, df, tool_name):
+def evaluate_tool(N, names_df, nlp_spacy_rob, df, tool_name,entities_wanted):
   """
   Evaluates tool on the set of N texts using 'add_result_to_df' for each text.
   
@@ -352,18 +365,19 @@ def evaluate_tool(N, names_df, nlp_spacy_rob, df, tool_name):
     doc_len = len(str(doc))
     new_doc = doc
     for entity in doc.ents:   #for every entity found in spacy
-      index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(entity))
-      index = str(doc)[:index_entity].count(' ') - 1
-      if str(doc)[:index_entity][-1] == ' ':
-        index = len(str(doc)[:index_entity].split())
-      else:
-        index = len(str(doc)[:index_entity].split()) - 1
-      new_doc = str(doc)[index_entity + len(str(entity)):]
-      for label_span in range(len(str(entity).split())):
-        if label_span == 0:
-          entity_list[index + label_span] = 'B-' + entity.label_    #construct spacy entity list as it is in dataset
+      if entity.label_ in entities_wanted:
+        index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(entity))
+        index = str(doc)[:index_entity].count(' ') - 1
+        if str(doc)[:index_entity][-1] == ' ':
+          index = len(str(doc)[:index_entity].split())
         else:
-          entity_list[index + label_span] = 'I-' + entity.label_
+          index = len(str(doc)[:index_entity].split()) - 1
+        new_doc = str(doc)[index_entity + len(str(entity)):]
+        for label_span in range(len(str(entity).split())):
+          if label_span == 0:
+            entity_list[index + label_span] = 'B-' + entity.label_    #construct spacy entity list as it is in dataset
+          else:
+            entity_list[index + label_span] = 'I-' + entity.label_
     results_list.append(entity_list)
     df_results = add_result_to_df(i,df_results, entity_list, df.loc[i,'named_entities'])
   df_results_total = pd.DataFrame({name:results_list})
@@ -373,12 +387,10 @@ def merge_dfs_horizontally(dfs_list):
   final_df = pd.concat(dfs_list, axis=1)
   return final_df
 
-def cross_results(df,N,names_df, dictionary):
+def cross_results(df,N,names_df, dictionary,print_df=True):
   '''
   add description
   '''
-  print('------------------------------------------------------------')
-  print('Models\' agreement')
   df_final_f1 = pd.DataFrame(index = list(df.columns), columns = list(df.columns))
   df_final_prec = pd.DataFrame(index = list(df.columns), columns = list(df.columns))
   df_final_rec = pd.DataFrame(index = list(df.columns), columns = list(df.columns))
@@ -390,7 +402,6 @@ def cross_results(df,N,names_df, dictionary):
       df_results = pd.DataFrame(index = rows_indices, columns = names_df).fillna(0)
       for i in range(N):
         df_results = add_result_to_df(i, df_results, df.loc[i,tool], df.loc[i,tool_2])
-      print('df_results:',df_results)
       hit_percent_sum = 0
       hit_percent_sum_prec = 0
       total_categories = 0
@@ -438,10 +449,13 @@ def cross_results(df,N,names_df, dictionary):
       dictionary.update({'Cross results-' + str_ + 'precision':df_final_prec.loc[tool,tool_2]})
       dictionary.update({'Cross results-' + str_ + 'recall':df_final_rec.loc[tool,tool_2]})
       dictionary.update({'Cross results-' + str_ + 'wrong category':df_wrong_category.loc[tool,tool_2]})
-  print('F1',df_final_f1)
-  print('Precision', df_final_prec)
-  print('Recall', df_final_rec)
-  print('wrong category', df_wrong_category)
+  if print_df:
+   print('------------------------------------------------------------')
+   print('Models\' agreement')
+   print('F1',df_final_f1)
+   print('Precision', df_final_prec)
+   print('Recall', df_final_rec)
+   print('wrong category', df_wrong_category)
   return dictionary
 
 def measure_write_result(df_results, dictionary, tool_name, start, end):
@@ -507,7 +521,7 @@ def measure_write_result(df_results, dictionary, tool_name, start, end):
   
   return dictionary
 
-def find_named_entities_flair(dictionary,N,tagger,df):
+def find_named_entities_flair(dictionary,N,tagger,df,entities_wanted):
   """
   Same as 'find_named_entities' function, but specified for Flair tool.
   
@@ -532,16 +546,17 @@ def find_named_entities_flair(dictionary,N,tagger,df):
       tag = lb.data_point.tag
       if tag == 'PER':
         tag = 'PERSON'
-      for match_ in re.finditer(re.escape(str(txt)),df.loc[i,'sentence_non_tokenized']):
-        dict_str = str(match_.start()) + '-' + str(match_.end())
-        dictionary_arr.append({dict_str:tag})
+      if tag in entities_wanted:
+        #for match_ in re.finditer(re.escape(str(txt)),df.loc[i,'sentence_non_tokenized']):
+          dict_str = str(lb.data_point.start_position) + '-' + str(lb.data_point.end_position)
+          dictionary_arr.append({dict_str:tag})
     dict_str = 'Flair-' + str(i)
     dictionary.update({dict_str:dictionary_arr})
   end = time.time()
-  print('Finished entity recognition by Flair in ', end-start)
+  print('Finished entity recognition by Flair in {0:.2f}'.format(end-start), 'seconds')
   return start, end, dictionary
 
-def return_bio_format_flair(N, tagger, df):
+def return_bio_format_flair(N, tagger, df, entities_wanted):
    results_list = []
    for i in range(N):    #iterate through dataset
     sentence_tokenized = df.loc[i,'sentences']
@@ -556,28 +571,29 @@ def return_bio_format_flair(N, tagger, df):
       tag = lb.data_point.tag
       if tag == 'PER':
         tag = 'PERSON'
-      first = 1
-      try:
-        index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(txt))
-      except:
-        print('exception')
-        continue
-      index = sentence_to_predict[:index_entity].count(' ') - 1
-      if sentence_to_predict[:index_entity][-1] == ' ':
-        index = len(sentence_to_predict[:index_entity].split())
-      else:
-        index = len(sentence_to_predict[:index_entity].split()) - 1
-      new_doc = sentence_to_predict[index_entity + len(str(txt)):]
-      for label_span in range(len(txt.split())):
-        if label_span == 0:
-          entity_list[index + label_span] = 'B-' + tag    #construct spacy entity list as it is in dataset
-        else:
-          entity_list[index + label_span] = 'I-' + tag
+      if tag in entities_wanted:
+       first = 1
+       try:
+         index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(txt))
+       except:
+         print('exception')
+         continue
+       index = sentence_to_predict[:index_entity].count(' ') - 1
+       if sentence_to_predict[:index_entity][-1] == ' ':
+         index = len(sentence_to_predict[:index_entity].split())
+       else:
+         index = len(sentence_to_predict[:index_entity].split()) - 1
+       new_doc = sentence_to_predict[index_entity + len(str(txt)):]
+       for label_span in range(len(txt.split())):
+         if label_span == 0:
+           entity_list[index + label_span] = 'B-' + tag    #construct spacy entity list as it is in dataset
+         else:
+           entity_list[index + label_span] = 'I-' + tag
     results_list.append(entity_list)
    df_results_total = pd.DataFrame({'Flair':results_list})
    return df_results_total
 
-def evaluate_flair(N, names_df, tagger, df):
+def evaluate_flair(N, names_df, tagger, df, entities_wanted):
   """
   Same as 'evaluate_tool' function, but specified for Flair tool
   
@@ -606,25 +622,26 @@ def evaluate_flair(N, names_df, tagger, df):
       tag = lb.data_point.tag
       if tag == 'PER':
         tag = 'PERSON'
-      first = 1
-      index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(txt))
-      index = str(sentence)[:index_entity].count(' ') - 1
-      if sentence_to_predict[:index_entity][-1] == ' ':
-        index = len(sentence_to_predict[:index_entity].split())
-      else:
-        index = len(sentence_to_predict[:index_entity].split()) - 1
-      new_doc = str(sentence)[index_entity + len(txt):]
-      for label_span in range(len(txt.split())):
-        if label_span == 0:
-          entity_list[index + label_span] = 'B-' + tag    #construct spacy entity list as it is in dataset
+      if tag in entities_wanted:
+        first = 1
+        index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(txt))
+        index = str(sentence)[:index_entity].count(' ') - 1
+        if sentence_to_predict[:index_entity][-1] == ' ':
+          index = len(sentence_to_predict[:index_entity].split())
         else:
-          entity_list[index + label_span] = 'I-' + tag
+          index = len(sentence_to_predict[:index_entity].split()) - 1
+        new_doc = str(sentence)[index_entity + len(txt):]
+        for label_span in range(len(txt.split())):
+          if label_span == 0:
+            entity_list[index + label_span] = 'B-' + tag    #construct spacy entity list as it is in dataset
+          else:
+            entity_list[index + label_span] = 'I-' + tag
     results_list.append(entity_list)
     df_results = add_result_to_df(i,df_results, entity_list, df.loc[i,'named_entities'])
   df_results_total = pd.DataFrame({'Flair':results_list})
   return df_results, df_results_total
 
-def find_named_entities_stanza(dictionary,N,nlp_stanza,df):
+def find_named_entities_stanza(dictionary,N,nlp_stanza,df,entities_wanted):
   """
   Same as 'find_named_entities' function, but specified for Stanza (StanfordNLP) tool.
   
@@ -642,16 +659,18 @@ def find_named_entities_stanza(dictionary,N,nlp_stanza,df):
     dictionary_arr = []
     dictionary_arr.append({'sentence':df.loc[i,'sentence_non_tokenized']})
     for entity in doc.entities:
-      for match_ in re.finditer(re.escape(str(entity.text)),df.loc[i,'sentence_non_tokenized']):
-        dict_str = str(match_.start()) + '-' + str(match_.end())
+      if i == 2:
+        print(entity)
+      if entity.type in entities_wanted:
+        dict_str = str(entity.start_char) + '-' + str(entity.end_char)
         dictionary_arr.append({dict_str:entity.type})
     dict_str = 'Stanza-' + str(i)
     dictionary.update({dict_str:dictionary_arr})
   end = time.time()
-  print('Finished entity recognition by Stanza in ', end-start)
+  print('Finished entity recognition by Stanza in', '{0:.2f}'.format(end-start), 'seconds')
   return start, end, dictionary
 
-def return_bio_format_stanza(N, nlp_stanza, df):
+def return_bio_format_stanza(N, nlp_stanza, df, entities_wanted):
    results_list = []
    for i in range(N):    #iterate through dataset
     txt = df.loc[i,'sentence_non_tokenized']
@@ -660,6 +679,7 @@ def return_bio_format_stanza(N, nlp_stanza, df):
     new_doc = txt
     doc_len = len(txt)
     for entity in doc.entities:
+     if entity.type in entities_wanted:
       index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(entity.text)
       index = str(txt)[:index_entity].count(' ') - 1
       if txt[:index_entity][-1] == ' ':
@@ -676,7 +696,7 @@ def return_bio_format_stanza(N, nlp_stanza, df):
    df_results_total = pd.DataFrame({'Stanza':results_list})
    return df_results_total
 
-def evaluate_stanza(N, names_df, nlp_stanza, df):
+def evaluate_stanza(N, names_df, nlp_stanza, df, entities_wanted):
   """
   Same as 'evaluate_tool' function, but specified for Stanza (StanfordNLP) tool
   
@@ -698,25 +718,26 @@ def evaluate_stanza(N, names_df, nlp_stanza, df):
     entity_list = ['O' for item in df.loc[i,'sentences']]
     doc_len = len(str(doc))
     new_doc = doc
-    for entity in doc.entities:
-      index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(entity.text)
-      index = str(txt)[:index_entity].count(' ') - 1
-      if txt[:index_entity][-1] == ' ':
-        index = len(txt[:index_entity].split())
-      else:
-        index = len(txt[:index_entity].split()) - 1
-      new_doc = str(txt)[index_entity + len(str(entity.text)):]
-      for label_span in range(len(entity.text.split())):
-        if label_span == 0:
-          entity_list[index + label_span] = 'B-' + entity.type
+    for entity in doc.entities: 
+      if entity.type in entities_wanted:
+        index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(entity.text)
+        index = str(txt)[:index_entity].count(' ') - 1
+        if txt[:index_entity][-1] == ' ':
+          index = len(txt[:index_entity].split())
         else:
-          entity_list[index + label_span] = 'I-' + entity.type
+          index = len(txt[:index_entity].split()) - 1
+        new_doc = str(txt)[index_entity + len(str(entity.text)):]
+        for label_span in range(len(entity.text.split())):
+          if label_span == 0:
+            entity_list[index + label_span] = 'B-' + entity.type
+          else:
+            entity_list[index + label_span] = 'I-' + entity.type
     results_list.append(entity_list)
     df_results = add_result_to_df(i,df_results, entity_list, df.loc[i,'named_entities'])
   df_results_total = pd.DataFrame({'Stanza':results_list})
   return df_results, df_results_total
 
-def write_json_file(dictionary,out_file_name):
+def write_json_file(dictionary,out_file_name,dict_metrics = {}):
   """
   Write dictionary, which contains results and optionally evaluation metrics, to a json file in directory specified in configuration file.
   
@@ -725,7 +746,27 @@ def write_json_file(dictionary,out_file_name):
       out_file_name (str): Path where JSON file will be created and written
       config_file (str): Configuration file
   """
-  json_object = json.dumps(dictionary, indent=4)
+  new_dct = dictionary
+  dictionary_arr = []
+  for key,value in dict_metrics.items():
+    key = key[14:]
+    dictionary_arr.append({key:value})
+  new_dct.update({'Cross results':dictionary_arr})
+  json_object = json.dumps(new_dct, indent=4)
   with open(out_file_name + '.json', "w") as outfile:
     outfile.write(json_object)
 
+def rename_tools(tools):
+  for i in range(len(tools)):
+    if tools[i] == 'spacy':
+      tools[i] = 'spaCy'
+    elif tools[i] == 'spacy_roberta':
+      tools[i] = 'spaCy + RoBERTa'
+    elif tools[i] == 'stanza':
+      tools[i] = 'Stanza'
+    elif tools[i] == 'flair':
+      tools[i] = 'Flair'
+    else:
+      print('Invalid Generic NER model!')
+      return []
+  return tools

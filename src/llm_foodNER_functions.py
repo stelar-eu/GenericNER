@@ -8,7 +8,7 @@ import spacy
 import matplotlib.pyplot as plt
 from minio import Minio
 
-def prepare_dataset_new(ds_path, text_column, ground_truth_column, minio):
+def prepare_dataset_new(ds_path, text_column, ground_truth_column, product_column, minio):
     if ds_path.startswith('s3://'):
         bucket, key = ds_path.replace('s3://', '').split('/', 1)
         client = Minio(minio['endpoint_url'], access_key=minio['id'], secret_key=minio['key'])
@@ -20,14 +20,14 @@ def prepare_dataset_new(ds_path, text_column, ground_truth_column, minio):
         return pd.DataFrame()
     if ground_truth_column in list(df.columns):
         df[ground_truth_column] = df[ground_truth_column].apply(lambda x: x[2:-2].split('\', \''))
-        df = df[[text_column,ground_truth_column]]
+        df = df[[text_column,ground_truth_column,product_column]] if product_column in list(df.columns) else df[[text_column,ground_truth_column]]
         for i in range(len(df)):
           if len(df[ground_truth_column][i]) != len(df[text_column][i].split()):
             print('Error: the number of tags must be the same as the number of tokens in every text.')
             return pd.DataFrame()
     else:
-        df = df[[text_column]]
-    df = df.rename(columns={text_column: "text", ground_truth_column:"tags"})
+        df = df[[text_column,product_column]] if product_column in list(df.columns) else df[[text_column]]
+    df = df.rename(columns={text_column: "text", ground_truth_column:"tags", product_column:"product"})
     df = df.drop_duplicates(subset = 'text',ignore_index = True)
     return df
 
@@ -942,13 +942,8 @@ def evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_en
         dct = df_results['score'].to_dict()
         return dct
 
-def list_to_dict(all_entities_cur,df,tool_name):
-    dct = dict() 
+def list_to_dict(all_entities_cur,df,tool_name,dct):
     all_entities_cur = [item for lst in all_entities_cur for item in lst]
-    '''
-    for index,value in enumerate(lst):
-      dct[index] = [df.loc[index,'text'],value]
-    '''
     idx = -1
     food_area = 0
     for i in range(len(df)):
@@ -1380,13 +1375,14 @@ def clean_text(texts_by_period):
         texts_by_period[idx] = texts_by_period[idx].replace('/','')
     return texts_by_period
 
-def food_data_to_csv(df,all_entities_cur,tool):
+def food_data_to_csv(df,all_entities_cur,tool,df_to_merge):
   output_df = pd.DataFrame()
   list_ids = []
   list_text_ids = []
   list_phrases = []
   list_tags = []
   list_positions = []
+  list_products = []
   i =  0
   for idx in range(len(all_entities_cur)):
     if all_entities_cur[idx] == 'I-FOOD' and (all_entities_cur[idx-1] == 'O' or (all_entities_cur[idx-1] == 'I-FOOD' and all_entities_cur[idx-2] == 'O')):
@@ -1409,6 +1405,7 @@ def food_data_to_csv(df,all_entities_cur,tool):
         idx_phrase += 1
         list_phrases.append(token)
         list_text_ids.append(idx_text)
+        list_products.append(None)
         list_ids.append(tool + '-' + str(idx_phrase))
         list_tags.append('O')
         food_area = 0
@@ -1421,6 +1418,7 @@ def food_data_to_csv(df,all_entities_cur,tool):
         if idx == len(all_entities_cur) - 1 or all_entities_cur[idx+1] != 'I-FOOD':
           list_phrases.append(cur_phrase)
           list_text_ids.append(idx_text)
+          list_products.append(df.loc[idx_text,'product'])
           list_ids.append(tool + '-' + str(idx_phrase))
           list_tags.append('FOOD')
           list_positions.append(str(position_in_text) + '-' + str(position_in_text+len(token)-1))
@@ -1429,6 +1427,7 @@ def food_data_to_csv(df,all_entities_cur,tool):
         if all_entities_cur[idx+1] != 'I-FOOD' and food_area:
           list_phrases.append(cur_phrase)
           list_text_ids.append(idx_text)
+          list_products.append(df.loc[idx_text,'product'])
           list_ids.append(tool + '-' + str(idx_phrase))
           list_tags.append('FOOD')
           list_positions.append(str(entity_starting) + '-' + str(position_in_text+len(token)-1))
@@ -1438,6 +1437,10 @@ def food_data_to_csv(df,all_entities_cur,tool):
   output_df['phrase'] = list_phrases
   output_df['tag'] = list_tags
   output_df['position'] = list_positions
+  output_df['ground truth'] = [None for i in range(len(list_phrases))]
+  output_df['food product'] = list_products
+  if not df_to_merge.empty:
+    output_df = pd.concat([df_to_merge,output_df],ignore_index = True)
   return output_df
 
 def generic_data_to_csv(df,output_df,food_df):
@@ -1492,5 +1495,19 @@ def generic_data_to_csv(df,output_df,food_df):
   new_df['phrase'] = list_phrases
   new_df['tag'] = list_tags
   new_df['position'] = list_positions
+  new_df['ground truth'] = [None for i in range(len(list_phrases))]
+  new_df['food product'] = [None for i in range(len(list_phrases))]
   if not food_df.empty:
     new_df = pd.concat([new_df,food_df],ignore_index = True)
+  return new_df
+
+def annotate_text_tokens(df,all_entities_merged,N):
+
+  lst = []
+  all_entities_cur = all_entities_merged
+  id = -1
+  for text in df['text'][:N]:
+        id += 1
+        lst.append(all_entities_cur[:len(text.split())])
+        all_entities_cur = all_entities_cur[len(text.split()):]
+  return lst
