@@ -2,11 +2,12 @@ import pandas as pd
 from minio import Minio
 from entity_extraction import entity_extraction
 from backend_functions import make_df_by_argument
-from llm_foodNER_functions import prepare_dataset, prepare_dataset_ak
+from llm_foodNER_functions import prepare_dataset_new
 import json
 import uuid
 from time import time
 import sys
+import traceback
 
 def run(j):
     try:
@@ -17,7 +18,8 @@ def run(j):
         output_file = j['parameters']['output_file']
         text_column = j['parameters']['text_column']
         ground_truth_column = j['parameters'].get('ground_truth_column')
-        csv_delimiter = j['parameters']['csv_delimiter']
+        product_column = j['parameters'].get('product_column')
+        #csv_delimiter = j['parameters']['csv_delimiter']
         keep_food = j['parameters'].get('keep_food', False)
         
         #Algorithm Parameters
@@ -32,18 +34,8 @@ def run(j):
             prompt_id = 0
         minio = j['minio']
         
-        if extraction_type == 'generic':
-            df = make_df_by_argument(INPUT_FILE, text_column = text_column, 
-                                     ground_truth_column = ground_truth_column,
-                                     csv_delimiter = csv_delimiter, minio=minio)
-            
-        elif extraction_type == 'food':
-            if 'incidents' in INPUT_FILE:
-                df = prepare_dataset_ak(INPUT_FILE, text_column = text_column,
-                                        preprocess = False, minio=minio)
-            else:
-                df = prepare_dataset(INPUT_FILE, text_column = text_column,
-                                          ground_truth_column = ground_truth_column, minio=minio) 
+        df = prepare_dataset_new(INPUT_FILE, text_column = text_column, ground_truth_column = ground_truth_column,
+                                 product_column = product_column, minio = minio)
 
         t = time()
         outfile, log = entity_extraction(df, extraction_type, model, 
@@ -84,16 +76,16 @@ def run(j):
                         #'output': [object_path2], 'metrics': log})
     except Exception as e:
         return {
+            'error': traceback.format_exc(),
             'message': 'An error occurred during data processing.',
-            'error': str(e),
             'status': 500
         }
     
 if __name__ == '__main__':
     if len(sys.argv) != 3:
         raise ValueError("Please provide 2 files.")
-    with open('./logs/'+sys.argv[1]) as o:
+    with open(sys.argv[1]) as o:
         j = json.load(o)
     response = run(j)
-    with open('./logs/'+sys.argv[2], 'w') as o:
+    with open(sys.argv[2], 'w') as o:
         o.write(json.dumps(response, indent=4))
