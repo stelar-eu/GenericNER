@@ -3,7 +3,7 @@
 Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for named entity recognition and one for visualization of results (GUI). Entities and models supported are the following:
 
 ### Entities
-| | spaCy | spaCy + RoBERTa| Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5 |
+| | spaCy | spaCy + RoBERTa| Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5 ||
 | ----------- |  ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | PERSON | |   |  | | | | |
 | NORP   | |   |  | | | | |
