@@ -5,26 +5,26 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 ### Entities
 | | spaCy | spaCy + RoBERTa | Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
 | ----------- |  ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- 
-| PERSON | :heavy_check_mark:| :heavy_check_mark:  |  | | | | 
-| NORP   | |   |  | | | | 
-| FAC | |   |  | | | | 
-| PRODUCT| |   |  | | | | 
-| ORG  | |   |  | | | | 
-| GPE | |   |  | | | |
-| LOC | |   |  | | | | 
-| DATE| |   |  | | | | 
-| TIME| |   |  | | | | 
-| PERCENT| |   |  | | | | 
-| CARDINAL| |   |  | | | | 
-| MONEY| |   |  | | | | 
-| QUANTITY| |   |  | | | | 
-| ORDINAL| |   |  | | | | 
-| EVENT| |   |  | | | | 
-| WORK_OF_ART| |   |  | | | | 
-| LAW| |   |  | | | | 
-| LANGUAGE| |   |  | | | | 
-| MISC| |   |  | | | | 
-| FOOD| |   |  | | | |
+| PERSON | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | | | 
+| NORP   | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| FAC | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| PRODUCT| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| ORG | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| GPE | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| LOC | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| DATE| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| TIME| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| PERCENT| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| CARDINAL| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| MONEY| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| QUANTITY| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| ORDINAL| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| EVENT| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| WORK_OF_ART| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| LAW| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| LANGUAGE| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| MISC| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
+| FOOD| |  |  | | :heavy_check_mark: | :heavy_check_mark: | 
 
 
 
