@@ -5,7 +5,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 ### Entities
 | | spaCy | spaCy + RoBERTa | Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
 | ----------- |  ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- 
-| PERSON | |   |  | | | | 
+| PERSON | :heavy_check_mark:| :heavy_check_mark:  |  | | | | 
 | NORP   | |   |  | | | | 
 | FAC | |   |  | | | | 
 | PRODUCT| |   |  | | | | 
