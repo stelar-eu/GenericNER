@@ -5,16 +5,18 @@ import re
 import time
 import stanza
 import spacy
+import json
 import matplotlib.pyplot as plt
 from minio import Minio
+from configparser import ConfigParser
 
-def prepare_dataset_new(ds_path, text_column, ground_truth_column, product_column, minio):
+def prepare_dataset_new(ds_path, text_column, ground_truth_column, product_column, csv_delimiter, minio):
     if ds_path.startswith('s3://'):
         bucket, key = ds_path.replace('s3://', '').split('/', 1)
         client = Minio(minio['endpoint_url'], access_key=minio['id'], secret_key=minio['key'])
-        df = pd.read_csv(client.get_object(bucket, key))
+        df = pd.read_csv(client.get_object(bucket, key), delimiter = csv_delimiter)
     else:
-        df = pd.read_csv(ds_path)
+        df = pd.read_csv(ds_path,delimiter = csv_delimiter)
     if text_column not in list(df.columns):
         print('Error: no column named', text_column, '.')
         return pd.DataFrame()
@@ -947,12 +949,15 @@ def list_to_dict(all_entities_cur,df,tool_name,dct):
     idx = -1
     food_area = 0
     for i in range(len(df)):
-      position_in_text = 1
+      word_end = 0
       dictionary_arr = []
-      txt = ' ' + df.loc[i,'text'] 
-      dictionary_arr.append({'sentence': txt})
+      dictionary_arr.append({'sentence': ' ' + df.loc[i,'text']})
+      doc = ' ' + df.loc[i,'text']
       for token in df.loc[i,'text'].split():
         idx += 1
+        position_in_text = word_end + doc.index(token)
+        word_end = position_in_text + len(token)
+        doc = (' ' + df.loc[i,'text'])[word_end:]
         if all_entities_cur[idx] == 'O' or (all_entities_cur[idx] == 'I-FOOD' and food_area == 0):
           food_area = 0
         elif all_entities_cur[idx] == 'B-FOOD':
@@ -960,23 +965,22 @@ def list_to_dict(all_entities_cur,df,tool_name,dct):
           entity_starting = position_in_text
           if idx == len(all_entities_cur) - 1 or all_entities_cur[idx+1] != 'I-FOOD':
             new_start = position_in_text
-            while not txt[new_start].isalpha():
-              new_start += 1
+            #while not txt[new_start].isalpha():
+            #  new_start += 1
             new_end = position_in_text+len(token)
-            while not txt[new_end].isalpha():
-              new_end -= 1
-            dict_str = str(new_start) + '-' + str(new_end +1)
+           # while not txt[new_end].isalpha():
+           #   new_end -= 1
+            dict_str = str(new_start) + '-' + str(new_end)
             dictionary_arr.append({dict_str:'FOOD'})
         elif all_entities_cur[idx] == 'I-FOOD' and all_entities_cur[idx-1] != 'O' and all_entities_cur[idx+1] != 'I-FOOD' and food_area:
           new_start = entity_starting
-          while not txt[new_start].isalpha():
-            new_start += 1
+          #while not txt[new_start].isalpha():
+          #  new_start += 1
           new_end = position_in_text+len(token)
-          while not txt[new_end].isalpha():
-            new_end -= 1
-          dict_str = str(new_start) + '-' + str(new_end + 1)
+          #while not txt[new_end].isalpha():
+          #  new_end -= 1
+          dict_str = str(new_start) + '-' + str(new_end)
           dictionary_arr.append({dict_str:'FOOD'})
-        position_in_text += len(token) + 1  
       dict_str = tool_name + '-' + str(i)
       dct.update({dict_str:dictionary_arr})
     return dct
@@ -1375,7 +1379,7 @@ def clean_text(texts_by_period):
         texts_by_period[idx] = texts_by_period[idx].replace('/','')
     return texts_by_period
 
-def food_data_to_csv(df,all_entities_cur,tool,df_to_merge):
+def food_data_to_csv(df,all_entities_cur,tool,df_to_merge,discard_non_entities = False):
   output_df = pd.DataFrame()
   list_ids = []
   list_text_ids = []
@@ -1397,19 +1401,24 @@ def food_data_to_csv(df,all_entities_cur,tool,df_to_merge):
   idx_phrase = -1
   
   for text in df['text']:
+    word_end = -1
+    doc = text
     idx_text += 1
-    position_in_text = 0
     for token in text.split():
       idx += 1
+      position_in_text = word_end + doc.index(token)
+      word_end = position_in_text + len(token)
+      doc = text[word_end:]
       if all_entities_cur[idx] == 'O' or (all_entities_cur[idx] == 'I-FOOD' and food_area == 0):
+       if not discard_non_entities:
         idx_phrase += 1
         list_phrases.append(token)
         list_text_ids.append(idx_text)
         list_products.append(None)
         list_ids.append(tool + '-' + str(idx_phrase))
         list_tags.append('O')
-        food_area = 0
         list_positions.append(str(position_in_text) + '-' + str(position_in_text+len(token)-1))
+       food_area = 0
       elif all_entities_cur[idx] == 'B-FOOD':
         cur_phrase = token
         idx_phrase += 1
@@ -1418,7 +1427,10 @@ def food_data_to_csv(df,all_entities_cur,tool,df_to_merge):
         if idx == len(all_entities_cur) - 1 or all_entities_cur[idx+1] != 'I-FOOD':
           list_phrases.append(cur_phrase)
           list_text_ids.append(idx_text)
-          list_products.append(df.loc[idx_text,'product'])
+          if 'product' in list(df.columns):
+           list_products.append(df.loc[idx_text,'product'])
+          else:
+           list_products.append(None)
           list_ids.append(tool + '-' + str(idx_phrase))
           list_tags.append('FOOD')
           list_positions.append(str(position_in_text) + '-' + str(position_in_text+len(token)-1))
@@ -1427,11 +1439,13 @@ def food_data_to_csv(df,all_entities_cur,tool,df_to_merge):
         if all_entities_cur[idx+1] != 'I-FOOD' and food_area:
           list_phrases.append(cur_phrase)
           list_text_ids.append(idx_text)
-          list_products.append(df.loc[idx_text,'product'])
+          if 'product' in list(df.columns):
+           list_products.append(df.loc[idx_text,'product'])
+          else:
+           list_products.append(None)
           list_ids.append(tool + '-' + str(idx_phrase))
           list_tags.append('FOOD')
           list_positions.append(str(entity_starting) + '-' + str(position_in_text+len(token)-1))
-      position_in_text += len(token) + 1
   output_df['phrase_id'] = list_ids
   output_df['text_id'] = list_text_ids
   output_df['phrase'] = list_phrases
@@ -1443,7 +1457,7 @@ def food_data_to_csv(df,all_entities_cur,tool,df_to_merge):
     output_df = pd.concat([df_to_merge,output_df],ignore_index = True)
   return output_df
 
-def generic_data_to_csv(df,output_df,food_df):
+def generic_data_to_csv(df,output_df,food_df,discard_non_entities = False):
   new_df = pd.DataFrame()
   list_ids = []
   list_text_ids = []
@@ -1459,17 +1473,22 @@ def generic_data_to_csv(df,output_df,food_df):
       all_entities_cur = [tag for arr in output_df.loc[:,tool] for tag in arr]
       for text in df['sentence_non_tokenized']:
         idx_text += 1
-        position_in_text = 0
+        doc = text[1:]
+        word_end = 0
         for token in text.split():
           idx += 1
+          position_in_text = word_end + doc.index(token)
+          word_end = position_in_text + len(token)
+          doc = text[1:][word_end:]
           if all_entities_cur[idx] == 'O':
+           if not discard_non_entities:
             idx_phrase += 1
             list_phrases.append(token)
             list_text_ids.append(idx_text)
             list_ids.append(tool + '-' + str(idx_phrase))
             list_tags.append('O')
-            food_area = 0
             list_positions.append(str(position_in_text) + '-' + str(position_in_text+len(token)-1))
+           food_area = 0
           elif 'B-' in all_entities_cur[idx]:
             cur_phrase = token
             idx_phrase += 1
@@ -1489,7 +1508,6 @@ def generic_data_to_csv(df,output_df,food_df):
               list_ids.append(tool + '-' + str(idx_phrase))
               list_tags.append(all_entities_cur[idx][2:])
               list_positions.append(str(entity_starting) + '-' + str(position_in_text+len(token)-1))
-          position_in_text += len(token) + 1
   new_df['phrase_id'] = list_ids
   new_df['text_id'] = list_text_ids
   new_df['phrase'] = list_phrases
@@ -1511,3 +1529,33 @@ def annotate_text_tokens(df,all_entities_merged,N):
         lst.append(all_entities_cur[:len(text.split())])
         all_entities_cur = all_entities_cur[len(text.split()):]
   return lst
+
+def read_configuration_file(conf_path):
+  config = ConfigParser()
+  config.read(conf_path)
+  config_data = config['parameters']
+  dataset = config_data['dataset']
+  text_column = config_data['text_column']
+  ground_truth_column = config_data['ground_truth_column']
+  product_column = config_data['product_column']
+  csv_delimiter = config_data['csv_delimiter']
+  prediction_values = eval(config_data['prediction_values'])
+  N = int(config_data['N'])
+  ontology = config_data['ontology']
+  minio = config_data['minio']
+  return dataset, text_column, ground_truth_column, product_column, csv_delimiter, prediction_values, N, ontology, minio
+
+def generate_output_file_name(dataset,prediction_values):
+ keys = list(prediction_values.keys())
+ values = list(prediction_values.values())
+ values = [item for sublist in values for item in sublist]
+ str_keys,str_values = '',''
+ for item in keys:
+  str_keys += item + '_'
+ for item in values:
+  str_values += item + '_'
+ str_keys,str_values = str_keys[:-1],str_values[:-1]
+ if (not os.path.exists("results/")):
+  os.mkdir('results/')
+ name = 'results/' + dataset + '_' + str_keys + '_' + str_values
+ return name

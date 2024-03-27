@@ -338,7 +338,7 @@ def return_bio_format(N, nlp_spacy_rob, df, tool_name,entities_wanted):
    return df_results_total
 
 def compare_results(total_results_df,N,names_df):
-  print(N)
+  pass
 
 def evaluate_tool(N, names_df, nlp_spacy_rob, df, tool_name,entities_wanted):
   """
@@ -437,13 +437,22 @@ def cross_results(df,N,names_df, dictionary,print_df=True):
         f1_total = 2/((1/(hit_percent_sum*100/total_categories)) + (1/(hit_percent_sum_prec*100/total_categories_prec)))
       except:
         f1_total = 0
-      df_final_f1.loc[tool,tool_2] = str(f1_total) + '%'
-      prec_total = hit_percent_sum_prec*100/total_categories_prec
-      df_final_prec.loc[tool,tool_2] = str(prec_total) + '%'
-      rec_total = hit_percent_sum*100/total_categories
-      df_final_rec.loc[tool,tool_2] = str(rec_total) + '%'
-      perc_wrong_total = perc_wrong_sum*100/total_categories
-      df_wrong_category.loc[tool,tool_2] = str(perc_wrong_total) + '%'
+      df_final_f1.loc[tool,tool_2] = str(format(f1_total, ".2f")) + '%'
+      try:
+       prec_total = hit_percent_sum_prec*100/total_categories_prec
+      except:
+       prec_total = None
+      df_final_prec.loc[tool,tool_2] = str(format(prec_total, ".2f")) + '%'
+      try:
+       rec_total = hit_percent_sum*100/total_categories
+      except:
+       rec_total = None
+      df_final_rec.loc[tool,tool_2] = str(format(rec_total, ".2f")) + '%'
+      try:
+       perc_wrong_total = perc_wrong_sum*100/total_categories
+      except:
+       perc_wrong_total = None
+      df_wrong_category.loc[tool,tool_2] = str(format(perc_wrong_total, ".2f")) + '%'
       str_ = tool +'-' + tool_2 + '-'
       dictionary.update({'Cross results-' + str_ + 'F1':df_final_f1.loc[tool,tool_2]})
       dictionary.update({'Cross results-' + str_ + 'precision':df_final_prec.loc[tool,tool_2]})
@@ -659,8 +668,6 @@ def find_named_entities_stanza(dictionary,N,nlp_stanza,df,entities_wanted):
     dictionary_arr = []
     dictionary_arr.append({'sentence':df.loc[i,'sentence_non_tokenized']})
     for entity in doc.entities:
-      if i == 2:
-        print(entity)
       if entity.type in entities_wanted:
         dict_str = str(entity.start_char) + '-' + str(entity.end_char)
         dictionary_arr.append({dict_str:entity.type})
