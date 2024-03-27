@@ -3,28 +3,28 @@
 Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for named entity recognition and one for visualization of results (GUI). Entities and models supported are the following:
 
 ### Entities
-| | spaCy | spaCy + RoBERTa| Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
-| ----------- |  ----------- | ----------- | ----------- | ----------- | ----------- | ----------- 
-| PERSON | |   |  | | | | |
-| NORP   | |   |  | | | | |
-| FAC | |   |  | | | | |
-| PRODUCT| |   |  | | | | |
-| ORG  | |   |  | | | | |
-| GPE | |   |  | | | | |
-| LOC | |   |  | | | | |
-| DATE| |   |  | | | | |
-| TIME| |   |  | | | | |
-| PERCENT| |   |  | | | | |
-| CARDINAL| |   |  | | | | |
-| MONEY| |   |  | | | | |
-| QUANTITY| |   |  | | | | |
-| ORDINAL| |   |  | | | | |
-| EVENT| |   |  | | | | |
-| WORK_OF_ART| |   |  | | | | |
-| LAW| |   |  | | | | |
-| LANGUAGE| |   |  | | | | |
-| MISC| |   |  | | | | |
-| FOOD| |   |  | | | | |
+| | spaCy | spaCy + RoBERTa | Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
+| ----------- |  ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- 
+| PERSON | |   |  | | | | 
+| NORP   | |   |  | | | | 
+| FAC | |   |  | | | | 
+| PRODUCT| |   |  | | | | 
+| ORG  | |   |  | | | | 
+| GPE | |   |  | | | |
+| LOC | |   |  | | | | 
+| DATE| |   |  | | | | 
+| TIME| |   |  | | | | 
+| PERCENT| |   |  | | | | 
+| CARDINAL| |   |  | | | | 
+| MONEY| |   |  | | | | 
+| QUANTITY| |   |  | | | | 
+| ORDINAL| |   |  | | | | 
+| EVENT| |   |  | | | | 
+| WORK_OF_ART| |   |  | | | | 
+| LAW| |   |  | | | | 
+| LANGUAGE| |   |  | | | | 
+| MISC| |   |  | | | | 
+| FOOD| |   |  | | | |
 
 
 
