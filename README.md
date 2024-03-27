@@ -24,7 +24,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | LAW| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
 | LANGUAGE| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
 | MISC| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
-| FOOD| |  |  | | :heavy_check_mark: | :heavy_check_mark: | 
+| FOOD| |  |  | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 
 
