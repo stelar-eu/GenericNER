@@ -5,6 +5,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 ### Entities
 | | spaCy | spaCy + RoBERTa | Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
 | ----------- |  ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- 
+| FOOD| |  |  | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 | PERSON | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | | | 
 | NORP   | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
 | FAC | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
@@ -24,7 +25,6 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | LAW| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
 | LANGUAGE| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
 | MISC| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
-| FOOD| |  |  | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 
 <!---
