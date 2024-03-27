@@ -3,14 +3,16 @@
         "s3://XXXXXXXX-bucket/temp1.csv"
     ],
     "parameters": {
-         "output_file":"test_output",
-         "text_column":"description",
+         "dataset":"foodbase.csv",
+         "text_column":"text",
+         "ground_truth_column":"tags",
+         "product_column":"product",
          "csv_delimiter":",",
-         "keep_food": true,
+         "prediction_values": {"cardinal":['flair','spacy_roberta'],"food":['instafoodroberta']},
          "N":100,
-         "extraction_type":"food",
-         "model":"instafoodroberta",
-         "syntactic_analysis_tool":"spacy"
+         "syntactic_analysis_tool":"spacy",
+         "prompt_id":"0"
+         "ontology":None
     },
     "minio": {
         "endpoint_url": "minio.XXXXXXXX.gr",
