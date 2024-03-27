@@ -27,7 +27,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | FOOD| |  |  | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 
-
+<!---
 ### Models
 | Generic (all entities except food) | Food 
 | ----------- | --------- |
@@ -35,7 +35,7 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | spaCy + RoBERTa | SciFoodNER
 | Flair | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
 | Stanza |
-
+-->
 
 
 ## Named entity recognition (NER)
