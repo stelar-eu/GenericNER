@@ -70,7 +70,7 @@ The chosen LLM or set of LLMs is prompted to identify food entities in every tex
 
 In the case of many LLMs, the union of answers is considered as the set of food entities returned.
 
-You can also use _spaCy_ or _Stanza_ as a noun/noun phrase extractor. In that case, the LLM(s) will be prompted to classify the extracted nouns/noun phrases are food entities or non-food entities, with the following prompt:
+You can also use _spaCy_ or _Stanza_ as a noun/noun phrase extractor. In that case, the LLM(s) will <u>instead</u> be prompted to classify the extracted nouns/noun phrases are food entities or non-food entities, with the following prompt:
 
 _'Classify the following item as EDIBLE or NON EDIBLE. Desired format: [EDIBLE/NON EDIBLE]. Input:'_
 
