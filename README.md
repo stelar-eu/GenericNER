@@ -60,7 +60,20 @@ The input parameters can be adjusted in the _config\_file.ini_ configuration fil
 
 ### Functionality
 
-After the input file is processed, entity recognition models are loaded. Those models predict named entity labels (locations, organizations etc.) and/or food entity labels and insert the results in a Python dictionary. Currently, the software supports four generic NER models: [spaCy], [spaCy + RoBERTa benchmark], [Flair] and [Stanza (StanfordNLP)] and the following food NER models: [SciFoodNER], [InstaFoodRoBERTa] and LLMs. It can be extended to use more models in the future. In cases where ground truth is available within the input file, evaluation of results is performed for all models and metrics are also reported in the resulting dictionary. The dictionary is then written on an output JSON file, as well as an output CSV file. The two files are stored under the name the user provided, with the extensions .json and .csv, respectively. 
+After the input file is processed, entity recognition models are loaded. Those models predict named entity labels (locations, organizations etc.) and/or food entity labels and insert the results in a Python dictionary. Currently, the software supports four generic NER models: [spaCy], [spaCy + RoBERTa benchmark], [Flair] and [Stanza (StanfordNLP)] and the following food NER models: [SciFoodNER], [InstaFoodRoBERTa] and LLMs. It can be extended to use more models in the future. In cases where ground truth is available within the input file, evaluation of results is performed for all models and metrics are also reported in the resulting dictionary (precision, recall, F1 score). The dictionary is then written on an output JSON file, as well as an output CSV file. The two files are stored under the name the user provided, with the extensions .json and .csv, respectively. 
+
+### LLMs
+
+The chosen LLM or set of LLMs is prompted to identify food entities in every text given, with one of the following prompts:
+1. _'Print only one comma-separated list of the foods, drinks or edible ingredients mentioned in the previous text. Do write a very short answer, with no details, just the list. If there are no foods, drinks or edible ingredients mentioned, print no.'_
+2. _'You are a food allergy specialist and your task is to find anything edible, i.e. food, drink or ingredient, mentioned in the previous text. If you lose any edible item mentioned, there is a risk of someone getting allergy and you will be penalized. Print the edible items you found in a comma-separated list, each edible item printed separately and without further information. If there are no edible items mentioned in the text, print no.'_
+3. _'Find any foods, drinks or edible ingredients mentioned in the previous text. Print them in a comma-separated list. If there are none, print no. Write a short answer.'_
+
+In the case of many LLMs, the union of answers is considered as the set of food entities returned.
+
+You can also use _spaCy_ or _Stanza_ as a noun/noun phrase extractor. In that case, the LLM(s) will be prompted to classify the extracted nouns/noun phrases are food entities or non-food entities, with the following prompt:
+
+_'Classify the following item as EDIBLE or NON EDIBLE. Desired format: [EDIBLE/NON EDIBLE]. Input:'_
 
 ## Visualization
 
