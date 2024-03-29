@@ -62,7 +62,7 @@ The input parameters can be adjusted in the _config\_file.ini_ configuration fil
 
 After the input file is processed, entity recognition models are loaded. Those models predict named entity labels (locations, organizations etc.) and/or food entity labels and insert the results in a Python dictionary. Currently, the software supports four generic NER models: [spaCy], [spaCy + RoBERTa benchmark], [Flair] and [Stanza (StanfordNLP)] and the following food NER models: [SciFoodNER], [InstaFoodRoBERTa] and LLMs. It can be extended to use more models in the future. In cases where ground truth is available within the input file, evaluation of results is performed for all models and metrics are also reported in the resulting dictionary (precision, recall, F1 score). The dictionary is then written on an output JSON file, as well as an output CSV file. The two files are stored under the name the user provided, with the extensions .json and .csv, respectively. 
 
-### LLMs
+#### LLMs
 
 The chosen LLM or set of LLMs is prompted to identify food entities in every text given, with one of the following prompts:
 1. _'Print only one comma-separated list of the foods, drinks or edible ingredients mentioned in the previous text. Do write a very short answer, with no details, just the list. If there are no foods, drinks or edible ingredients mentioned, print no.'_
