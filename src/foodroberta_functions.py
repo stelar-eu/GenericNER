@@ -3,7 +3,7 @@ import time
 from llm_foodNER_functions import *
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 
-def convert_entities_to_list(text, entities: list[dict]) -> list[str]:
+def convert_entities_to_list(text, entities):
         ents = []
         for ent in entities:
             e = {"start": ent["start"], "end": ent["end"], "label": ent["entity_group"]}

@@ -19,13 +19,14 @@ def run(j):
         text_column = j['parameters']['text_column']
         ground_truth_column = j['parameters'].get('ground_truth_column')
         product_column = j['parameters'].get('product_column')
-        #csv_delimiter = j['parameters']['csv_delimiter']
+        csv_delimiter = j['parameters']['csv_delimiter']
         keep_food = j['parameters'].get('keep_food', False)
         
         #Algorithm Parameters
         N = j['parameters']['N']
-        extraction_type = j['parameters']['extraction_type']
-        model = j['parameters']['model']
+        #extraction_type = j['parameters']['extraction_type']
+        #model = j['parameters']['model']
+        prediction_values = j['parameters']['prediction_values']
         syntactic_analysis_tool = j['parameters'].get('syntactic_analysis_tool')
         if syntactic_analysis_tool is None:
             syntactic_analysis_tool = 'stanza'
@@ -35,10 +36,10 @@ def run(j):
         minio = j['minio']
         
         df = prepare_dataset_new(INPUT_FILE, text_column = text_column, ground_truth_column = ground_truth_column,
-                                 product_column = product_column, minio = minio)
+                                 product_column = product_column, csv_delimiter=csv_delimiter, minio = minio)
 
         t = time()
-        outfile, log = entity_extraction(df, extraction_type, model, 
+        outfile, log = entity_extraction(df, prediction_values,
                                          output_file=output_file, N = N,
                                          syntactic_analysis_tool = syntactic_analysis_tool, 
                                          prompt_id = prompt_id)
