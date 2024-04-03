@@ -68,7 +68,7 @@ The chosen LLM or set of LLMs is prompted to identify food entities in every tex
 2. _'You are a food allergy specialist and your task is to find anything edible, i.e. food, drink or ingredient, mentioned in the previous text. If you lose any edible item mentioned, there is a risk of someone getting allergy and you will be penalized. Print the edible items you found in a comma-separated list, each edible item printed separately and without further information. If there are no edible items mentioned in the text, print no.'_
 3. _'Find any foods, drinks or edible ingredients mentioned in the previous text. Print them in a comma-separated list. If there are none, print no. Write a short answer.'_
 
-You can set the prompt id (1,2 or 3) in _config\_file.ini_ file. 
+You can set the prompt id (1,2 or 3) by adjusting the _prompt\_id_ parameter. 
 In the case of many LLMs, the union of answers is considered as the set of food entities returned.
 
 You can also use _spaCy_ or _Stanza_ (set it in argument _syntactic\_analysis\_tool_) as a noun/noun phrase extractor by setting _prompt\_id_ to 0. In that case, the LLM(s) will <u>instead</u> be prompted to classify the extracted nouns/noun phrases are food entities or non-food entities, with the following prompt:
