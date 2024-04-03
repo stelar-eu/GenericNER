@@ -9,5 +9,5 @@ spacy
 stanza
 flair
 urllib3
-sklearn
+scikit-learn
 simpletransformers
