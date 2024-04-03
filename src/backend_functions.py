@@ -10,7 +10,7 @@ import torch
 import flair
 import stanza
 from datasets import load_dataset
-from flair.nn import Classifier
+from flair.models import SequenceTagger
 from flair.data import Sentence
 from configparser import ConfigParser
 from minio import Minio
@@ -204,7 +204,7 @@ def load_import_models(tools):
   nlp_spacy = spacy.load("en_core_web_sm")
   nlp_spacy = en_core_web_sm.load()
   #Import flair, load model
-  tagger = Classifier.load('ner-ontonotes')
+  tagger = SequenceTagger.load('ner-ontonotes')
   #Download and import pipeline
   stanza.download('en')
   nlp_stanza = stanza.Pipeline('en') # initialize English neural pipeline
@@ -387,7 +387,7 @@ def merge_dfs_horizontally(dfs_list):
   final_df = pd.concat(dfs_list, axis=1)
   return final_df
 
-def cross_results(df,N,names_df, dictionary,print_df=True):
+def cross_results(df, N, names_df, prediction_values, dictionary, print_df=True):
   '''
   add description
   '''
@@ -395,13 +395,38 @@ def cross_results(df,N,names_df, dictionary,print_df=True):
   df_final_prec = pd.DataFrame(index = list(df.columns), columns = list(df.columns))
   df_final_rec = pd.DataFrame(index = list(df.columns), columns = list(df.columns))
   df_wrong_category = pd.DataFrame(index = list(df.columns), columns = list(df.columns))
-  rows_indices = list(range(N)) + ['positive'] + ['fp']  + ['wrong_category']
+  model_groups = list(prediction_values.values())
+  entity_types = list(prediction_values.keys())
+  model_groups = [rename_tools(lst) for lst in model_groups]
+  rows_indices = list(range(N)) + ['positive'] + ['fp'] + ['wrong_category']
   dictionary_arr = []
   for tool in list(df.columns):
-    for tool_2 in list(df.columns):
-      df_results = pd.DataFrame(index = rows_indices, columns = names_df).fillna(0)
+   for tool_2 in list(df.columns):
+      list_comp = []
+      for i_model in range(len(model_groups)):
+       if tool in model_groups[i_model] and tool_2 in model_groups[i_model]:
+        list_comp.append(entity_types[i_model].upper())
+      #print(tool,tool_2,list_comp)
+      '''
+      if list_comp == []:
+        continue
+      '''
+      df_results = pd.DataFrame(index = rows_indices, columns = [entity.upper() for entity in entity_types]).fillna(0)
       for i in range(N):
-        df_results = add_result_to_df(i, df_results, df.loc[i,tool], df.loc[i,tool_2])
+       '''
+       arg1 = df.loc[i,tool]
+       arg2 = df.loc[i,tool_2]
+       print(arg1,arg2)
+       if i == 0:
+        print(arg1,arg2)
+       for j in range(len(arg1)):
+        print(type(arg1[j]),len(arg1[j]),arg1[j][2:])
+        arg1[j] = 'O' if len(arg1[j]) > 1 and arg1[j][2:] not in list_comp else arg1[j]
+        arg2[j] = 'O' if len(arg2[j]) > 1 and arg2[j][2:] not in list_comp else arg2[j]
+       if i == 0:
+        print(arg1,arg2)
+       '''
+       df_results = add_result_to_df(i, df_results, df.loc[i,tool], df.loc[i,tool_2])
       hit_percent_sum = 0
       hit_percent_sum_prec = 0
       total_categories = 0
@@ -756,8 +781,9 @@ def write_json_file(dictionary,out_file_name,dict_metrics = {}):
   new_dct = dictionary
   dictionary_arr = []
   for key,value in dict_metrics.items():
-    key = key[14:]
-    dictionary_arr.append({key:value})
+    if 'Cross results' in key:
+     key = key[14:]
+     dictionary_arr.append({key:value})
   new_dct.update({'Cross results':dictionary_arr})
   json_object = json.dumps(new_dct, indent=4)
   with open(out_file_name + '.json', "w") as outfile:
@@ -774,6 +800,5 @@ def rename_tools(tools):
     elif tools[i] == 'flair':
       tools[i] = 'Flair'
     else:
-      print('Invalid Generic NER model!')
       return []
   return tools

@@ -881,7 +881,7 @@ def find_discrete_partial_hits(real_entities, predicted_entities,text,missed_ent
             break
           if item_int + 1 == len(real_entities) - 1:
             ent_end = item_int + 1
-      if (real_entities[ent_start:ent_end+1] == predicted_entities[ent_start:ent_end+1]) and (predicted_entities[ent_end+1] != predicted_entities[ent_end]):
+      if (real_entities[ent_start:ent_end+1] == predicted_entities[ent_start:ent_end+1]) and ((ent_end == len(real_entities) -1) or (predicted_entities[ent_end+1] != predicted_entities[ent_end])):
         discrete_hits += 1
       else:
         for num in range(ent_start,ent_end+1):
@@ -904,7 +904,7 @@ def evaluate_results(food_entities, bio_tags, hits, discrete_hits, partial_hits,
   missed_entities = discrete_partial_hits[2]
   return hits, discrete_hits, partial_hits, all_entities, wrong_constructions, missed_entities
     
-def evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_entities,partial_hits,partial_hits_prec,wrong_constructions,error_sentences, to_dict = True):
+def evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_entities,partial_hits,partial_hits_prec,wrong_constructions,error_sentences, model_name, to_dict = True, dictionary = {}):
     df_results = pd.DataFrame(index = ['food precision','food recall','food F1'], columns = ['score'])
     try:
       precision = discrete_hits_prec/(all_entities_prec)
@@ -936,18 +936,29 @@ def evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_en
     df_results.loc['food partial recall','score'] = "{:.2f}".format(recall*100) + '%'
     df_results.loc['food partial precision','score'] = "{:.2f}".format(precision*100) + '%'
     df_results.loc['food partial F1','score'] = "{:.2f}".format(f1*100) + '%'    
-    print(df_results)
-    print('\n')
-    print(wrong_constructions, 'entity lists wrongly made')
-    print('ommited', len(error_sentences), 'instances. Error sentences:', error_sentences)
-    if to_dict:
-        dct = df_results['score'].to_dict()
-        return dct
+    #print(df_results)
+    #print('\n')
+    #print(wrong_constructions, 'entity lists wrongly made')
+    #print('ommited', len(error_sentences), 'instances. Error sentences:', error_sentences)
+    dct = df_results['score'].to_dict()
+    arr_dct = []
+    if dictionary != {}:
+      arr_dct.append({'RECALL-FOOD':float(df_results.loc['food recall','score'][:-1])})
+      arr_dct.append({'PRECISION-FOOD':float(df_results.loc['food precision','score'][:-1])})
+      arr_dct.append({'F1-FOOD':float(df_results.loc['food F1','score'][:-1])})
+      arr_dct.append({'RECALL-FOOD-PARTIAL':float(df_results.loc['food partial recall','score'][:-1])})
+      arr_dct.append({'PRECISION-FOOD-PARTIAL':float(df_results.loc['food partial precision','score'][:-1])})
+      arr_dct.append({'F1-FOOD-PARTIAL':float(df_results.loc['food partial F1','score'][:-1])})
+      dictionary.update({"Evaluation-"+model_name:arr_dct})
+    return dct,dictionary
 
 def list_to_dict(all_entities_cur,df,tool_name,dct):
     all_entities_cur = [item for lst in all_entities_cur for item in lst]
     idx = -1
     food_area = 0
+    toks = 0
+    for i in range(len(df)):
+     toks += len(df.loc[i,'text'].split())
     for i in range(len(df)):
       word_end = 0
       dictionary_arr = []
@@ -972,7 +983,7 @@ def list_to_dict(all_entities_cur,df,tool_name,dct):
            #   new_end -= 1
             dict_str = str(new_start) + '-' + str(new_end)
             dictionary_arr.append({dict_str:'FOOD'})
-        elif all_entities_cur[idx] == 'I-FOOD' and all_entities_cur[idx-1] != 'O' and all_entities_cur[idx+1] != 'I-FOOD' and food_area:
+        elif all_entities_cur[idx] == 'I-FOOD' and all_entities_cur[idx-1] != 'O' and (idx == len(all_entities_cur) - 1 or all_entities_cur[idx+1] != 'I-FOOD') and food_area:
           new_start = entity_starting
           #while not txt[new_start].isalpha():
           #  new_start += 1
@@ -1186,10 +1197,10 @@ def get_info_from_df(df_scores):
     set_no_foods =  df_scores.loc['set_no_foods','value']
     return hits, discrete_hits, discrete_hits_prec, partial_hits, partial_hits_prec, wrong_constructions, all_entities, all_entities_prec, error_sentences, food_entities_total, predicted_entities_total, missed_entities, fp_entities, start, set_foods, set_no_foods
 
-def df_scores_to_dict(df_scores):
+def df_scores_to_dict(df_scores,dictionary,model_name):
     hits, discrete_hits, discrete_hits_prec, partial_hits, partial_hits_prec, wrong_constructions, all_entities, all_entities_prec, error_sentences, food_entities_total, predicted_entities_total, missed_entities, fp_entities, start, set_foods, set_no_foods = get_info_from_df(df_scores)
-    dict_results = evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_entities,partial_hits,partial_hits_prec,wrong_constructions,error_sentences, to_dict = True)
-    return dict_results
+    dict_results,dictionary = evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_entities,partial_hits,partial_hits_prec,wrong_constructions,error_sentences, model_name = model_name,dictionary = dictionary, to_dict = True)
+    return dict_results,dictionary
     
 def LLM_foodNER(df, df_scores, texts, true_tags, end_text, no_repetitions, repetition_LLM, prompt = False, nlp = False, syntactic = False, start_text = 0, pos_tagger = 'stanza'):
     texts_missed = []
@@ -1220,10 +1231,8 @@ def LLM_foodNER(df, df_scores, texts, true_tags, end_text, no_repetitions, repet
           else:
               print('Error: pos tagger not supported. Available taggers: spacy,stanza')
               return pd.DataFrame()
-          
           new_noun_entities_list = []
           entities_list = []
-          
           for item in noun_entities_list:
               if item not in set_foods and item not in set_no_foods:
                   if nlp(item).ents == []:
@@ -1256,23 +1265,17 @@ def LLM_foodNER(df, df_scores, texts, true_tags, end_text, no_repetitions, repet
           llm_prompts_list.append(llm_prompts)
           llm_prompts = 0
       food_entities = find_entities_in_text(entities_list,predicted_entities_total,food_entities_total, text, print_df = False)
-        
-      if 'iob_tags' in df.columns:
+      if 'tags' in df.columns:
         missed_entities_old+= missed_entities
         hits, discrete_hits, partial_hits, all_entities, wrong_constructions, missed_entities = evaluate_results(food_entities, true_tags[i], hits, discrete_hits, partial_hits, all_entities, wrong_constructions,missed_entities, text)
         if (len(missed_entities) - len(missed_entities_old)) >= 1:
             texts_missed.append(len(text)) 
         hits_trash, discrete_hits_prec, partial_hits_prec, all_entities_prec, wrong_constructions_trash, fp_entities = evaluate_results(true_tags[i], food_entities, hits, discrete_hits_prec, partial_hits_prec, all_entities_prec, wrong_constructions, fp_entities, text)
-        print(discrete_hits,'correct', partial_hits, 'partial')
-          
       if i >= end_text:
         break
-        
-    if 'iob_tags' in df.columns:
-        evaluation_metrics(discrete_hits_prec,all_entities_prec,discrete_hits,all_entities,partial_hits,partial_hits_prec,wrong_constructions,error_sentences, to_dict = False)
     end = time.time()
-    print('time elapsed:', end-start, 'seconds')
-    print('time consumed by LLM:', time_LLM, 'seconds')
+    print('time elapsed: {0:.2f}'.format(end-start), 'seconds')
+    print('time consumed by LLM: {0:.2f}'.format(time_LLM), 'seconds')
     df_scores = update_df_scores(df_scores, hits, discrete_hits, discrete_hits_prec, partial_hits, partial_hits_prec, wrong_constructions, all_entities, all_entities_prec, error_sentences, food_entities_total, predicted_entities_total, missed_entities, fp_entities, set_foods, set_no_foods)
     plot_llm_prompts_by_time(llm_prompts_list)
     print('texts missed:', texts_missed)
@@ -1374,9 +1377,9 @@ def clean_text(texts_by_period):
         idx += 1
         texts_by_period[idx] = texts_by_period[idx].replace('\"','’')
         texts_by_period[idx] = texts_by_period[idx].replace('\'','’')
-        texts_by_period[idx] = texts_by_period[idx].replace('>','')
-        texts_by_period[idx] = texts_by_period[idx].replace('<','')
-        texts_by_period[idx] = texts_by_period[idx].replace('/','')
+        #texts_by_period[idx] = texts_by_period[idx].replace('>','')
+        #texts_by_period[idx] = texts_by_period[idx].replace('<','')
+        #texts_by_period[idx] = texts_by_period[idx].replace('/','\/')
     return texts_by_period
 
 def food_data_to_csv(df,all_entities_cur,tool,df_to_merge,discard_non_entities = False):
@@ -1436,7 +1439,7 @@ def food_data_to_csv(df,all_entities_cur,tool,df_to_merge,discard_non_entities =
           list_positions.append(str(position_in_text) + '-' + str(position_in_text+len(token)-1))
       elif all_entities_cur[idx] == 'I-FOOD' and all_entities_cur[idx-1] != 'O':
         cur_phrase += ' ' + token
-        if all_entities_cur[idx+1] != 'I-FOOD' and food_area:
+        if (idx == len(all_entities_cur) - 1 or all_entities_cur[idx+1] != 'I-FOOD') and food_area:
           list_phrases.append(cur_phrase)
           list_text_ids.append(idx_text)
           if 'product' in list(df.columns):
@@ -1494,7 +1497,7 @@ def generic_data_to_csv(df,output_df,food_df,discard_non_entities = False):
             idx_phrase += 1
             food_area = 1
             entity_starting = position_in_text
-            if 'I-' not in all_entities_cur[idx+1]:
+            if idx == len(all_entities_cur) -1 or 'I-' not in all_entities_cur[idx+1]:
               list_phrases.append(cur_phrase)
               list_text_ids.append(idx_text)
               list_ids.append(tool + '-' + str(idx_phrase))
