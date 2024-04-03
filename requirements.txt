@@ -11,3 +11,4 @@ flair
 urllib3
 scikit-learn
 simpletransformers
+pytokenjoin

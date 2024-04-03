@@ -3,9 +3,13 @@ from llm_foodNER_functions import *
 from foodroberta_functions import *
 from utils_init import *
 import os
+from entity_linking import entity_linking, prep_df
 
 def entity_extraction(df, prediction_values, N = 10, output_file = 'ee_output',
-                           syntactic_analysis_tool = 'stanza', split_by = 'period', prompt_id = 1, ontology = None):
+                      syntactic_analysis_tool = 'stanza', split_by = 'period', prompt_id = 1,
+                      
+                      ontology_df = None, ontology_col_id=None, ontology_col_text=None, 
+                      similarity=None, k=None, delta_alg=None):
   ##Food NER
   df_scores = make_df_scores(set_foods = set(), set_no_foods = set())
   df_scores = update_time(df_scores)
@@ -127,10 +131,33 @@ def entity_extraction(df, prediction_values, N = 10, output_file = 'ee_output',
     dict_metrics = cross_results(total_results_df,N,names_df,prediction_values,dict_metrics,print_df=False)
     new_df = generic_data_to_csv(df[:N],total_results_df,new_df,discard_non_entities = True)
     compare_results(total_results_df,N,names_df)
-  if ontology is not None:
-    pass
   new_df.to_csv(output_file + '.csv',index = False)
   write_json_file(dictionary,output_file,dict_metrics)
+  
+  
+  df_stats = pd.DataFrame()
+  df_stats['total_tags'] = new_df.groupby('text_id')['phrase_id'].count()
+  new_df_2 = new_df.loc[new_df.tag=='FOOD']
+  df_stats['food_tags'] = new_df.groupby('text_id')['phrase_id'].count()
+  log = df_stats.mean().to_dict()
+  for key,val in log.items():
+      dict_metrics[key] = val
+  
+  
+  if ontology_df is not None:
+        print('Running Entity Linking...')
+
+        df_left = prep_df(output_file + '.csv', 0, "phrase", ",", " ")
+        df_right = ontology_df
+      
+        pairs, log = entity_linking(df_left, "phrase_id", "phrase", "food product",
+                                    df_right, ontology_col_id, ontology_col_text,
+                                    similarity, k, delta_alg)
+        
+        # pairs.to_csv('joined_entities.csv')
+        for key,val in log.items():
+            dict_metrics[key] = val
+    
   return output_file, dict_metrics
 
 def main():
@@ -149,3 +176,4 @@ def main():
 
 if __name__ == "__main__":
   main()
+
