@@ -161,7 +161,6 @@ def entity_extraction(df, prediction_values, N = 10, output_file = 'ee_output',
   return output_file, dict_metrics
 
 def main():
-  minio=None
   dataset, text_column, ground_truth_column, product_column, csv_delimiter, prediction_values, N, ontology, minio = read_configuration_file('../config_file.ini')
   df = prepare_dataset_new(dataset, text_column = text_column, ground_truth_column = ground_truth_column, product_column = product_column, csv_delimiter = csv_delimiter, minio = minio)
   if df.empty:
