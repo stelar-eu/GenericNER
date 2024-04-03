@@ -53,7 +53,7 @@ This component's input is a CSV file containing texts we want to perform NER on,
 8. _syntactic\_analysis\_tool_ (optional,str): name of model to extract nouns/noun phrases from text. Can be _spacy_ or _stanza_
 9. _prompt\_id_ (optional, int): prompt id (_0,1,2 or 3_). Used in the case of food entity extraction using an LLM
 10. _minio_ (optional,str): credentials for minio server. Used when dataset is not local, but instead is an s3 path to the minio server
-11. _ontology_ (optional, str): ontology to use for entity linking (<u>under construction</u>)
+11. _ontology_ (optional, str): ontology to use for entity linking
 
 The input parameters can be adjusted in the _config\_file.ini_ configuration file.
 
