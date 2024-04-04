@@ -212,7 +212,7 @@ def load_import_models(tools):
   for item in tools:
     arr.append(nlp_spacy) if item == 'spaCy' else 1
     arr.append(nlp_spacy_rob) if item == 'spaCy + RoBERTa' else 1
-    arr.append(tagger) if item == 'Flair'else 1
+    arr.append(tagger) if item == 'Flair' else 1
     arr.append(nlp_stanza) if item == 'Stanza' else 1
   return arr
 
@@ -406,27 +406,16 @@ def cross_results(df, N, names_df, prediction_values, dictionary, print_df=True)
       for i_model in range(len(model_groups)):
        if tool in model_groups[i_model] and tool_2 in model_groups[i_model]:
         list_comp.append(entity_types[i_model].upper())
-      #print(tool,tool_2,list_comp)
-      '''
       if list_comp == []:
         continue
-      '''
       df_results = pd.DataFrame(index = rows_indices, columns = [entity.upper() for entity in entity_types]).fillna(0)
       for i in range(N):
-       '''
-       arg1 = df.loc[i,tool]
-       arg2 = df.loc[i,tool_2]
-       print(arg1,arg2)
-       if i == 0:
-        print(arg1,arg2)
+       arg1 = list(df.copy().loc[i,tool])
+       arg2 = list(df.copy().loc[i,tool_2])
        for j in range(len(arg1)):
-        print(type(arg1[j]),len(arg1[j]),arg1[j][2:])
-        arg1[j] = 'O' if len(arg1[j]) > 1 and arg1[j][2:] not in list_comp else arg1[j]
-        arg2[j] = 'O' if len(arg2[j]) > 1 and arg2[j][2:] not in list_comp else arg2[j]
-       if i == 0:
-        print(arg1,arg2)
-       '''
-       df_results = add_result_to_df(i, df_results, df.loc[i,tool], df.loc[i,tool_2])
+        arg1[j] = 'O' if (len(arg1[j]) > 1 and arg1[j][2:] not in list_comp) else arg1[j]
+        arg2[j] = 'O' if (len(arg2[j]) > 1 and arg2[j][2:] not in list_comp) else arg2[j]
+       df_results = add_result_to_df(i, df_results, arg1, arg2)
       hit_percent_sum = 0
       hit_percent_sum_prec = 0
       total_categories = 0
@@ -458,26 +447,26 @@ def cross_results(df, N, names_df, prediction_values, dictionary, print_df=True)
           total_categories += total
           total_categories_prec += (hits+misses)
           perc_wrong_sum += perc_wrong
-      try:
+      if total_categories > 0 and total_categories_prec > 0 and hit_percent_sum > 0 and hit_percent_sum_prec > 0:
         f1_total = 2/((1/(hit_percent_sum*100/total_categories)) + (1/(hit_percent_sum_prec*100/total_categories_prec)))
-      except:
-        f1_total = 0
-      df_final_f1.loc[tool,tool_2] = str(format(f1_total, ".2f")) + '%'
-      try:
+      else:
+        f1_total = 'nan'
+      df_final_f1.loc[tool,tool_2] = str(format(f1_total, ".2f")) + '%' if (type(f1_total) != str) else f1_total
+      if total_categories_prec > 0:
        prec_total = hit_percent_sum_prec*100/total_categories_prec
-      except:
-       prec_total = None
-      df_final_prec.loc[tool,tool_2] = str(format(prec_total, ".2f")) + '%'
-      try:
+      else:
+       prec_total = 'nan'
+      df_final_prec.loc[tool,tool_2] = str(format(prec_total, ".2f")) + '%' if (type(prec_total) != str) else prec_total
+      if total_categories > 0:
        rec_total = hit_percent_sum*100/total_categories
-      except:
-       rec_total = None
-      df_final_rec.loc[tool,tool_2] = str(format(rec_total, ".2f")) + '%'
-      try:
+      else:
+       rec_total = 'nan'
+      df_final_rec.loc[tool,tool_2] = str(format(rec_total, ".2f")) + '%' if (type(rec_total) != str) else rec_total
+      if total_categories > 0:
        perc_wrong_total = perc_wrong_sum*100/total_categories
-      except:
-       perc_wrong_total = None
-      df_wrong_category.loc[tool,tool_2] = str(format(perc_wrong_total, ".2f")) + '%'
+      else:
+       perc_wrong_total = 'nan'
+      df_wrong_category.loc[tool,tool_2] = str(format(perc_wrong_total, ".2f")) + '%' if (type(perc_wrong_total) != str) else perc_wrong_total
       str_ = tool +'-' + tool_2 + '-'
       dictionary.update({'Cross results-' + str_ + 'F1':df_final_f1.loc[tool,tool_2]})
       dictionary.update({'Cross results-' + str_ + 'precision':df_final_prec.loc[tool,tool_2]})
@@ -610,8 +599,12 @@ def return_bio_format_flair(N, tagger, df, entities_wanted):
        try:
          index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(txt))
        except:
-         print('exception')
-         continue
+         new_doc = new_doc.replace(u'\xa0', ' ') #replace nbsp character with space
+         try:
+          index_entity = doc_len - len(str(new_doc)) + str(new_doc).index(str(txt))
+         except:
+          print('exception')
+          continue
        index = sentence_to_predict[:index_entity].count(' ') - 1
        if sentence_to_predict[:index_entity][-1] == ' ':
          index = len(sentence_to_predict[:index_entity].split())
@@ -620,7 +613,7 @@ def return_bio_format_flair(N, tagger, df, entities_wanted):
        new_doc = sentence_to_predict[index_entity + len(str(txt)):]
        for label_span in range(len(txt.split())):
          if label_span == 0:
-           entity_list[index + label_span] = 'B-' + tag    #construct spacy entity list as it is in dataset
+           entity_list[index + label_span] = 'B-' + tag    #construct entity list as it is in dataset
          else:
            entity_list[index + label_span] = 'I-' + tag
     results_list.append(entity_list)
