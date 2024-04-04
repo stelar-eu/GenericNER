@@ -168,7 +168,7 @@ def main():
 
   output_file = generate_output_file_name(dataset,prediction_values)
   output_file_path, dict_metrics = entity_extraction(df, prediction_values = prediction_values,
-                                                   output_file = output_file, N= N, ontology = None)
+                                                   output_file = output_file, N= N)
   print('CSV output_file_path:', output_file_path + '.csv')
   print('JSON output_file_path:', output_file_path + '.json')
   print('evaluation dictionary:', dict_metrics)
