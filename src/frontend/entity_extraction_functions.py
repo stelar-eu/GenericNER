@@ -27,7 +27,7 @@ def make_tools_list(json_object):
 def select_index(form, json_object, n_tools):
   form.num_select = st.selectbox(
       'By index', 
-      range(1,int((len(json_object)-n_tools)/n_tools)+1))
+      range(1,int((len(json_object)-1)/n_tools)+1))
   num_select = form.num_select
   num = form.num_select - 1
   return num, num_select
@@ -66,37 +66,55 @@ def choose_tools(tools_list):
       tools.append(tool)
   return tools
 
-def annotate_text(sentence, keys, values, all_or_not, options_type = ['ALL','ALL']):
+def annotate_text(sentence, keys, values, all_or_not, options_type = ['ALL','ALL'], underline = None):
   list_tuples = [] 
   annotated = [0 for i in range(len(sentence.split()))]
-  index_in_str = 1
-  #index_in_str = 0		#this is right when not using OntoNotes...
+  word_end = 0
   index_token = -1
+  doc = sentence
+  if underline:
+   underline_start = [i for i in range(len(sentence)) if sentence[i:i+len(underline)] == underline]
   for word in sentence.split():
     index_token += 1
     is_entity = 0
     count = 0
-    word_start = index_in_str
+    word_start = word_end + doc.index(word)
     word_end = word_start + len(word)
+    doc = sentence[word_end:]    
     dont_include = 0
+    '''
     clear_word_end = word_end
     while not sentence[clear_word_end].isalpha():
-      clear_word_end -= 1  
+      clear_word_end -= 1
+    '''
+    
     for entity_span in keys:
       span_start = int(str(entity_span)[:(str(entity_span).index('-'))])
       span_end = int(str(entity_span)[(str(entity_span).index('-')+1):])
-      if word_start >= span_start and (word_end <= span_end or clear_word_end <= span_end) and (values[count] in options_type or 'ALL' in options_type or all_or_not == 'ALL'):
+      
+      while span_end != len(sentence) and (sentence[span_end] != ' '):
+        span_end += 1
+      while (sentence[span_start] != ' '):
+        span_start -= 1
+      if word_start >= span_start and (word_end <= span_end) and (values[count] in options_type or 'ALL' in options_type or all_or_not == 'ALL'):
         if annotated[index_token] == 0:
           annotate_non_char = ''
           it = span_end
+          '''
           while (not sentence[it].isalpha()) and (sentence[it] != ' '):
             annotate_non_char = sentence[span_end] + annotate_non_char
             it -= 1
+          '''
           tup = (sentence[span_start:span_end], values[count])
+          if values[count] == 'FOOD':
+            tup = (sentence[span_start:span_end], values[count],"#6AD062")
           list_tuples.append(tup)
+          list_tuples.append(' ',)
+          '''
           if annotate_non_char != '':
             tup = (annotate_non_char,)
             list_tuples.append(tup)
+          '''
           for i in range(index_token,index_token + len(sentence[span_start:span_end].split())):
             try:
               annotated[i] = 1 
@@ -104,10 +122,22 @@ def annotate_text(sentence, keys, values, all_or_not, options_type = ['ALL','ALL
               print(i)
         is_entity = 1
       count += 1
-    if is_entity == 0:
-        tup = (word,)
+    if is_entity == 0 and annotated[index_token] == 0:
+        tup = word + ' '
+        if underline:
+          if word == underline or underline in word:
+            tup = word[:word.index(underline)] + f"**{underline}**" + word[word.index(underline)+len(underline):] + ' '
+            for split_i in range(len(underline.split())): annotated[index_token+split_i] = 1
+          elif word.lower() == underline or underline in word.lower():
+            if word.lower() == underline:
+              tup = word[:word.lower().index(underline)] + f"**{word}**" + word[word.lower().index(underline)+len(underline):] + ' '
+            else:
+              tup = word[:word.lower().index(underline)] + f"**{underline}**" + word[word.lower().index(underline)+len(underline):] + ' '
+            for split_i in range(len(underline.split())): annotated[index_token+split_i] = 1
+          elif word_start in underline_start and (sentence[word_start:word_start+len(underline)] == underline or sentence[word_start:word_start+len(underline)].lower() == underline):
+            tup = f"**{underline}**" + ' '
+            for split_i in range(len(underline.split())): annotated[index_token+split_i] = 1
         list_tuples.append(tup)
-    index_in_str += len(word) + 1
 
   if list_tuples == []:
     annotated_text(sentence)
@@ -173,7 +203,7 @@ def make_keys_values(tools, json_object, num):
   elif len(tools) > 1 and 'All' not in tools:
     json_object_index = str(num)
     for key_json,value_json in json_object.items():
-      if json_object_index == key_json[key_json.index('-')+1:] and key_json[:key_json.index('-')] in tools:
+      if ('Cross results' != key_json) and json_object_index == key_json[key_json.index('-')+1:] and key_json[:key_json.index('-')] in tools:
         for item in json_object[key_json]:
           for key,value in item.items():
             if key != 'sentence':
@@ -184,14 +214,15 @@ def make_keys_values(tools, json_object, num):
 def filter_sentences(preferred,json_object, tools, options_type, tools_list): 
   found = 0
   how_many = 0
-  if preferred is not None and preferred != '': 
+  while preferred[-1] == ' ': preferred = preferred[:-1]
+  if preferred is not None and preferred != '':
     for key_json,value_json in json_object.items():
       if ('Cross results' != key_json) and ('Evaluation' not in key_json) and preferred is not None and ((preferred in value_json[0]['sentence']) or (preferred.lower() in value_json[0]['sentence']) or (preferred in value_json[0]['sentence'].lower())) and tools_list[1] in key_json:
         found = 1
         how_many += 1
         keys,values = make_keys_values(tools, json_object, key_json[key_json.index('-')+1:])
         st.write('Text no.',str(int(key_json[key_json.index('-')+1:])+1))
-        annotate_text(value_json[0]['sentence'], keys, values, 'NOT', options_type)
+        annotate_text(value_json[0]['sentence'], keys, values, 'NOT', options_type, underline = preferred)
     if found == 0:
       st.write('No entry found!')
     else:
@@ -210,8 +241,9 @@ def filter_sentences_category(preferred_names_list,preferred_types_list,json_obj
     for preferred in preferred_names_list:
       i += 1
       for key_json,value_json in json_object.items():
-        if (preferred_types_list[i] != 'DATE') and ('Cross results' != key_json) and ('Evaluation' not in key_json) and ((preferred in value_json[0]['sentence']) or (preferred.lower() in value_json[0]['sentence']) or (preferred in value_json[0]['sentence'].lower())) and tools_list[1] in key_json: 
+        if (preferred_types_list[i] != 'DATE') and ('Cross results' != key_json) and ('Evaluation' not in key_json) and ((preferred in value_json[0]['sentence']) or (preferred.lower() in value_json[0]['sentence']) or (preferred in value_json[0]['sentence'].lower())): 
           found = 0
+          
           for item in json_object[key_json]:
             for key,value in item.items():
               if key != 'sentence' and value == preferred_types_list[i] and ((value_json[0]['sentence'][int(key[:key.index('-')]):int(key[key.index('-')+1:])] == preferred) or preferred == '' or preferred == []):
@@ -303,7 +335,7 @@ def print_statistics(json_object, list_categories, tools_list):
   df_data = df_data.drop(columns = 'list_All')
   for tool in tools_list:
     if tool != 'All':
-      df_data.rename(columns={'list_' + tool: 'Unique entities identified by' + tool},
+      df_data.rename(columns={'list_' + tool: 'Unique entities identified by ' + tool},
           inplace=True, errors='raise')
   df_data['Total unique entities detected'] = list_num
   st.table(df_data)
@@ -387,6 +419,8 @@ def give_info_entity(num,json_object):
 def print_evaluation(json_object, list_categories, tools_list):
   found = 0
   idxs = list_categories + ['TOTAL']
+  if 'FOOD' in list_categories:
+    idxs = list_categories + ['FOOD-PARTIAL'] + ['TOTAL']
   df_precision = pd.DataFrame(index = idxs, columns = tools_list[1:])
   df_recall = pd.DataFrame(index = idxs, columns = tools_list[1:])
   df_f1 = pd.DataFrame(index = idxs, columns = tools_list[1:])		#! 1:
