@@ -55,12 +55,12 @@ If you want to perform entity linking, you should add the following parameters i
 14. _ontology\_col\_text_ (optional,str):  _ontology\_file_ column containing ontology item names
 15. _ontology\_col\_separator_ (optional,str):  _ontology\_file_ delimiter
 16. _ontology\_text\_separator_ (optional,str): token separator of an ontology item (e.g. ' ') 
-17. _delta\_alg_ (optional,int): 
-18. _similarity_ (optional,str): _jaccard_ or _edit_
+17. _delta\_alg_ (optional,int): threshold for [PyTokenJoin], e.g. 1
+18. _similarity_ (optional,str): similarity function for [PyTokenJoin], _jaccard_ or _edit_
 
 ### Functionality
 
-After the input file is processed, entity recognition models are loaded. Those models predict named entity labels (locations, organizations etc.) and/or food entity labels and insert the results in a Python dictionary. Currently, the software supports four generic NER models: [spaCy], [spaCy + RoBERTa benchmark], [Flair] and [Stanza (StanfordNLP)] and the following food NER models: [SciFoodNER], [InstaFoodRoBERTa] and LLMs. It can be extended to use more models in the future. In cases where ground truth is available within the input file, evaluation of results is performed for all models and metrics are also reported in the resulting dictionary (precision, recall, F1 score). If entity linking parameters are given, entity linking is performed using [PyTokenJoin](https://github.com/alexZeakis/pyTokenJoin). The dictionary is then written on an output JSON file, as well as an output CSV file. The two files are stored under the name the user provided, with the extensions .json and .csv, respectively. 
+After the input file is processed, entity recognition models are loaded. Those models predict named entity labels (locations, organizations etc.) and/or food entity labels and insert the results in a Python dictionary. Currently, the software supports four generic NER models: [spaCy], [spaCy + RoBERTa benchmark], [Flair] and [Stanza (StanfordNLP)] and the following food NER models: [SciFoodNER], [InstaFoodRoBERTa] and LLMs. It can be extended to use more models in the future. In cases where ground truth is available within the input file, evaluation of results is performed for all models and metrics are also reported in the resulting dictionary (precision, recall, F1 score). If entity linking parameters are given, entity linking is performed using [PyTokenJoin]. The dictionary is then written on an output JSON file, as well as an output CSV file. The two files are stored under the name the user provided, with the extensions .json and .csv, respectively. 
 
 #### LLMs
 
@@ -174,3 +174,4 @@ This software was developed under [STELAR] project.
    [InstaFoodRoBERTa]: <https://huggingface.co/Dizex/InstaFoodRoBERTa-NER>
    [Ollama]: <https://ollama.com/>
    [Ollama's GitHub page]: <https://github.com/ollama/ollama>
+   [PyTokenJoin]: <https://github.com/alexZeakis/pyTokenJoin>
