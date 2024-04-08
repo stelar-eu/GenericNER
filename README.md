@@ -26,17 +26,6 @@ Software that performs [named entity recognition (NER)] on input texts and visua
 | MISC| :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark: |:heavy_check_mark: | | | 
 
 
-<!---
-### Models
-| Generic (all entities except food) | Food 
-| ----------- | --------- |
-| spaCy     | InstaFoodRoBERTa
-| spaCy + RoBERTa | SciFoodNER
-| Flair | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
-| Stanza |
--->
-
-
 ## Named entity recognition (NER)
 
 This component's input is a CSV file containing texts we want to perform NER on, optionally containing ground truth data. Its output is a CSV and a JSON file containing NER results.
@@ -53,9 +42,21 @@ This component's input is a CSV file containing texts we want to perform NER on,
 8. _syntactic\_analysis\_tool_ (optional,str): name of model to extract nouns/noun phrases from text. Can be _spacy_ or _stanza_
 9. _prompt\_id_ (optional, int): prompt id (_0,1,2 or 3_). Used in the case of food entity extraction using an LLM
 10. _minio_ (optional,str): credentials for minio server. Used when dataset is not local, but instead is an s3 path to the minio server
-11. _ontology_ (optional, str): ontology to use for entity linking
 
 The input parameters can be adjusted in the _config\_file.ini_ configuration file.
+
+### Entity linking parameters
+
+If you want to perform entity linking, you should add the following parameters in _config\_file.ini_ configuration file:
+
+_ontology\_file_ (optional,str): path to ontology CSV file
+_ontology\_header_ (optional,int): row number of _ontology\_file_ containing column labels (e.g. -1)
+_ontology\_col\_id_ (optional,str): 
+_ontology\_col\_text_ (optional,str):
+_ontology\_col\_separator_ (optional,str):
+_ontology\_text\_separator_ (optional,str):
+_delta\_alg_ (optional,int):
+_similarity_ (optional,str): _jaccard_ or _edit_
 
 ### Functionality
 
