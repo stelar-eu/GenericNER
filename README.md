@@ -49,14 +49,14 @@ The input parameters can be adjusted in the _config\_file.ini_ configuration fil
 
 If you want to perform entity linking, you should add the following parameters in _config\_file.ini_ configuration file:
 
-_ontology\_file_ (optional,str): path to ontology CSV file
-_ontology\_header_ (optional,int): row number of _ontology\_file_ containing column labels (e.g. -1)
-_ontology\_col\_id_ (optional,str): 
-_ontology\_col\_text_ (optional,str):
-_ontology\_col\_separator_ (optional,str):
-_ontology\_text\_separator_ (optional,str):
-_delta\_alg_ (optional,int):
-_similarity_ (optional,str): _jaccard_ or _edit_
+11. _ontology\_file_ (optional,str): path to ontology CSV file
+12. _ontology\_header_ (optional,int): row number of _ontology\_file_ containing column labels (e.g. -1)
+13. _ontology\_col\_id_ (optional,str): 
+14. _ontology\_col\_text_ (optional,str):
+15. _ontology\_col\_separator_ (optional,str):
+16. _ontology\_text\_separator_ (optional,str):
+17. _delta\_alg_ (optional,int):
+18. _similarity_ (optional,str): _jaccard_ or _edit_
 
 ### Functionality
 
