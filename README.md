@@ -169,7 +169,7 @@ This software was developed under [STELAR] project.
    [sample_no_groundtruth.csv]: <examples/sample_no_groundtruth.csv>
    [requirements.txt]: <requirements.txt> 
    [named entity recognition (NER)]: <https://en.wikipedia.org/wiki/Named-entity_recognition>
-   [named entity linking (NEL)]: (https://en.wikipedia.org/wiki/Entity_linking#:~:text=In%20natural%20language%20processing%2C%20entity,as%20famous%20individuals%2C%20locations%2C%20or)
+   [named entity linking (NEL)]: <https://en.wikipedia.org/wiki/Entity_linking#:~:text=In%20natural%20language%20processing%2C%20entity,as%20famous%20individuals%2C%20locations%2C%20or>
    [SciFoodNER]: <https://github.com/gjorgjinac/SciFoodNER/>
    [InstaFoodRoBERTa]: <https://huggingface.co/Dizex/InstaFoodRoBERTa-NER>
    [Ollama]: <https://ollama.com/>
