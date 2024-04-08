@@ -47,7 +47,7 @@ The input parameters can be adjusted in the _config\_file.ini_ configuration fil
 
 ### Entity linking parameters
 
-If you want to perform entity linking, you should add the following parameters in _config\_file.ini_ configuration file:
+If you want to perform entity linking to an input ontology, you should add the following parameters in _config\_file.ini_ configuration file:
 
 11. _ontology\_file_ (optional,str): path to ontology CSV file
 12. _ontology\_header_ (optional,int): row number of _ontology\_file_ containing column labels (e.g. -1)
