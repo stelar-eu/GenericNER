@@ -138,23 +138,25 @@ def entity_extraction(df, prediction_values, N = 10, output_file = 'ee_output',
   df_stats = pd.DataFrame()
   df_stats['total_tags'] = new_df.groupby('text_id')['phrase_id'].count()
   new_df_2 = new_df.loc[new_df.tag=='FOOD']
-  df_stats['food_tags'] = new_df.groupby('text_id')['phrase_id'].count()
-  log = df_stats.mean().to_dict()
+  df_stats['food_tags'] = new_df_2.groupby('text_id')['phrase_id'].count()
+  log = df_stats.rename(columns = {'total_tags':'avg. tags per text','food_tags':'avg. food tags per text'}).mean().to_dict()
   for key,val in log.items():
       dict_metrics[key] = val
   
   
   if ontology_df is not None:
         print('Running Entity Linking...')
-
-        df_left = prep_df(output_file + '.csv', 0, "phrase", ",", " ")
+        df_link = new_df.drop(new_df[(new_df.tag != 'FOOD') & (new_df.tag != 'HAZARD')].index)
+        df_link.to_csv('df_link.csv', index = False)
+        df_left = prep_df('df_link.csv', 0, "phrase", ",", " ")
+        os.remove('df_link.csv')
         df_right = ontology_df
       
         pairs, log = entity_linking(df_left, "phrase_id", "phrase", "food product",
                                     df_right, ontology_col_id, ontology_col_text,
                                     similarity, k, delta_alg)
         
-        # pairs.to_csv('joined_entities.csv')
+        pairs.to_csv('joined_entities.csv')
         for key,val in log.items():
             dict_metrics[key] = val
     
