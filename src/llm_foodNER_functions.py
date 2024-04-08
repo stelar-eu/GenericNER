@@ -1544,9 +1544,26 @@ def read_configuration_file(conf_path):
   csv_delimiter = config_data['csv_delimiter']
   prediction_values = eval(config_data['prediction_values'])
   N = int(config_data['N'])
-  ontology = config_data['ontology']
   minio = config_data['minio']
-  return dataset, text_column, ground_truth_column, product_column, csv_delimiter, prediction_values, N, ontology, minio
+  return dataset, text_column, ground_truth_column, product_column, csv_delimiter, prediction_values, N, minio
+
+def read_configuration_file_ont(conf_path):
+  config = ConfigParser()
+  config.read(conf_path)
+  config_data = config['parameters']
+  try:
+   dataset = config_data['dataset']
+   ontology_file = config_data['ontology_file']
+   ontology_header = int(config_data['ontology_header'])
+   ontology_col_id = config_data['ontology_col_id']
+   ontology_col_text = config_data['ontology_col_text']
+   ontology_col_separator = config_data['ontology_col_separator']
+   ontology_text_separator = config_data['ontology_text_separator']
+   delta_alg = int(config_data['delta_alg'])
+   similarity = config_data['similarity']
+  except:
+   return [None for i in range(8)]
+  return ontology_file, ontology_header, ontology_col_id, ontology_col_text, ontology_col_separator, ontology_text_separator, delta_alg, similarity
 
 def generate_output_file_name(dataset,prediction_values):
  keys = list(prediction_values.keys())

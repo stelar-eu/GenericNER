@@ -161,20 +161,3 @@ def entity_extraction(df, prediction_values, N = 10, output_file = 'ee_output',
             dict_metrics[key] = val
     
   return output_file, dict_metrics
-
-def main():
-  dataset, text_column, ground_truth_column, product_column, csv_delimiter, prediction_values, N, ontology, minio = read_configuration_file('../config_file.ini')
-  df = prepare_dataset_new(dataset, text_column = text_column, ground_truth_column = ground_truth_column, product_column = product_column, csv_delimiter = csv_delimiter, minio = minio)
-  if df.empty:
-    return -1
-
-  output_file = generate_output_file_name(dataset,prediction_values)
-  output_file_path, dict_metrics = entity_extraction(df, prediction_values = prediction_values,
-                                                   output_file = output_file, N= N)
-  print('CSV output_file_path:', output_file_path + '.csv')
-  print('JSON output_file_path:', output_file_path + '.json')
-  print('evaluation dictionary:', dict_metrics)
-
-if __name__ == "__main__":
-  main()
-
