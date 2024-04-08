@@ -123,7 +123,7 @@ You are now ready to run the application.
 
 In _src_ directory, run: 
 ```sh
-$ python3 entity_extraction.py
+$ python3 main.py
 ```
 
 <!---
