@@ -1,6 +1,6 @@
 # Overview
 
-Software that performs [named entity recognition (NER)] on input texts and visualizes results. It consists of two separate components, one for named entity recognition and one for visualization of results (GUI). Entities and models supported are the following:
+Software that performs [named entity recognition (NER)] and optionally [named entity linking (NEL)] on input texts and visualizes results. It consists of two separate components, one for named entity recognition and one for visualization of results (GUI). Entities and models supported are the following:
 
 | | spaCy | spaCy + RoBERTa | Flair | Stanza | InstaFoodRoBERTa | SciFoodNER | LLMs: Mistral-7B, Llama2-7b, Openhermes:7b-v2.5
 | ----------- |  ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- 
@@ -60,7 +60,7 @@ If you want to perform entity linking, you should add the following parameters i
 
 ### Functionality
 
-After the input file is processed, entity recognition models are loaded. Those models predict named entity labels (locations, organizations etc.) and/or food entity labels and insert the results in a Python dictionary. Currently, the software supports four generic NER models: [spaCy], [spaCy + RoBERTa benchmark], [Flair] and [Stanza (StanfordNLP)] and the following food NER models: [SciFoodNER], [InstaFoodRoBERTa] and LLMs. It can be extended to use more models in the future. In cases where ground truth is available within the input file, evaluation of results is performed for all models and metrics are also reported in the resulting dictionary (precision, recall, F1 score). The dictionary is then written on an output JSON file, as well as an output CSV file. The two files are stored under the name the user provided, with the extensions .json and .csv, respectively. 
+After the input file is processed, entity recognition models are loaded. Those models predict named entity labels (locations, organizations etc.) and/or food entity labels and insert the results in a Python dictionary. Currently, the software supports four generic NER models: [spaCy], [spaCy + RoBERTa benchmark], [Flair] and [Stanza (StanfordNLP)] and the following food NER models: [SciFoodNER], [InstaFoodRoBERTa] and LLMs. It can be extended to use more models in the future. In cases where ground truth is available within the input file, evaluation of results is performed for all models and metrics are also reported in the resulting dictionary (precision, recall, F1 score). If entity linking parameters are given, entity linking is performed using [PyTokenJoin](https://github.com/alexZeakis/pyTokenJoin). The dictionary is then written on an output JSON file, as well as an output CSV file. The two files are stored under the name the user provided, with the extensions .json and .csv, respectively. 
 
 #### LLMs
 
@@ -169,6 +169,7 @@ This software was developed under [STELAR] project.
    [sample_no_groundtruth.csv]: <examples/sample_no_groundtruth.csv>
    [requirements.txt]: <requirements.txt> 
    [named entity recognition (NER)]: <https://en.wikipedia.org/wiki/Named-entity_recognition>
+   [named entity linking (NEL)]: (https://en.wikipedia.org/wiki/Entity_linking#:~:text=In%20natural%20language%20processing%2C%20entity,as%20famous%20individuals%2C%20locations%2C%20or)
    [SciFoodNER]: <https://github.com/gjorgjinac/SciFoodNER/>
    [InstaFoodRoBERTa]: <https://huggingface.co/Dizex/InstaFoodRoBERTa-NER>
    [Ollama]: <https://ollama.com/>
