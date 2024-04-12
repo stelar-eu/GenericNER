@@ -52,8 +52,8 @@ def entity_linking(df_left, col_id_left, col_text_left,  col_ground_left,
             
         if col_ground_left is not None:
             mlb = MultiLabelBinarizer()
-            y_true_bin = mlb.fit_transform(pairs[f"l_{col_ground_left}"])
-            y_pred_bin = mlb.transform(pairs[f"r_{col_text_right}_original"])
+            y_true_bin = mlb.fit_transform([pairs[f"l_{col_ground_left}"]])
+            y_pred_bin = mlb.transform([pairs[f"r_{col_text_right}_original"]])
 
             log = {'total_time': log['total_time']}
             for avg in ['micro', 'macro', 'weighted']:
