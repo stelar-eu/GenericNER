@@ -108,8 +108,8 @@ $ pip install -r requirements.txt
 Additionally, you will need to download the following spaCy models:
 
 ```sh
-$ python -m spacy download en_core_web_trf
-$ python -m spacy download en_core_web_sm
+$ python3 -m spacy download en_core_web_trf
+$ python3 -m spacy download en_core_web_sm
 ```
 
 To perform food NER using SciFoodNER, you will need to download _cafeteria_ directory from [here] and into _src_ directory. 
