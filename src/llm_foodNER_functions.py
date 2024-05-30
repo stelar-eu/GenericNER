@@ -1543,7 +1543,7 @@ def read_configuration_file(conf_path):
   product_column = config_data['product_column']
   csv_delimiter = config_data['csv_delimiter']
   prediction_values = eval(config_data['prediction_values'])
-  N = int(config_data['N'])
+  N = int(config_data['N']) if config_data['N'] != 'all' else 'all'
   minio = config_data['minio']
   return dataset, text_column, ground_truth_column, product_column, csv_delimiter, prediction_values, N, minio
 

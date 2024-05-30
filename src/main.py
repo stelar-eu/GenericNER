@@ -7,6 +7,8 @@ def main():
     output_file = generate_output_file_name(dataset,prediction_values)
     df = prepare_dataset_new(dataset, text_column = text_column, ground_truth_column = ground_truth_column,
                              product_column = product_column, csv_delimiter=csv_delimiter, minio = minio)
+    if N == 'all':
+     N = len(df)
     if df.empty:
      return -1
     ontology_file, ontology_header, ontology_col_id, ontology_col_text, ontology_col_separator, ontology_text_separator, delta_alg, similarity = read_configuration_file_ont('../config_file.ini')
