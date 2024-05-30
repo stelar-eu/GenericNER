@@ -38,7 +38,7 @@ This component's input is a CSV file containing texts we want to perform NER on,
 4. _ground\_truth\_column_ (optional,str):  name of _dataset_ column containing ground truth tags
 5. _product\_column_ (optional,str):  name of _dataset_ column containing product that describes text
 6. _csv\_delimiter_ (str): input CSV file delimiter
-7.  _N_ (int): number of texts to be annotated 
+7.  _N_ (int/str): number of texts to be annotated or 'all' for the whole dataset
 8. _syntactic\_analysis\_tool_ (optional,str): name of model to extract nouns/noun phrases from text. Can be _spacy_ or _stanza_
 9. _prompt\_id_ (optional, int): prompt id (_0,1,2 or 3_). Used in the case of food entity extraction using an LLM
 10. _minio_ (optional,str): credentials for minio server. Used when dataset is not local, but instead is an s3 path to the minio server
