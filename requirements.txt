@@ -13,3 +13,4 @@ scikit-learn
 simpletransformers
 pytokenjoin
 minio
+scipy==1.10.1
