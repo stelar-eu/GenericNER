@@ -15,3 +15,6 @@ The application will open on a new tab on your web browser and will look like th
 ![alt text](https://github.com/VasiPitsilou/NLP/blob/2cac91cfa9f69499a82797614cd78fdec5229763/image.png?raw=true)
 
 Upload the JSON file generated in the first step and browse the application. A small guide for its usage can be found here: [guide.pdf]. 
+
+
+[Streamlit]: <https://streamlit.io/>
