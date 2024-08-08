@@ -138,7 +138,9 @@ A JSON file is now generated in the output path given (_output\_file_).  The JSO
 
 Follow the README instructions of the respective GUI you want to run.
 
-This software was developed under [STELAR] project.
+# Credits
+
+This software was developed under EU-funded [STELAR] project.
 
    [spaCy]: <http://spacy.io>
    [spaCy + RoBERTa benchmark]: <https://spacy.io/models/en#en_core_web_trf>
