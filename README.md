@@ -78,9 +78,9 @@ _'Classify the following item as EDIBLE or NON EDIBLE. Desired format: [EDIBLE/N
 
 ## Visualization
 
-In order to visualize and compare entity labels identified by various NER models in the NER component, we developed a web-based graphical user interface (GUI). 
+There are 2 GUIs available, one for viewing results from the first component, filter out entities and view statistics. The second one is also for viewing results from the first component and adding any missed entities (manual correction). The first GUI is described in [].
 
-Implemented in Python using [Streamlit] package, this GUI allows the user to interactively inspect the entities identified by each model. The user can choose to print a text based on multiple filters (e.g., which sentences contain LOC entities) or view annotations only for specific labels of their choice (e.g., only locations or organizations or only annotations by spaCy). The user can also display various statistics, i.e., how many different entities were detected by each tool as well as evaluation metrics, if ground truth is available.
+The second GUI is described in [].
 
 # Installation
 
