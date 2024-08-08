@@ -78,9 +78,7 @@ _'Classify the following item as EDIBLE or NON EDIBLE. Desired format: [EDIBLE/N
 
 ## Visualization
 
-There are 2 GUIs available, one for viewing results from the first component, filter out entities and view statistics. The second one is also for viewing results from the first component and adding any missed entities (manual correction). The first GUI is described in [].
-
-The second GUI is described in [].
+There are 2 GUIs available. The first one is for viewing results from the first component, filter out entities and view statistics. The second one is also for viewing results from the first component and adding any missed entities (manual correction). The first GUI is described in [src/frontend/README.md], while the second GUI is described in [src/frontend_extraction_deduplication/README.md].
 
 # Installation
 
@@ -169,6 +167,8 @@ This software was developed under [STELAR] project.
    [sample_no_groundtruth.csv]: <examples/sample_no_groundtruth.csv>
    [requirements.txt]: <requirements.txt> 
    [named entity recognition (NER)]: <https://en.wikipedia.org/wiki/Named-entity_recognition>
+   [src/frontend_extraction_deduplication/README.md]: <src/frontend_extraction_deduplication/README.md>
+   [src/frontend/README.md]: <src/frontend/README.md>
    [named entity linking (NEL)]: <https://en.wikipedia.org/wiki/Entity_linking#:~:text=In%20natural%20language%20processing%2C%20entity,as%20famous%20individuals%2C%20locations%2C%20or>
    [SciFoodNER]: <https://github.com/gjorgjinac/SciFoodNER/>
    [InstaFoodRoBERTa]: <https://huggingface.co/Dizex/InstaFoodRoBERTa-NER>
