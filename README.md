@@ -148,7 +148,6 @@ This software was developed under EU-funded [STELAR] project.
    [Flair]: <https://github.com/flairNLP/flair/>
    [STELAR]: <http://stelar-project.eu>
    [Anaconda]: <https://www.anaconda.com/>
-   [Streamlit]: <https://streamlit.io/>
    [HuggingFace]: <https://huggingface.co/datasets/conll2012_ontonotesv5>
    [BIO format]: <https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)>
    [configuration file]: <config_file.ini>
