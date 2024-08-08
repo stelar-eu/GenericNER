@@ -18,3 +18,4 @@ Upload the JSON file generated in the first step and browse the application. A s
 
 
 [Streamlit]: <https://streamlit.io/>
+[guide.pdf]: <docs/guide.pdf>
