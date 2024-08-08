@@ -1,0 +1,6 @@
+annotated-types==0.6.0
+numpy==1.23.5
+pandas==1.5.3
+regex==2023.12.25
+st-annotated-text==4.0.1
+streamlit==1.32.2
