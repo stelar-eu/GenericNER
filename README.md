@@ -152,7 +152,6 @@ This software was developed under EU-funded [STELAR] project.
    [BIO format]: <https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)>
    [configuration file]: <config_file.ini>
    [output.json.example]: <examples/output.json.example>
-   [guide.pdf]: <docs/guide.pdf>
    [here]: <https://portal.ijs.si/nextcloud/s/C3jCDq84TBoE8gY>
    [sample_groundtruth.csv]: <examples/sample_groundtruth.csv>
    [sample_no_groundtruth.csv]: <examples/sample_no_groundtruth.csv>
