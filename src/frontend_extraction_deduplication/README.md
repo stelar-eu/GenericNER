@@ -2,7 +2,9 @@
 
 The purpose of this dashboard is to help evaluate the results produced from the NER and the deduplication components.
 
-The directory contains all the necessary code to run the app, as well as two dataframes `annotations_df_expanded.csv` and `canditate_pairs_no_dups_augmented.csv`, which contain the named entity incident annotations and the deduplication canditates respectively and act as main datasource for the dashboard. The user can replace these data with other data compliant to their format or use our `connector` (🚧 Currently under construction🚧)   
+The directory contains all the necessary code to run the app, as well as two dataframes `annotations_df_expanded.csv` and `canditate_pairs_no_dups_augmented.csv`, which contain the named entity incident annotations and the deduplication canditates respectively and act as main datasource for the dashboard. The user can replace these data with other data compliant to their format or use our `connector.ipynb` notebook to produce files of the desired format. 
+
+If you just want to preview the capabilities of our `front-end`, you can use our sample files located in the `/sample_data` folder, by moving them to the main `./` directory of the app. 
 
 ## Instructions 
 
