@@ -82,11 +82,6 @@ def annotate_text(sentence, keys, values, all_or_not, options_type = ['ALL','ALL
     word_end = word_start + len(word)
     doc = sentence[word_end:]    
     dont_include = 0
-    '''
-    clear_word_end = word_end
-    while not sentence[clear_word_end].isalpha():
-      clear_word_end -= 1
-    '''
     
     for entity_span in keys:
       span_start = int(str(entity_span)[:(str(entity_span).index('-'))])
@@ -100,21 +95,11 @@ def annotate_text(sentence, keys, values, all_or_not, options_type = ['ALL','ALL
         if annotated[index_token] == 0:
           annotate_non_char = ''
           it = span_end
-          '''
-          while (not sentence[it].isalpha()) and (sentence[it] != ' '):
-            annotate_non_char = sentence[span_end] + annotate_non_char
-            it -= 1
-          '''
           tup = (sentence[span_start:span_end], values[count])
           if values[count] == 'FOOD':
             tup = (sentence[span_start:span_end], values[count],"#6AD062")
           list_tuples.append(tup)
           list_tuples.append(' ',)
-          '''
-          if annotate_non_char != '':
-            tup = (annotate_non_char,)
-            list_tuples.append(tup)
-          '''
           for i in range(index_token,index_token + len(sentence[span_start:span_end].split())):
             try:
               annotated[i] = 1 
@@ -353,7 +338,6 @@ def print_statistics_specific(json_object, num):
   with st.expander('Details by entity'):
     df_ent = pd.DataFrame(index = entities)
     for entity in entities:
-      #st.write(f"**{entity}**") #uncomment_1
       for key_json,value_json in json_object.items():
         if  key_json != 'Cross results' and key_json[key_json.index('-')+1:] == str(num):
           for item in json_object[key_json]:
@@ -365,7 +349,7 @@ def print_statistics_specific(json_object, num):
                 else:
                   df_ent[key_json[:key_json.index('-')]] = ''
                   df_ent[key_json[:key_json.index('-')]][entity] = value
-    st.table(df_ent)		#if empty?
+    st.table(df_ent)		
 
 
 def print_all_category(options_type_filter, json_object, options_type, tools, tools_list):
