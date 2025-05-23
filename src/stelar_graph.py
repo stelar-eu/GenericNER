@@ -413,7 +413,6 @@ def test_run():
 #     return "Not implemented"
 
 if __name__ == "__main__":
-    os.environ["GROQ_API_KEY"] = "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"
     # test_run()
 
     
