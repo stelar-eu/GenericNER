@@ -14,15 +14,17 @@ This library performs a pipeline of translation, summarization, entity recogniti
 ### 1. Translation
 
 Translation of text in English. Two methods available:
-* deep-translator library
+* [deep-translator](https://github.com/nidhaloff/deep-translator) library
 *  LLM
+    * Local (Ollama)
+    * API (Groq)  
 
   <ins>Note</ins>: If you want to run a Groq model, please enter your API key in _scr/.env_ file and _src/archive/.env_ file
 
 ### 2. Summarization
 
 Summarization of given text. Method available:
-* LLM
+*  LLM
 
 ### 3. Named Entity Recognition (NER)
 
