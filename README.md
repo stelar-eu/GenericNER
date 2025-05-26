@@ -7,7 +7,10 @@ To the NER GUI developed for EU-funded STELAR project.
 
 ## Functionality
 
-This library performs translation, summarization, entity recognition (NER), main entity selection and entity linking (EL) on a given text.
+This library performs a pipeline of translation, summarization, entity recognition (NER), main entity selection and entity linking (EL) on a given text.
+
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](Figures/pipeline.png)
+
 
 ### Translation
 
