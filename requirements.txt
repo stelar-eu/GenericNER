@@ -8,7 +8,7 @@ langchain-ollama
 langchain-openai
 langchain-text-splitters
 langchain-unstructured
-langdetec
+langdetect
 langgraph
 langgraph-checkpoint
 langgraph-prebuilt
@@ -17,6 +17,7 @@ langgraph-supervisor
 langsmith
 chromadb
 bm25s
+ipython
 pydantic
 transformers
 pandas
@@ -30,3 +31,4 @@ python-dotenv
 pandas
 deep-translator
 sentence-transformers
+streamlit-extras
