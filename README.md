@@ -12,29 +12,29 @@ This library performs a pipeline of translation, summarization, entity recogniti
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](Figures/pipeline.png)
 
 
-### Translation
+### 1. Translation
 
 Translation of text in English. Two methods available:
 1. deep-translator library
 2. LLM
 
-### Summarization
+### 2. Summarization
 
 Summarization of given text. Method available:
 1. LLM
 
-### Named Entity Recognition (NER)
+### 3. Named Entity Recognition (NER)
 
 NER on given text for types specified by user. Available methods:
 1. InstaFoodRoBERTa (for food entities only)
 2. LLM
 
-### Main Entity Selection (MES)
+### 4. Main Entity Selection (MES)
 
 Selection of single or multiple main entities that the text refers to. Available methods:
 1. LLM
 
-### Entity Linking
+### 5. Entity Linking
 
 Linking of entities returned by NER module to k closest ontology entities. Ontology is given by the user. Available methods:
 1. ChromaDB
