@@ -29,18 +29,18 @@ Summarization of given text. Method available:
 
 ### 3. Named Entity Recognition (NER)
 
-NER on given text for types specified by user. Available methods:
+NER on given text for types specified by user. Methods available:
 * InstaFoodRoBERTa (for food entities only)
 * LLM
 
 ### 4. Main Entity Selection (MES)
 
-Selection of single or multiple main entities that the text refers to. Available methods:
+Selection of single or multiple main entities that the text refers to. Method available:
 * LLM
 
 ### 5. Entity Linking
 
-Linking of entities returned by NER module to k closest ontology entities. Ontology is given by the user. Available methods:
+Linking of entities returned by NER module to k closest ontology entities. Ontology is given by the user. Methods available:
 * [ChromaDB](https://www.trychroma.com/)
 * [bm25s](https://bm25s.github.io/)
 * LLM-augmented ChromaDB
