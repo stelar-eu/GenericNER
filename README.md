@@ -15,7 +15,9 @@ This library performs a pipeline of translation, summarization, entity recogniti
 
 Translation of text in English. Two methods available:
 * deep-translator library
-*  LLM
+*  LLM*
+
+  Note: If you want to run a Groq model, please enter your API key in scr/.env file and src/archive/.env file
 
 ### 2. Summarization
 
