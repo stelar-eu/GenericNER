@@ -3,7 +3,6 @@
 To the Named Entity Recognition and Linking pipeline UI.
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](Figures/dashboard.png)
 
-## --README file under construction--
 
 ## Functionality
 
