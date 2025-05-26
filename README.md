@@ -16,10 +16,11 @@ This library performs a pipeline of translation, summarization, entity recogniti
 Translation of text in English. Two methods available:
 * [deep-translator](https://github.com/nidhaloff/deep-translator) library
 *  LLM
-    * Local (Ollama)
-    * API (Groq)  
+    * Local ([Ollama](https://github.com/ollama/ollama)
+    * API ([Groq](groq.com))  
 
-  <ins>Note</ins>: If you want to run a Groq model, please enter your API key in _scr/.env_ file and _src/archive/.env_ file
+  <ins>Note 1</ins>: If you want to run an Ollama model, you must have a running Ollama Docker container.
+  <ins>Note 2</ins>: If you want to run a Groq model, please enter your API key in _scr/.env_ file and _src/archive/.env_ file.
 
 ### 2. Summarization
 
