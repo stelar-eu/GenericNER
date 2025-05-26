@@ -43,7 +43,7 @@ Linking of entities returned by NER module to k closest ontology entities. Ontol
 4. LLM-augmented bm25s
 5. LLM
 
-## Usage
+# Usage
 
 ### Installation
 
@@ -79,6 +79,6 @@ streamlit run src/Dashboard.py
 
 You're all set!
 
-## Credits
+# Credits
 
 Developed for EU-funded [STELAR project](https://stelar-project.eu/).
