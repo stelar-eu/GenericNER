@@ -16,8 +16,8 @@ This library performs a pipeline of translation, summarization, entity recogniti
 Translation of text in English. Two methods available:
 * [deep-translator](https://github.com/nidhaloff/deep-translator) library
 *  LLM
-    * Local ([Ollama](https://github.com/ollama/ollama))
-    * API ([Groq](groq.com))  
+    * Locally ([Ollama](https://github.com/ollama/ollama))
+    * Via API ([Groq](groq.com))  
 
   <ins>Note 1</ins>: If you want to run an Ollama model, you must have a running Ollama Docker container.
   <ins>Note 2</ins>: If you want to run a Groq model, please enter your API key in _scr/.env_ file and _src/archive/.env_ file.
@@ -41,8 +41,8 @@ Selection of single or multiple main entities that the text refers to. Available
 ### 5. Entity Linking
 
 Linking of entities returned by NER module to k closest ontology entities. Ontology is given by the user. Available methods:
-* ChromaDB
-* bm25s
+* [ChromaDB](https://www.trychroma.com/)
+* [bm25s](https://bm25s.github.io/)
 * LLM-augmented ChromaDB
 * LLM-augmented bm25s
 * LLM 
