@@ -45,3 +45,40 @@ Linking of entities returned by NER module to k closest ontology entities. Ontol
 
 ## Usage
 
+### Installation
+
+To install, clone the current repository. Navigate to GenericNER-main:
+
+```
+cd GenericNER-main
+```
+
+It is recommended to activate a new Python 3.12 virtual environment and activate it. 
+
+```
+python -m venv $VENV_PATH
+source activate $VENV_PATH/bin/activate
+```
+
+To deactivate it:
+```
+deactivate
+```
+
+Install requirements:
+
+```
+pip install -r requirements.txt
+```
+
+Run dashboard:
+
+```
+streamlit run src/Dashboard.py
+```
+
+You're all set!
+
+## Credits
+
+Developed for EU-funded [STELAR project](https://stelar-project.eu/).
