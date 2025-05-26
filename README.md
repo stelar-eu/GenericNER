@@ -17,7 +17,7 @@ Translation of text in English. Two methods available:
 * deep-translator library
 *  LLM
 
-  <ins>Note</ins>: If you want to run a Groq model, please enter your API key in scr/.env file and src/archive/.env file
+  <ins>Note</ins>: If you want to run a Groq model, please enter your API key in _scr/.env_ file and _src/archive/.env_ file
 
 ### 2. Summarization
 
