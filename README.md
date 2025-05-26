@@ -14,33 +14,33 @@ This library performs a pipeline of translation, summarization, entity recogniti
 ### 1. Translation
 
 Translation of text in English. Two methods available:
-1. deep-translator library
-2. LLM
+* deep-translator library
+*  LLM
 
 ### 2. Summarization
 
 Summarization of given text. Method available:
-1. LLM
+* LLM
 
 ### 3. Named Entity Recognition (NER)
 
 NER on given text for types specified by user. Available methods:
-1. InstaFoodRoBERTa (for food entities only)
-2. LLM
+* InstaFoodRoBERTa (for food entities only)
+* LLM
 
 ### 4. Main Entity Selection (MES)
 
 Selection of single or multiple main entities that the text refers to. Available methods:
-1. LLM
+* LLM
 
 ### 5. Entity Linking
 
 Linking of entities returned by NER module to k closest ontology entities. Ontology is given by the user. Available methods:
-1. ChromaDB
-2. bm25s
-3. LLM-augmented ChromaDB
-4. LLM-augmented bm25s
-5. LLM
+* ChromaDB
+* bm25s
+* LLM-augmented ChromaDB
+* LLM-augmented bm25s
+* LLM 
 
 # Usage
 
