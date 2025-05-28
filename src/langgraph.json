@@ -1,0 +1,6 @@
+{
+    "dependencies": ["."],
+    "graphs": {
+      "agent": "./stelar_graph.py:workflow"
+    }
+  }
