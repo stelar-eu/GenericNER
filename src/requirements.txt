@@ -1,3 +1,4 @@
+ipython
 langchain
 langchain-chroma
 langchain-community
