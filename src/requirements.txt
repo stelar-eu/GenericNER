@@ -1,3 +1,4 @@
+ipython
 minio
 # Core Framework
 langchain==0.3.21
