@@ -1,12 +1,14 @@
 from typing_extensions import TypedDict
-from typing import List, Literal
+from typing import List, Literal, Dict, Any
 from langgraph.graph import StateGraph, START, END
 from IPython.display import Image, display
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain.chat_models import init_chat_model
 from archive.functions import translate_text, summarize, main_entity_selection, entity_extraction, entity_linking
+from archive.evaluation import evaluate_ner_list
 import os
+import pandas as pd
 # Definition of the Graph State
 
 # Graph State 
@@ -315,6 +317,40 @@ def test_run():
     print(res)
     return res
 
+def test_run_groq():
+    
+
+    """
+    Performs a test run of the pipeline.
+    """
+    res = chain.invoke({"context": "The quick brown fox jumps over the lazy dog", 
+                  "class_of_interest": "animal",
+                  "summary_option": True,
+                  "summary_model": "groq:llama-3.1-8b-instant",
+                  "summary_base_url": None,
+                  "summary_model_instance": None,
+                  "main_entity_selection_option": False,
+                  "main_entity_selection_type": "single",
+                  "main_entity_model": "groq:llama-3.1-8b-instant",
+                  "main_entity_base_url": None,
+                  "main_entity_model_instance": None,
+                  "ner_method": "llm",
+                  "ner_model": "groq:llama-3.1-8b-instant",
+                  "ner_base_url": None,
+                  "ner_custom_prompt": None,
+                  "ner_model_instance": None,
+                  "entity_linking_method": "llm",
+                  "entity_linking_model": "groq:llama-3.1-8b-instant",
+                  "entity_linking_base_url": None,
+                  "entity_linking_model_instance": None,
+                  "ontology": ["animal", "person", "food", "plant", "object"],
+                  "entity_linking_k": 3,
+                  "entity_linking_augm": False,
+                  "entity_linking_model_augm": None
+                  })
+    print(res)
+    return res
+
 # def test_run():
 #     """
 #     Performs a test run of the pipeline.
@@ -346,7 +382,145 @@ def test_run():
 #                   })
 #     print(res)
 #     return res
+
+
+def batch_run_ner(df: pd.DataFrame, 
+                  text_column: str,
+                  parameters: Dict[str, Any],
+                  output_columns: Dict[str, str] = None) -> pd.DataFrame:
+    """
+    Run NER pipeline on a batch of texts in a DataFrame.
     
+    Args:
+        df (pd.DataFrame): DataFrame containing texts to process
+        text_column (str): Name of the column containing the text to process
+        parameters (Dict[str, Any]): Dictionary containing all pipeline parameters
+        output_columns (Dict[str, str]): Optional mapping of output field names to column names
+                                       Default: {'annotations': 'annotations', 'linked_annotations': 'linked_annotations', 
+                                               'summary': 'summary', 'main_entities': 'main_entities'}
+    
+    Returns:
+        pd.DataFrame: Original DataFrame with additional columns for NER results
+    """
+    if output_columns is None:
+        output_columns = {
+            'annotations': 'annotations',
+            'linked_annotations': 'linked_annotations', 
+            'summary': 'summary',
+            'main_entities': 'main_entities'
+        }
+    
+    # Validate input
+    if text_column not in df.columns:
+        raise ValueError(f"Column '{text_column}' not found in DataFrame")
+    
+    # Initialize result columns
+    results_df = df.copy()
+    for output_field, column_name in output_columns.items():
+        results_df[column_name] = None
+    
+    total_errors = 0 
+    total_annotated_rows = 0 
+    # Process each row
+    for index, row in df.iterrows():
+        try:
+            text = row[text_column]
+            
+            # Prepare input for the pipeline
+            pipeline_input = {
+                "context": text,
+                **parameters
+            }
+            
+            # Run the pipeline
+            result = chain.invoke(pipeline_input)
+            total_annotated_rows += 1
+            
+            # Extract results and add to DataFrame
+            for output_field, column_name in output_columns.items():
+                if output_field in result:
+                    results_df.at[index, column_name] = result[output_field]
+                    
+        except Exception as e:
+            print(f"Error processing row {index}: {str(e)}")
+            total_errors += 1
+            # Set error values for this row
+            for output_field, column_name in output_columns.items():
+                results_df.at[index, column_name] = f"ERROR: {str(e)}"
+    
+    if 'annotations' in results_df.columns:
+        annotations_per_row = results_df['annotations'].apply(len).mean()
+    else:
+        annotations_per_row = 0
+
+    metrics_dict = {
+        "total_errors": total_errors,
+        "total_annotated_rows": total_annotated_rows,
+        "annotations_per_row": annotations_per_row
+    }
+    return results_df, metrics_dict  
+
+
+
+if __name__ == "__main__":
+
+    context = "The quick brown fox jumps over the lazy dog"
+    class_of_interest = "animal"
+    summary_option = True
+    summary_model = "groq:llama-3.1-8b-instant"
+    main_entity_selection_option = False
+    main_entity_selection_type = "single"
+    translation_option = True
+    translation_method = "deep-translator"
+    main_entity_model = "groq:llama-3.1-8b-instant"
+    ner_method = "llm"
+    ner_model = "groq:llama-3.1-8b-instant"
+    entity_linking_method = "llm"
+    entity_linking_model = "groq:llama-3.1-8b-instant"
+    entity_linking_k = 3
+    entity_linking_augm = False
+    entity_linking_model_augm = None
+    ontology = ["animal", "person", "food", "plant", "object"]
+
+    parameters = {              
+        "translation_option": translation_option,
+        "translation_method": translation_method,
+        "class_of_interest": class_of_interest,
+        "summary_option": summary_option,
+        "summary_model": summary_model,
+        "summary_base_url": None,
+        "summary_model_instance": None,
+        "main_entity_selection_option": main_entity_selection_option,
+        "main_entity_selection_type": main_entity_selection_type,
+        "main_entity_model": main_entity_model,
+        "main_entity_base_url": None,
+        "main_entity_model_instance": None,
+        "ner_method": ner_method,
+        "ner_model": ner_model,
+        "ner_base_url": None,
+        "ner_custom_prompt": None,
+        "ner_model_instance": None,
+        "entity_linking_method": entity_linking_method,
+        "entity_linking_model": entity_linking_model,
+        "entity_linking_base_url": None,
+        "entity_linking_model_instance": None,
+        "ontology": ontology,
+        "entity_linking_k": entity_linking_k,
+        "entity_linking_augm": entity_linking_augm,
+        "entity_linking_model_augm": entity_linking_model_augm   
+    }
+
+    context_2 = "The children wanted to eat the chocolates before the parents arrived."
+
+    # create a df with a column 'context'
+    df = pd.DataFrame({'context': [context, context_2]})
+    df['gold_standard'] = [['fox'], ['parents']]
+
+    res_df, res_metrics = batch_run_ner(df, text_column = "context", parameters = parameters, output_columns = {'annotations': 'annotations', 'linked_annotations': 'linked_annotations'})
+    evaluation_metrics = evaluate_ner_list(res_df, gold_standard = 'gold_standard', predictions = 'annotations')
+    print(res_df)
+    print(res_metrics)
+    print(evaluation_metrics)
 
 # def single_run(context, summary_option, main_entity_selection_option, class_of_interest):
 #     """Performs the pipeline on a single string of text.

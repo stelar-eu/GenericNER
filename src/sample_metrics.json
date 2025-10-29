@@ -1,0 +1,18 @@
+{
+    "overall_precision": 0.847,
+    "overall_recall": 0.792,
+    "overall_f1_score": 0.819,
+    "exact_match_accuracy": 0.654,
+    "partial_match_accuracy": 0.783,
+    "entity_linking_accuracy": 0.721,
+    "total_samples": 150,
+    "total_entities_gt": 487,
+    "total_entities_predicted": 523,
+    "true_positives": 386,
+    "false_positives": 137,
+    "false_negatives": 101,
+    "average_entities_per_text": 3.25,
+    "model_name": "llama3.1:latest",
+    "evaluation_date": "2024-10-28",
+    "dataset": "food_safety_evaluation"
+}
