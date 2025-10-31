@@ -24,7 +24,7 @@ Before you begin, ensure you have the following installed:
 
 1. Navigate to the project directory:
 ```bash
-cd stelar-ner-graph/delivered
+cd GenericNER/src
 ```
 
 2. Build the Docker image:
@@ -36,13 +36,13 @@ docker build -t stelar-ner-dashboard .
 
 1. Run the Docker container:
 ```bash
-docker run -p 8501:8501 stelar-ner-dashboard
+docker run -p 8502:8502 --env-file .env --env OLLAMA_HOST=http://host.docker.internal:11434 stelar-ner-dashboard
 ```
 
 2. Access the dashboard:
 Open your web browser and navigate to:
 ```
-http://localhost:8501
+http://localhost:8502
 ```
 
 ## Features
