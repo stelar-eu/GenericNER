@@ -148,7 +148,10 @@ def entity_linker(state: State):
     if 'main_entities' not in state:
         entities = state["annotations"]
     else:
-        entities = state["main_entities"]
+        if (type(state["main_entities"]) == list) and (type(state["annotations"]) == list):
+            entities = list(set(state["main_entities"] + state["annotations"]))
+        else:
+            entities = list(set(state["main_entities"].split() + state["annotations"]))
     
     linked_entities = {}
     counter = 0 

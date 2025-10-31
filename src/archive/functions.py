@@ -7,7 +7,7 @@ from .entity_linking_lib import entity_linking_chromadb, entity_linking_bm25s, e
 from .entity_extraction_lib import entity_extraction_llm, entity_extraction_ifroberta
 from .translation_lib import translate_deep_translator, translate_llm
 import pandas as pd
-import os
+import re
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -88,30 +88,65 @@ def main_entity_selection(text, type, input_list, selection_type= "single", mode
     
     # select between main entity selection options
     if selection_type == "single":
-        input_variables = ["text", "input_list", "type"]
-        prompt = """You are given a list with entities of type {type} identified in a text you will be given.
-        Select one entity from that list which you think the text mainly refers to. Print only the main entity selected without rephrasing it and print no additional text. 
-        \nText: {text} \nList: {input_list} \nAnswer:"""
-        prompt = PromptTemplate(
-            template=prompt, input_variables=input_variables
-        )
-        structured_model = model.with_structured_output(EntitiesList)
-        chain = prompt | structured_model
-        res = chain.invoke({"text":text,"input_list": input_list, "type":type}).main_entities
+        try:
+            input_variables = ["text", "input_list", "type"]
+            prompt = """You are given a list with entities of type {type} identified in a text you will be given.
+            Select one entity from that list which you think the text mainly refers to. Print only the main entity selected without rephrasing it and print no additional text. 
+            \nText: {text} \nList: {input_list} \nAnswer:"""
+            prompt = PromptTemplate(
+                template=prompt, input_variables=input_variables
+            )
+            structured_model = model.with_structured_output(EntitiesList)
+            chain = prompt | structured_model
+            res = chain.invoke({"text":text,"input_list": input_list, "type":type}).main_entities
+        except Exception as e:
+            print(f"⚠️ Structured output failed: {e}\nUsing fallback prompt.")
+            fallback_prompt = """You are given a list of entities of type {type} identified in a text.
+                Select one entity from that list which the text mainly refers to.
+                Reply with *only the selected entity*, no punctuation or explanation.
+
+                Text: {text}
+                List: {input_list}
+                Answer:"""
+            prompt = PromptTemplate(template=fallback_prompt, input_variables=input_variables)
+            chain = prompt | model
+            response = chain.invoke({"text": text, "input_list": input_list, "type": type})
+            print(response)
+            # Return as a list for consistency
+            return response.content.split()
 
     elif selection_type == "multiple": 
-        input_variables = ["text", "input_list", "type"]
-        prompt = """You are given a list with entities of type {type} identified in a text you will be given.
-        Select all entities from that list which you think that constitute main entities in the text. 
-        For example in the case of a text with the text cookies with strawberry flavour and chocolate flavour, the main entities are cookies. 
-        Return only the main entities selected without rephrasing them in JSON format inside a list, where the key is "main_entities" and the value is the list of main entities.
-        \nText: {text} \nList: {input_list} \nAnswer:"""
-        prompt = PromptTemplate(
-            template=prompt, input_variables=input_variables
-        )
-        structured_model = model.with_structured_output(EntitiesList)
-        chain = prompt | structured_model
-        res = chain.invoke({"text":text,"input_list": input_list, "type":type}).main_entities
+        try:
+            input_variables = ["text", "input_list", "type"]
+            prompt = """You are given a list with entities of type {type} identified in a text you will be given.
+            Select all entities from that list which you think that constitute main entities in the text. 
+            For example in the case of a text with the text cookies with strawberry flavour and chocolate flavour, the main entities are cookies. 
+            Return only the main entities selected without rephrasing them in JSON format inside a list, where the key is "main_entities" and the value is the list of main entities.
+            \nText: {text} \nList: {input_list} \nAnswer:"""
+            prompt = PromptTemplate(
+                template=prompt, input_variables=input_variables
+            )
+            structured_model = model.with_structured_output(EntitiesList)
+            chain = prompt | structured_model
+            res = chain.invoke({"text":text,"input_list": input_list, "type":type}).main_entities
+        except Exception as e:
+            print(f"⚠️ Structured output failed: {e}\nUsing fallback plain-text mode.")
+            # Fallback plain-text prompt
+            fallback_prompt = """You are given a list with entities of type {type} identified in a text.
+            Select all entities from that list which you think are main entities in the text.
+            Reply ONLY with a comma-separated list of those entities, without any extra text, quotes, or explanations.
+            
+            Example output: cookies, strawberry flavour, chocolate flavour
+            
+            Text: {text}
+            List: {input_list}
+            Answer:"""
+            prompt = PromptTemplate(template=fallback_prompt, input_variables=input_variables)
+            chain = prompt | model
+            raw_response = chain.invoke({"text": text, "input_list": input_list, "type": type})
+            print("resp:",raw_response)
+            # Clean up and standardize response
+            res = re.split(",|, | ,", raw_response.content)
     else: 
         raise Exception("Invalid selection type. Supported types: single, multiple")
 
