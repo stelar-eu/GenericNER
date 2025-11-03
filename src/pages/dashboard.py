@@ -13,7 +13,7 @@ def show():
         if os.path.exists("saved_annotations_df.csv"):
             st.session_state.saved_annotations_df = pd.read_csv("saved_annotations_df.csv")
         else:
-            st.session_state.saved_annotations_df = pd.DataFrame(columns=["text", "class_of_interest", "summary", "annotations", "linked_annotations"])
+            st.session_state.saved_annotations_df = pd.DataFrame(columns=["text", "class_of_interest", "summary", "annotations", "main_entities", "linked_annotations"])
 
     if 'current_response' not in st.session_state:
         st.session_state.current_response = {}
@@ -56,8 +56,8 @@ def show():
     async def dummy_workflow(context: str, analysis_types: list[str]) -> dict:
         return {"context": context, "summary": "test summary", "annotations": ['test1', 'test2'], "linked_annotations": {'test1': ['test1.1', 'test1.2'], 'test2': ['test2.1', 'test2.2']}}
 
-    available_models = ["ollama:llama3.1:latest", "ollama:mistral:latest", "groq:llama-3.1-8b-instant"]
-
+    available_models = ["ollama:llama3.1:latest", "ollama:mistral:v0.3", "groq:llama-3.1-8b-instant"]
+    
     # Sidebar for model configuration
     with st.sidebar:
         st.header("Pipeline Configuration")
@@ -131,7 +131,7 @@ def show():
         st.divider()
         #  Button to trigger the analysis
         if st.button("Analyze"):
-
+            print("summarize option:", summarize_option, ", mes_option:", (main_entity_selection_option != "No") )
             response = front_end_run(
                 context = text_input,
                 translation_option = translation_option,
@@ -139,7 +139,7 @@ def show():
                 class_of_interest = class_of_interest,
                 summary_option = summarize_option,
                 summary_model = summarization_model if summarize_option else "",
-                main_entity_selection_option = main_entity_selection_option != "No",
+                main_entity_selection_option = (main_entity_selection_option != "No"),
                 main_entity_selection_type = main_entity_selection_option.lower() if main_entity_selection_option != "No" else "",
                 main_entity_model = main_entity_selection_model if main_entity_selection_option != "No" else "",
                 ner_method = "llm" if ner_option == "LLMs" else "instafoodroberta",
@@ -158,7 +158,8 @@ def show():
                 st.session_state.current_response['summary'] = response['summary']
             if 'annotations' in response.keys():
                 st.session_state.current_response['annotations'] = response['annotations']
-            # st.session_state.current_response['main_entities'] = response['main_entities']
+            if "main_entities" in response.keys():
+                st.session_state.current_response['main_entities'] = response['main_entities']
             if 'linked_annotations' in response.keys():
                 st.session_state.current_response['linked_annotations'] = response['linked_annotations']
 
@@ -175,7 +176,7 @@ def show():
         st.write("Summary")
         st.write(st.session_state.current_response['summary'])
         st.write("Annotations")
-        st.write(st.session_state.current_response['annotations'])
+        st.write(list(set(st.session_state.current_response['annotations'])))
         st.write("Main Entities")
         st.write(st.session_state.current_response['main_entities'])
         st.write("Linked Entities")
@@ -188,6 +189,7 @@ def show():
                 'class_of_interest': class_of_interest,
                 'summary': st.session_state.current_response['summary'],
                 'annotations': st.session_state.current_response['annotations'],
+                'main_entities': st.session_state.current_response['main_entities'],
                 'linked_annotations': st.session_state.current_response['linked_annotations']
             }
 
@@ -204,7 +206,7 @@ def show():
         if len(st.session_state.saved_annotations_df) > 0:
             comp_1_index = st.selectbox("Select the index of the saved results you want to compare with the pipeline results", st.session_state.saved_annotations_df.index, key = "comp_1_index")
             # If the index is selected, display the results
-            if comp_1_index:
+            if comp_1_index+1:
                 # Display the results the same way as in the saved results section
                 st.subheader("Annotated Text")
                 formatted_annotations = format_annotations_for_display(st.session_state.saved_annotations_df.loc[comp_1_index]['text'], st.session_state.saved_annotations_df.loc[comp_1_index]['annotations'], st.session_state.saved_annotations_df.loc[comp_1_index]['class_of_interest'])
@@ -215,7 +217,7 @@ def show():
                 st.write("Annotations")
                 st.write(st.session_state.saved_annotations_df.loc[comp_1_index]['annotations'])
                 st.write("Main Entities")
-                # st.write(st.session_state.saved_annotations_df.loc[comp_1_index]['main_entities'])
+                st.write(st.session_state.saved_annotations_df.loc[comp_1_index]['main_entities'])
                 st.write("Linked Entities")
                 st.write(st.session_state.saved_annotations_df.loc[comp_1_index]['linked_annotations'])
     with compare_col_2:
@@ -231,7 +233,7 @@ def show():
                 st.write("Annotations")
                 st.write(st.session_state.saved_annotations_df.loc[comp_2_index]['annotations'])
                 st.write("Main Entities")
-                # st.write(st.session_state.saved_annotations_df.loc[comp_2_index]['main_entities'])
+                st.write(st.session_state.saved_annotations_df.loc[comp_2_index]['main_entities'])
                 st.write("Linked Entities")
                 st.write(st.session_state.saved_annotations_df.loc[comp_2_index]['linked_annotations'])
 

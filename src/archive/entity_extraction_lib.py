@@ -4,7 +4,7 @@ from langchain.chat_models import init_chat_model
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
 from typing import List
-import pandas as pd
+import pandas as pd 
 import time
 import re
 import os
@@ -61,12 +61,34 @@ def entity_extraction_llm(text, entity_type, model = "ollama:llama3.1:latest", b
         llm = init_chat_model(model=model, base_url = base_url, temperature=0, max_tokens=None)
     else:
         llm = model_instance
-    structured_model = llm.with_structured_output(Annotation)
-    chain = prompt | structured_model
-    entities_list = []
-    answer = chain.invoke({"text":text,"entity_type":entity_type})
-    entities_list = answer.entities
-    print(entities_list)
+    try:
+        structured_model = llm.with_structured_output(Annotation)
+        chain = prompt | structured_model
+        entities_list = []
+        answer = chain.invoke({"text":text,"entity_type":entity_type})
+        entities_list = answer.entities
+        print(entities_list)
+    # --- FALLBACK TO PLAIN TEXT EXTRACTION ---
+    except Exception as e:
+        print(f"⚠️ Structured output failed: {e}\nSwitching to fallback plain-text mode.")
+
+        fallback_prompt = f"""
+        You are an assistant that extracts entities of type "{entity_type}" from text.
+        Extract the exact mentions as they appear in the text.
+        Respond ONLY with a comma-separated list of entities (no JSON, no explanations).
+        If none are found, return an empty string.
+
+        Example output:
+        entity1, entity2, entity3
+
+        Text:
+        {text}
+        """
+
+        # Simpler non-structured chain
+        fallback_chain = ChatPromptTemplate.from_template(fallback_prompt) | llm
+        raw_response = fallback_chain.invoke({"text": text})
+        entities_list = re.split(",|, | ,", raw_response.content)
     return entities_list
 
 def convert_entities_to_list(text, entities: list[dict]) -> list[str]:

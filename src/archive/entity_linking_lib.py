@@ -116,7 +116,6 @@ def entity_linking_bm25s(input_entity, ontology, k, augm, model_augm=None, base_
     print("results bm25s:", results)
     entities_linked = list(results[0])
     if augm:
-        print("Im here")
         # entities_linked = LLM_chooser(input_entity=input_entity, list_items=entities_linked, k=k, chooser_model=model_augm, base_url = base_url, model_instance = model_instance)
         entities_linked = entity_linking_LLM(input_entity=input_entity, ontology=entities_linked, k=k, model_name="groq:llama-3.1-8b-instant", base_url = base_url, model_instance = model_instance)
     return entities_linked
@@ -136,10 +135,8 @@ def entity_linking_LLM(input_entity, ontology, k, model_name, base_url = None, m
         entities_linked (list[str]): list of entities linked to input entity
     """
     if model_instance is None:
-        print("Im here 2")
         model = init_chat_model(model=model_name, base_url = base_url, temperature=0, max_tokens=None)
     else:
-        print("Im here 3")
         model = model_instance
 
     class LinkedEntities(BaseModel):
